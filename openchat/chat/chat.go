@@ -18,8 +18,8 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/ammmnia/chat/pkg/common/constant"
-	constantpb "github.com/ammmnia/protocol/constant"
+	"github.com/ammmnia/protocol/openchat/common/constant"
+	constantpb "github.com/ammmnia/tools/constant"
 	"github.com/ammmnia/tools/errs"
 )
 

@@ -18,8 +18,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ammmnia/protocol/constant"
 	"github.com/ammmnia/protocol/util/datautil"
+	"github.com/ammmnia/tools/constant"
 )
 
 func (x *GetAllUserIDReq) Check() error {

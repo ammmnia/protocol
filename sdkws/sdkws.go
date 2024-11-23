@@ -17,7 +17,7 @@ package sdkws
 import (
 	"errors"
 	"fmt"
-	"github.com/ammmnia/protocol/constant"
+	"github.com/ammmnia/tools/constant"
 )
 
 func (x *MsgData) Check() error {

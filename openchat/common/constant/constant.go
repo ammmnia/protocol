@@ -1,6 +1,6 @@
 package constant
 
-import "github.com/ammmnia/protocol/constant"
+import "github.com/ammmnia/tools/constant"
 
 const (
 	// verificationCode used for.

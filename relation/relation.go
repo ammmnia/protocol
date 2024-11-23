@@ -17,7 +17,7 @@ package relation
 import (
 	"errors"
 	"fmt"
-	"github.com/ammmnia/protocol/constant"
+	"github.com/ammmnia/tools/constant"
 )
 
 func (x *GetPaginationFriendsReq) Check() error {

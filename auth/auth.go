@@ -17,7 +17,7 @@ package auth
 import (
 	"errors"
 
-	"github.com/ammmnia/protocol/constant"
+	"github.com/ammmnia/tools/constant"
 )
 
 func (x *GetAdminTokenReq) Check() error {

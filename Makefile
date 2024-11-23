@@ -8,6 +8,7 @@ PROTO_FILES=$(shell find . -name *.proto)
 .PHONY: api
 api:
 	protoc --proto_path=. \
+		   --proto_path=$(PWD)/../../third_party \
            --go_out=paths=source_relative:. \
            --go-grpc_out=paths=source_relative:. \
            --validate-go_out=paths=source_relative:. \

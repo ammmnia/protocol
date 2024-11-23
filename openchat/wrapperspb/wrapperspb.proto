@@ -14,7 +14,7 @@
 
 syntax = "proto3";
 
-package openim.protobuf;
+package openim.openchat.wrapperspb;
 
 option go_package = "github.com/ammmnia/protocol/openchat/wrapperspb";
 

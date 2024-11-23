@@ -3,8 +3,326 @@
 
 openapi: 3.0.3
 info:
-    title: ""
+    title: Chat API
     version: 0.0.1
-paths: {}
+paths:
+    /account/code/send:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_SendVerifyCode
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SendVerifyCodeReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SendVerifyCodeResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /account/code/verify:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_VerifyCode
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/VerifyCodeReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/VerifyCodeResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /account/imgcode/send:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_SendVerifyImgCode
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SendVerifyImgCodeReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SendVerifyImgCodeResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /account/imgcode/verify:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_VerifyImgCode
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/VerifyImgCodeReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/VerifyImgCodeResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /account/login:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_Login
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/LoginReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/LoginResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /account/register:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_RegisterUser
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/RegisterUserReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/RegisterUserResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
 components:
-    schemas: {}
+    schemas:
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        LoginReq:
+            type: object
+            properties:
+                verifyCode:
+                    type: string
+                    description: |-
+                        string areaCode = 1;
+                          string phoneNumber = 2;
+                account:
+                    type: string
+                password:
+                    type: string
+                platform:
+                    type: integer
+                    format: int32
+                deviceID:
+                    type: string
+                ip:
+                    type: string
+        LoginResp:
+            type: object
+            properties:
+                chatToken:
+                    type: string
+                userID:
+                    type: string
+        RegisterUserInfo:
+            type: object
+            properties:
+                userID:
+                    type: string
+                nickname:
+                    type: string
+                faceURL:
+                    type: string
+                birth:
+                    type: string
+                gender:
+                    type: integer
+                    format: int32
+                account:
+                    type: string
+                    description: |-
+                        string areaCode = 6;
+                          string phoneNumber = 7;
+                          string email = 8;
+                password:
+                    type: string
+                RegisterType:
+                    type: integer
+                    format: int32
+        RegisterUserReq:
+            type: object
+            properties:
+                invitationCode:
+                    type: string
+                verifyCode:
+                    type: string
+                ip:
+                    type: string
+                deviceID:
+                    type: string
+                platform:
+                    type: integer
+                    format: int32
+                autoLogin:
+                    type: boolean
+                user:
+                    $ref: '#/components/schemas/RegisterUserInfo'
+        RegisterUserResp:
+            type: object
+            properties:
+                userID:
+                    type: string
+                chatToken:
+                    type: string
+        SendVerifyCodeReq:
+            type: object
+            properties:
+                usedFor:
+                    type: integer
+                    format: int32
+                ip:
+                    type: string
+                invitationCode:
+                    type: string
+                deviceID:
+                    type: string
+                platform:
+                    type: integer
+                    format: int32
+                areaCode:
+                    type: string
+                phoneNumber:
+                    type: string
+                email:
+                    type: string
+        SendVerifyCodeResp:
+            type: object
+            properties: {}
+        SendVerifyImgCodeReq:
+            type: object
+            properties:
+                usedFor:
+                    type: integer
+                    format: int32
+                ip:
+                    type: string
+                invitationCode:
+                    type: string
+                deviceID:
+                    type: string
+                platform:
+                    type: integer
+                    format: int32
+        SendVerifyImgCodeResp:
+            type: object
+            properties:
+                img:
+                    type: string
+                key:
+                    type: string
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        VerifyCodeReq:
+            type: object
+            properties:
+                areaCode:
+                    type: string
+                phoneNumber:
+                    type: string
+                verifyCode:
+                    type: string
+                email:
+                    type: string
+                key:
+                    type: string
+        VerifyCodeResp:
+            type: object
+            properties: {}
+        VerifyImgCodeReq:
+            type: object
+            properties:
+                verifyCode:
+                    type: string
+                key:
+                    type: string
+        VerifyImgCodeResp:
+            type: object
+            properties: {}
+tags:
+    - name: Chat

@@ -16,9 +16,9 @@ syntax = "proto3";
 package openim.openchat.chat;
 
 import "google/api/annotations.proto";
-import "pkg/protocol/common/common.proto";
-import "pkg/protocol/sdkws/sdkws.proto";
-import "pkg/protocol/wrapperspb/wrapperspb.proto";
+import "openchat/common/common.proto";
+import "openchat/sdkws/sdkws.proto";
+import "openchat/wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/chat";
 
@@ -33,20 +33,20 @@ message UserIdentity {
 
 message UpdateUserInfoReq {
   string userID = 1;
-  openim.protobuf.StringValue account = 2;
-  openim.protobuf.StringValue phoneNumber = 3;
-  openim.protobuf.StringValue areaCode = 4;
-  openim.protobuf.StringValue email = 5;
-  openim.protobuf.StringValue nickname = 6;
-  openim.protobuf.StringValue faceURL = 7;
-  openim.protobuf.Int32Value gender = 8;
-  openim.protobuf.Int32Value level = 9;
-  openim.protobuf.Int64Value birth = 10;
-  openim.protobuf.Int32Value allowAddFriend = 11;
-  openim.protobuf.Int32Value allowBeep = 12;
-  openim.protobuf.Int32Value allowVibration = 13;
-  openim.protobuf.Int32Value globalRecvMsgOpt = 14;
-  openim.protobuf.Int32Value RegisterType = 15;
+  openim.openchat.wrapperspb.StringValue account = 2;
+  openim.openchat.wrapperspb.StringValue phoneNumber = 3;
+  openim.openchat.wrapperspb.StringValue areaCode = 4;
+  openim.openchat.wrapperspb.StringValue email = 5;
+  openim.openchat.wrapperspb.StringValue nickname = 6;
+  openim.openchat.wrapperspb.StringValue faceURL = 7;
+  openim.openchat.wrapperspb.Int32Value gender = 8;
+  openim.openchat.wrapperspb.Int32Value level = 9;
+  openim.openchat.wrapperspb.Int64Value birth = 10;
+  openim.openchat.wrapperspb.Int32Value allowAddFriend = 11;
+  openim.openchat.wrapperspb.Int32Value allowBeep = 12;
+  openim.openchat.wrapperspb.Int32Value allowVibration = 13;
+  openim.openchat.wrapperspb.Int32Value globalRecvMsgOpt = 14;
+  openim.openchat.wrapperspb.Int32Value RegisterType = 15;
 }
 
 message UpdateUserInfoResp {
@@ -59,18 +59,18 @@ message FindUserPublicInfoReq {
 }
 
 message FindUserPublicInfoResp {
-  repeated openim.chat.common.UserPublicInfo users = 1;
+  repeated openim.openchat.common.UserPublicInfo users = 1;
 }
 
 message SearchUserPublicInfoReq {
   string keyword = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.openchat.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
 }
 
 message SearchUserPublicInfoResp {
   uint32 total = 1;
-  repeated openim.chat.common.UserPublicInfo users = 2;
+  repeated openim.openchat.common.UserPublicInfo users = 2;
 }
 
 message FindUserFullInfoReq {
@@ -78,7 +78,7 @@ message FindUserFullInfoReq {
 }
 
 message FindUserFullInfoResp {
-  repeated openim.chat.common.UserFullInfo users = 1;
+  repeated openim.openchat.common.UserFullInfo users = 1;
 }
 
 message SendVerifyCodeReq {
@@ -219,7 +219,7 @@ message SignalRecord {
   string recvNickname = 7;
   string groupID = 8;
   string groupName = 9;
-  repeated openim.chat.common.UserPublicInfo inviterUserList = 10;
+  repeated openim.openchat.common.UserPublicInfo inviterUserList = 10;
   int32 duration = 11;
   int64 createTime = 12;
   string size = 13;
@@ -235,14 +235,14 @@ message OpenIMCallbackResp {}
 
 message SearchUserFullInfoReq {
   string keyword = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.openchat.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
   int32 normal = 4;
 }
 
 message SearchUserFullInfoResp {
   uint32 total = 1;
-  repeated openim.chat.common.UserFullInfo users = 2;
+  repeated openim.openchat.common.UserFullInfo users = 2;
 }
 
 message UserLoginCountReq {
@@ -263,14 +263,14 @@ message LoginResp {
 
 message SearchUserInfoReq {
   string keyword = 1;
-  openim.sdkws.RequestPagination pagination = 2;
+  openim.openchat.sdkws.RequestPagination pagination = 2;
   repeated int32 genders = 3;
   repeated string userIDs = 4;
 }
 
 message SearchUserInfoResp {
   uint32 total = 1;
-  repeated openim.chat.common.UserFullInfo users = 2;
+  repeated openim.openchat.common.UserFullInfo users = 2;
 }
 
 message GetTokenForVideoMeetingReq {

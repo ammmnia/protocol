@@ -17,7 +17,7 @@ package openim.openchat.admin;
 
 import "openchat/common/common.proto";
 import "openchat/sdkws/sdkws.proto";
-import "openchat/wrapperspb/wrapperspb.proto";
+import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/admin";
 
@@ -55,13 +55,13 @@ message AddAdminAccountReq {
 message AddAdminAccountResp {}
 
 message AdminUpdateInfoReq {
-  openim.openchat.wrapperspb.StringValue userId = 1;
-  openim.openchat.wrapperspb.StringValue account = 2;
-  openim.openchat.wrapperspb.StringValue password = 3;
-  openim.openchat.wrapperspb.StringValue username = 4;
-  openim.openchat.wrapperspb.UInt32Value status = 5;
-  openim.openchat.wrapperspb.UInt64Value roleId = 6;
-  openim.openchat.wrapperspb.StringValue desc = 7;
+  openim.protobuf.StringValue userId = 1;
+  openim.protobuf.StringValue account = 2;
+  openim.protobuf.StringValue password = 3;
+  openim.protobuf.StringValue username = 4;
+  openim.protobuf.UInt32Value status = 5;
+  openim.protobuf.UInt64Value roleId = 6;
+  openim.protobuf.StringValue desc = 7;
 }
 
 message AdminUpdateInfoResp {
@@ -463,16 +463,16 @@ message DelAppletResp {}
 
 message UpdateAppletReq {
   string id = 1;
-  openim.openchat.wrapperspb.StringValue name = 2;
-  openim.openchat.wrapperspb.StringValue appID = 3;
-  openim.openchat.wrapperspb.StringValue icon = 4;
-  openim.openchat.wrapperspb.StringValue url = 5;
-  openim.openchat.wrapperspb.StringValue md5 = 6;
-  openim.openchat.wrapperspb.Int64Value size = 7;
-  openim.openchat.wrapperspb.StringValue version = 8;
-  openim.openchat.wrapperspb.UInt32Value priority = 9;
-  openim.openchat.wrapperspb.UInt32Value status = 10;
-  openim.openchat.wrapperspb.Int64Value createTime = 11;
+  openim.protobuf.StringValue name = 2;
+  openim.protobuf.StringValue appID = 3;
+  openim.protobuf.StringValue icon = 4;
+  openim.protobuf.StringValue url = 5;
+  openim.protobuf.StringValue md5 = 6;
+  openim.protobuf.Int64Value size = 7;
+  openim.protobuf.StringValue version = 8;
+  openim.protobuf.UInt32Value priority = 9;
+  openim.protobuf.UInt32Value status = 10;
+  openim.protobuf.Int64Value createTime = 11;
 }
 
 message UpdateAppletResp {}

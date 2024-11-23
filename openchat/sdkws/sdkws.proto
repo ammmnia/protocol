@@ -15,7 +15,7 @@
 syntax = "proto3";
 package openim.openchat.sdkws;
 
-import "openchat/wrapperspb/wrapperspb.proto";
+import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/sdkws";
 
@@ -47,10 +47,10 @@ message GroupInfoForSet {
   string notification = 3;
   string introduction = 4;
   string faceURL = 5;
-  openim.openchat.wrapperspb.StringValue ex = 6;
-  openim.openchat.wrapperspb.Int32Value needVerification = 7;
-  openim.openchat.wrapperspb.Int32Value lookMemberInfo = 8;
-  openim.openchat.wrapperspb.Int32Value applyMemberFriend = 9;
+  openim.protobuf.StringValue ex = 6;
+  openim.protobuf.Int32Value needVerification = 7;
+  openim.protobuf.Int32Value lookMemberInfo = 8;
+  openim.protobuf.Int32Value applyMemberFriend = 9;
 }
 
 message GroupMemberFullInfo {
@@ -87,10 +87,10 @@ message UserInfo {
 
 message UserInfoWithEx {
   string userID = 1;
-  openim.openchat.wrapperspb.StringValue nickname = 2;
-  openim.openchat.wrapperspb.StringValue faceURL = 3;
-  openim.openchat.wrapperspb.StringValue ex = 4;
-  openim.openchat.wrapperspb.Int32Value globalRecvMsgOpt = 7;
+  openim.protobuf.StringValue nickname = 2;
+  openim.protobuf.StringValue faceURL = 3;
+  openim.protobuf.StringValue ex = 4;
+  openim.protobuf.Int32Value globalRecvMsgOpt = 7;
 }
 
 message FriendInfo {

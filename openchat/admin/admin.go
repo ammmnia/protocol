@@ -15,7 +15,7 @@
 package admin
 
 import (
-	"github.com/ammmnia/chat/pkg/common/constant"
+	"github.com/ammmnia/protocol/openchat/common/constant"
 	"github.com/ammmnia/tools/errs"
 	"github.com/ammmnia/tools/utils/datautil"
 )

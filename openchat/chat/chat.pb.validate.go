@@ -2987,8 +2987,6 @@ func (m *LoginReq) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for VerifyCode
-
 	// no validation rules for Account
 
 	// no validation rules for Password
@@ -3098,15 +3096,7 @@ func (m *ResetPasswordReq) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for AreaCode
-
-	// no validation rules for PhoneNumber
-
-	// no validation rules for VerifyCode
-
 	// no validation rules for Password
-
-	// no validation rules for Email
 
 	if len(errors) > 0 {
 		return ResetPasswordReqMultiError(errors)

@@ -163,13 +163,12 @@ components:
         LoginReq:
             type: object
             properties:
-                verifyCode:
+                account:
                     type: string
                     description: |-
                         string areaCode = 1;
                           string phoneNumber = 2;
-                account:
-                    type: string
+                          string verifyCode = 3;
                 password:
                     type: string
                 platform:

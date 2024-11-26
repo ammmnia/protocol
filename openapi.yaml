@@ -6,7 +6,7 @@ info:
     title: Chat API
     version: 0.0.1
 paths:
-    /account/code/send:
+    /chat/account/code/send:
         post:
             tags:
                 - Chat
@@ -30,7 +30,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/code/verify:
+    /chat/account/code/verify:
         post:
             tags:
                 - Chat
@@ -54,7 +54,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/imgcode/send:
+    /chat/account/imgcode/send:
         post:
             tags:
                 - Chat
@@ -78,7 +78,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/imgcode/verify:
+    /chat/account/imgcode/verify:
         post:
             tags:
                 - Chat
@@ -102,7 +102,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/login:
+    /chat/account/login:
         post:
             tags:
                 - Chat
@@ -126,7 +126,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/register:
+    /chat/account/register:
         post:
             tags:
                 - Chat

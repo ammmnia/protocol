@@ -324,38 +324,38 @@ service chat {
 
   rpc SendVerifyImgCode(SendVerifyImgCodeReq) returns (SendVerifyImgCodeResp){
     option (google.api.http) = {
-      post:"/account/imgcode/send"
+      post:"/chat/account/imgcode/send"
       body: "*"
     };
   };
   rpc VerifyImgCode(VerifyImgCodeReq) returns (VerifyImgCodeResp) {
     option (google.api.http) = {
-      post:"/account/imgcode/verify"
+      post:"/chat/account/imgcode/verify"
       body: "*"
     };
   };
 
   rpc SendVerifyCode(SendVerifyCodeReq) returns (SendVerifyCodeResp) {
     option (google.api.http) = {
-      post:"/account/code/send"
+      post:"/chat/account/code/send"
       body: "*"
     };
   };
   rpc VerifyCode(VerifyCodeReq) returns (VerifyCodeResp) {
     option (google.api.http) = {
-      post:"/account/code/verify"
+      post:"/chat/account/code/verify"
       body: "*"
     };
   };
   rpc RegisterUser(RegisterUserReq) returns (RegisterUserResp){
     option (google.api.http) = {
-      post:"/account/register"
+      post:"/chat/account/register"
       body: "*"
     };
   };
   rpc Login(LoginReq) returns (LoginResp) {
     option (google.api.http) = {
-      post:"/account/login"
+      post:"/chat/account/login"
       body: "*"
     };
   };

@@ -2,8 +2,6 @@ module github.com/ammmnia/protocol
 
 go 1.21
 
-toolchain go1.21.8
-
 require (
 	github.com/ammmnia/tools v0.0.0-20241123121739-6207e5dd303d
 	google.golang.org/genproto/googleapis/api v0.0.0-20240123012728-ef4313101c80

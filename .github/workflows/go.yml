@@ -21,6 +21,13 @@ jobs:
       with:
         go-version: '1.21'
 
+    - name: Set up GOPRIVATE
+      run: go env -w GOPRIVATE="github.com/ammmnia/tools"
+
+    - name: Set up git
+      # 这里还是需要换个用户名
+      run: git config --global url."https://${{ secrets.USERNAME }}:${{ secrets.ACCESS_TOKEN }}@github.com".insteadof "https://github.com"
+
     # - name: Build
     #   run: go build -v ./...
 

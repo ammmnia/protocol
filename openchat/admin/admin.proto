@@ -597,35 +597,6 @@ message SearchMenuResp {
   uint64 pages = 3;
 }
 
-message GetPaginationFriendsReq {
-  openim.openchat.sdkws.RequestPagination pagination = 1;
-  string userID = 2;
-}
-message GetPaginationFriendsResp {
-  uint64 total = 1;
-  uint64 pages = 2;
-  repeated GetFriendInfoResp friendInfo = 3;
-}
-
-message GetFriendInfoResp {
-  string ownerUserID = 1;
-  string friendUserID = 2;
-  string friendNickname = 3;
-  string friendFaceURL = 4;
-  string remark = 5;
-  int64 createTime = 6;
-  int32 addSource = 7;
-  string operatorUserID = 8;
-  string ex = 9;
-  bool isPinned = 10;
-}
-
-message DeleteFriendReq {
-  string ownerUserID = 1;
-  string friendUserID = 2;
-}
-message DeleteFriendResp {}
-
 message DisableMenuResp {
 }
 

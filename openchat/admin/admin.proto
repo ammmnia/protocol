@@ -597,6 +597,35 @@ message SearchMenuResp {
   uint64 pages = 3;
 }
 
+message getPaginationFriendsReq {
+  openim.openchat.sdkws.RequestPagination pagination = 1;
+  string userID = 2;
+}
+message getPaginationFriendsResp {
+  uint64 total = 1;
+  uint64 pages = 2;
+  repeated GetFriendInfoResp friendInfo = 3;
+}
+
+message GetFriendInfoResp {
+  string ownerUserID = 1;
+  string friendUserID = 2;
+  string friendNickname = 3;
+  string friendFaceURL = 4;
+  string remark = 5;
+  int64 createTime = 6;
+  int32 addSource = 7;
+  string operatorUserID = 8;
+  string ex = 9;
+  bool isPinned = 10;
+}
+
+message deleteFriendReq {
+  string ownerUserID = 1;
+  string friendUserID = 2;
+}
+message deleteFriendResp {}
+
 message DisableMenuResp {
 }
 
@@ -682,5 +711,10 @@ service admin {
   rpc DelMenu(DelMenuReq) returns (DelMenuResp);
   rpc SearchMenu(SearchMenuReq) returns (SearchMenuResp);
   rpc DisableMenu(DisableMenuReq) returns (DisableMenuResp);
+
+  //friends
+  rpc getPaginationFriends(getPaginationFriendsReq) returns (getPaginationFriendsResp);
+  // Delete friend
+  rpc deleteFriend(deleteFriendReq) returns (deleteFriendResp);
 
 }

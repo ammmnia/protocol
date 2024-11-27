@@ -13662,6 +13662,605 @@ var _ interface {
 	ErrorName() string
 } = SearchMenuRespValidationError{}
 
+// Validate checks the field values on GetPaginationFriendsReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetPaginationFriendsReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetPaginationFriendsReq with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetPaginationFriendsReqMultiError, or nil if none found.
+func (m *GetPaginationFriendsReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetPaginationFriendsReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetPagination()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, GetPaginationFriendsReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, GetPaginationFriendsReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return GetPaginationFriendsReqValidationError{
+				field:  "Pagination",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	// no validation rules for UserID
+
+	if len(errors) > 0 {
+		return GetPaginationFriendsReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetPaginationFriendsReqMultiError is an error wrapping multiple validation
+// errors returned by GetPaginationFriendsReq.ValidateAll() if the designated
+// constraints aren't met.
+type GetPaginationFriendsReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetPaginationFriendsReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetPaginationFriendsReqMultiError) AllErrors() []error { return m }
+
+// GetPaginationFriendsReqValidationError is the validation error returned by
+// GetPaginationFriendsReq.Validate if the designated constraints aren't met.
+type GetPaginationFriendsReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetPaginationFriendsReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetPaginationFriendsReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetPaginationFriendsReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetPaginationFriendsReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetPaginationFriendsReqValidationError) ErrorName() string {
+	return "GetPaginationFriendsReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetPaginationFriendsReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetPaginationFriendsReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetPaginationFriendsReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetPaginationFriendsReqValidationError{}
+
+// Validate checks the field values on GetPaginationFriendsResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *GetPaginationFriendsResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetPaginationFriendsResp with the
+// rules defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetPaginationFriendsRespMultiError, or nil if none found.
+func (m *GetPaginationFriendsResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetPaginationFriendsResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Total
+
+	// no validation rules for Pages
+
+	for idx, item := range m.GetFriendInfo() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, GetPaginationFriendsRespValidationError{
+						field:  fmt.Sprintf("FriendInfo[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, GetPaginationFriendsRespValidationError{
+						field:  fmt.Sprintf("FriendInfo[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return GetPaginationFriendsRespValidationError{
+					field:  fmt.Sprintf("FriendInfo[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return GetPaginationFriendsRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetPaginationFriendsRespMultiError is an error wrapping multiple validation
+// errors returned by GetPaginationFriendsResp.ValidateAll() if the designated
+// constraints aren't met.
+type GetPaginationFriendsRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetPaginationFriendsRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetPaginationFriendsRespMultiError) AllErrors() []error { return m }
+
+// GetPaginationFriendsRespValidationError is the validation error returned by
+// GetPaginationFriendsResp.Validate if the designated constraints aren't met.
+type GetPaginationFriendsRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetPaginationFriendsRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetPaginationFriendsRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetPaginationFriendsRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetPaginationFriendsRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetPaginationFriendsRespValidationError) ErrorName() string {
+	return "GetPaginationFriendsRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetPaginationFriendsRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetPaginationFriendsResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetPaginationFriendsRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetPaginationFriendsRespValidationError{}
+
+// Validate checks the field values on GetFriendInfoResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *GetFriendInfoResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetFriendInfoResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetFriendInfoRespMultiError, or nil if none found.
+func (m *GetFriendInfoResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetFriendInfoResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OwnerUserID
+
+	// no validation rules for FriendUserID
+
+	// no validation rules for FriendNickname
+
+	// no validation rules for FriendFaceURL
+
+	// no validation rules for Remark
+
+	// no validation rules for CreateTime
+
+	// no validation rules for AddSource
+
+	// no validation rules for OperatorUserID
+
+	// no validation rules for Ex
+
+	// no validation rules for IsPinned
+
+	if len(errors) > 0 {
+		return GetFriendInfoRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetFriendInfoRespMultiError is an error wrapping multiple validation errors
+// returned by GetFriendInfoResp.ValidateAll() if the designated constraints
+// aren't met.
+type GetFriendInfoRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetFriendInfoRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetFriendInfoRespMultiError) AllErrors() []error { return m }
+
+// GetFriendInfoRespValidationError is the validation error returned by
+// GetFriendInfoResp.Validate if the designated constraints aren't met.
+type GetFriendInfoRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetFriendInfoRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetFriendInfoRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetFriendInfoRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetFriendInfoRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetFriendInfoRespValidationError) ErrorName() string {
+	return "GetFriendInfoRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e GetFriendInfoRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetFriendInfoResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetFriendInfoRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetFriendInfoRespValidationError{}
+
+// Validate checks the field values on DeleteFriendReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *DeleteFriendReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteFriendReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DeleteFriendReqMultiError, or nil if none found.
+func (m *DeleteFriendReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteFriendReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for OwnerUserID
+
+	// no validation rules for FriendUserID
+
+	if len(errors) > 0 {
+		return DeleteFriendReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteFriendReqMultiError is an error wrapping multiple validation errors
+// returned by DeleteFriendReq.ValidateAll() if the designated constraints
+// aren't met.
+type DeleteFriendReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteFriendReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteFriendReqMultiError) AllErrors() []error { return m }
+
+// DeleteFriendReqValidationError is the validation error returned by
+// DeleteFriendReq.Validate if the designated constraints aren't met.
+type DeleteFriendReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteFriendReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteFriendReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteFriendReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteFriendReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteFriendReqValidationError) ErrorName() string { return "DeleteFriendReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DeleteFriendReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteFriendReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteFriendReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteFriendReqValidationError{}
+
+// Validate checks the field values on DeleteFriendResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *DeleteFriendResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DeleteFriendResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DeleteFriendRespMultiError, or nil if none found.
+func (m *DeleteFriendResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DeleteFriendResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DeleteFriendRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// DeleteFriendRespMultiError is an error wrapping multiple validation errors
+// returned by DeleteFriendResp.ValidateAll() if the designated constraints
+// aren't met.
+type DeleteFriendRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DeleteFriendRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DeleteFriendRespMultiError) AllErrors() []error { return m }
+
+// DeleteFriendRespValidationError is the validation error returned by
+// DeleteFriendResp.Validate if the designated constraints aren't met.
+type DeleteFriendRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DeleteFriendRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DeleteFriendRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DeleteFriendRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DeleteFriendRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DeleteFriendRespValidationError) ErrorName() string { return "DeleteFriendRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DeleteFriendRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDeleteFriendResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DeleteFriendRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DeleteFriendRespValidationError{}
+
 // Validate checks the field values on DisableMenuResp with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.

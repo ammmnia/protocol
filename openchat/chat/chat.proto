@@ -359,7 +359,12 @@ service chat {
       body: "*"
     };
   };
-  rpc ResetPassword(ResetPasswordReq) returns (ResetPasswordResp);
+  rpc ResetPassword(ResetPasswordReq) returns (ResetPasswordResp) {
+    option (google.api.http) = {
+      post:"/chat/account/password/reset"
+      body: "*"
+    };
+  };
   rpc ChangePassword(ChangePasswordReq) returns (ChangePasswordResp);
   rpc CheckUserExist(CheckUserExistReq) returns (CheckUserExistResp);
   rpc DelUserAccount(DelUserAccountReq) returns (DelUserAccountResp);

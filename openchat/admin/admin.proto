@@ -712,9 +712,4 @@ service admin {
   rpc SearchMenu(SearchMenuReq) returns (SearchMenuResp);
   rpc DisableMenu(DisableMenuReq) returns (DisableMenuResp);
 
-  //friends
-  rpc GetPaginationFriends(GetPaginationFriendsReq) returns (GetPaginationFriendsResp);
-  // Delete friend
-  rpc DeleteFriend(DeleteFriendReq) returns (DeleteFriendResp);
-
 }

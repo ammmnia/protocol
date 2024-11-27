@@ -7581,7 +7581,7 @@ var file_openchat_admin_admin_proto_rawDesc = []byte{
 	0x65, 0x6e, 0x64, 0x55, 0x73, 0x65, 0x72, 0x49, 0x44, 0x22, 0x12, 0x0a, 0x10, 0x44, 0x65, 0x6c,
 	0x65, 0x74, 0x65, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x22, 0x11, 0x0a,
 	0x0f, 0x44, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x4d, 0x65, 0x6e, 0x75, 0x52, 0x65, 0x73, 0x70,
-	0x32, 0xbc, 0x2e, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f,
+	0x32, 0xe2, 0x2c, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f,
 	0x67, 0x69, 0x6e, 0x12, 0x1f, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65,
 	0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x69,
 	0x6e, 0x52, 0x65, 0x71, 0x1a, 0x20, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70,
@@ -7939,24 +7939,10 @@ var file_openchat_admin_admin_proto_rawDesc = []byte{
 	0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x4d, 0x65, 0x6e, 0x75, 0x52, 0x65, 0x71, 0x1a, 0x26, 0x2e,
 	0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e,
 	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x44, 0x69, 0x73, 0x61, 0x62, 0x6c, 0x65, 0x4d, 0x65, 0x6e,
-	0x75, 0x52, 0x65, 0x73, 0x70, 0x12, 0x77, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x50, 0x61, 0x67, 0x69,
-	0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x73, 0x12, 0x2e, 0x2e,
-	0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e,
-	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x73, 0x52, 0x65, 0x71, 0x1a, 0x2f, 0x2e,
-	0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e,
-	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74,
-	0x69, 0x6f, 0x6e, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x73, 0x52, 0x65, 0x73, 0x70, 0x12, 0x5f,
-	0x0a, 0x0c, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x12, 0x26,
-	0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74,
-	0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x72, 0x69,
-	0x65, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x1a, 0x27, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e,
-	0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x46, 0x72, 0x69, 0x65, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x42,
-	0x2c, 0x5a, 0x2a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x6d,
-	0x6d, 0x6d, 0x6e, 0x69, 0x61, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x2f, 0x6f,
-	0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x62, 0x06, 0x70,
-	0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x75, 0x52, 0x65, 0x73, 0x70, 0x42, 0x2c, 0x5a, 0x2a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e,
+	0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x6d, 0x6d, 0x6d, 0x6e, 0x69, 0x61, 0x2f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x63, 0x6f, 0x6c, 0x2f, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x61, 0x64,
+	0x6d, 0x69, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -8214,67 +8200,63 @@ var file_openchat_admin_admin_proto_depIdxs = []int32{
 	110, // 101: openim.openchat.admin.admin.DelMenu:input_type -> openim.openchat.admin.DelMenuReq
 	112, // 102: openim.openchat.admin.admin.SearchMenu:input_type -> openim.openchat.admin.SearchMenuReq
 	113, // 103: openim.openchat.admin.admin.DisableMenu:input_type -> openim.openchat.admin.DisableMenuReq
-	118, // 104: openim.openchat.admin.admin.GetPaginationFriends:input_type -> openim.openchat.admin.GetPaginationFriendsReq
-	121, // 105: openim.openchat.admin.admin.DeleteFriend:input_type -> openim.openchat.admin.DeleteFriendReq
-	1,   // 106: openim.openchat.admin.admin.Login:output_type -> openim.openchat.admin.LoginResp
-	3,   // 107: openim.openchat.admin.admin.Logout:output_type -> openim.openchat.admin.LogoutResp
-	9,   // 108: openim.openchat.admin.admin.ChangePassword:output_type -> openim.openchat.admin.ChangePasswordResp
-	7,   // 109: openim.openchat.admin.admin.AdminUpdateInfo:output_type -> openim.openchat.admin.AdminUpdateInfoResp
-	17,  // 110: openim.openchat.admin.admin.GetAdminInfo:output_type -> openim.openchat.admin.GetAdminInfoResp
-	5,   // 111: openim.openchat.admin.admin.AddAdminAccount:output_type -> openim.openchat.admin.AddAdminAccountResp
-	12,  // 112: openim.openchat.admin.admin.ChangeAdminPassword:output_type -> openim.openchat.admin.ChangeAdminPasswordResp
-	14,  // 113: openim.openchat.admin.admin.DelAdminAccount:output_type -> openim.openchat.admin.DelAdminAccountResp
-	16,  // 114: openim.openchat.admin.admin.SearchAdminAccount:output_type -> openim.openchat.admin.SearchAdminAccountResp
-	19,  // 115: openim.openchat.admin.admin.DisableAdminAccount:output_type -> openim.openchat.admin.DisableAdminAccountResp
-	21,  // 116: openim.openchat.admin.admin.AddDefaultFriend:output_type -> openim.openchat.admin.AddDefaultFriendResp
-	23,  // 117: openim.openchat.admin.admin.DelDefaultFriend:output_type -> openim.openchat.admin.DelDefaultFriendResp
-	25,  // 118: openim.openchat.admin.admin.FindDefaultFriend:output_type -> openim.openchat.admin.FindDefaultFriendResp
-	28,  // 119: openim.openchat.admin.admin.SearchDefaultFriend:output_type -> openim.openchat.admin.SearchDefaultFriendResp
-	30,  // 120: openim.openchat.admin.admin.AddDefaultGroup:output_type -> openim.openchat.admin.AddDefaultGroupResp
-	32,  // 121: openim.openchat.admin.admin.DelDefaultGroup:output_type -> openim.openchat.admin.DelDefaultGroupResp
-	34,  // 122: openim.openchat.admin.admin.FindDefaultGroup:output_type -> openim.openchat.admin.FindDefaultGroupResp
-	37,  // 123: openim.openchat.admin.admin.SearchDefaultGroup:output_type -> openim.openchat.admin.SearchDefaultGroupResp
-	39,  // 124: openim.openchat.admin.admin.AddInvitationCode:output_type -> openim.openchat.admin.AddInvitationCodeResp
-	41,  // 125: openim.openchat.admin.admin.GenInvitationCode:output_type -> openim.openchat.admin.GenInvitationCodeResp
-	43,  // 126: openim.openchat.admin.admin.FindInvitationCode:output_type -> openim.openchat.admin.FindInvitationCodeResp
-	45,  // 127: openim.openchat.admin.admin.UseInvitationCode:output_type -> openim.openchat.admin.UseInvitationCodeResp
-	47,  // 128: openim.openchat.admin.admin.DelInvitationCode:output_type -> openim.openchat.admin.DelInvitationCodeResp
-	50,  // 129: openim.openchat.admin.admin.SearchInvitationCode:output_type -> openim.openchat.admin.SearchInvitationCodeResp
-	53,  // 130: openim.openchat.admin.admin.SearchUserIPLimitLogin:output_type -> openim.openchat.admin.SearchUserIPLimitLoginResp
-	56,  // 131: openim.openchat.admin.admin.AddUserIPLimitLogin:output_type -> openim.openchat.admin.AddUserIPLimitLoginResp
-	58,  // 132: openim.openchat.admin.admin.DelUserIPLimitLogin:output_type -> openim.openchat.admin.DelUserIPLimitLoginResp
-	62,  // 133: openim.openchat.admin.admin.SearchIPForbidden:output_type -> openim.openchat.admin.SearchIPForbiddenResp
-	64,  // 134: openim.openchat.admin.admin.AddIPForbidden:output_type -> openim.openchat.admin.AddIPForbiddenResp
-	66,  // 135: openim.openchat.admin.admin.DelIPForbidden:output_type -> openim.openchat.admin.DelIPForbiddenResp
-	72,  // 136: openim.openchat.admin.admin.CancellationUser:output_type -> openim.openchat.admin.CancellationUserResp
-	74,  // 137: openim.openchat.admin.admin.BlockUser:output_type -> openim.openchat.admin.BlockUserResp
-	76,  // 138: openim.openchat.admin.admin.UnblockUser:output_type -> openim.openchat.admin.UnblockUserResp
-	79,  // 139: openim.openchat.admin.admin.SearchBlockUser:output_type -> openim.openchat.admin.SearchBlockUserResp
-	82,  // 140: openim.openchat.admin.admin.FindUserBlockInfo:output_type -> openim.openchat.admin.FindUserBlockInfoResp
-	68,  // 141: openim.openchat.admin.admin.CheckRegisterForbidden:output_type -> openim.openchat.admin.CheckRegisterForbiddenResp
-	70,  // 142: openim.openchat.admin.admin.CheckLoginForbidden:output_type -> openim.openchat.admin.CheckLoginForbiddenResp
-	84,  // 143: openim.openchat.admin.admin.CreateToken:output_type -> openim.openchat.admin.CreateTokenResp
-	86,  // 144: openim.openchat.admin.admin.ParseToken:output_type -> openim.openchat.admin.ParseTokenResp
-	90,  // 145: openim.openchat.admin.admin.AddApplet:output_type -> openim.openchat.admin.AddAppletResp
-	92,  // 146: openim.openchat.admin.admin.DelApplet:output_type -> openim.openchat.admin.DelAppletResp
-	94,  // 147: openim.openchat.admin.admin.UpdateApplet:output_type -> openim.openchat.admin.UpdateAppletResp
-	96,  // 148: openim.openchat.admin.admin.FindApplet:output_type -> openim.openchat.admin.FindAppletResp
-	98,  // 149: openim.openchat.admin.admin.SearchApplet:output_type -> openim.openchat.admin.SearchAppletResp
-	104, // 150: openim.openchat.admin.admin.GetClientConfig:output_type -> openim.openchat.admin.GetClientConfigResp
-	100, // 151: openim.openchat.admin.admin.SetClientConfig:output_type -> openim.openchat.admin.SetClientConfigResp
-	102, // 152: openim.openchat.admin.admin.DelClientConfig:output_type -> openim.openchat.admin.DelClientConfigResp
-	106, // 153: openim.openchat.admin.admin.GetUserToken:output_type -> openim.openchat.admin.GetUserTokenResp
-	88,  // 154: openim.openchat.admin.admin.InvalidateToken:output_type -> openim.openchat.admin.InvalidateTokenResp
-	111, // 155: openim.openchat.admin.admin.UpdateMenuInfo:output_type -> openim.openchat.admin.UpdateMenuResp
-	114, // 156: openim.openchat.admin.admin.MenuInfo:output_type -> openim.openchat.admin.MenuInfoResp
-	115, // 157: openim.openchat.admin.admin.AddMenu:output_type -> openim.openchat.admin.AddMenuResp
-	116, // 158: openim.openchat.admin.admin.DelMenu:output_type -> openim.openchat.admin.DelMenuResp
-	117, // 159: openim.openchat.admin.admin.SearchMenu:output_type -> openim.openchat.admin.SearchMenuResp
-	123, // 160: openim.openchat.admin.admin.DisableMenu:output_type -> openim.openchat.admin.DisableMenuResp
-	119, // 161: openim.openchat.admin.admin.GetPaginationFriends:output_type -> openim.openchat.admin.GetPaginationFriendsResp
-	122, // 162: openim.openchat.admin.admin.DeleteFriend:output_type -> openim.openchat.admin.DeleteFriendResp
-	106, // [106:163] is the sub-list for method output_type
-	49,  // [49:106] is the sub-list for method input_type
+	1,   // 104: openim.openchat.admin.admin.Login:output_type -> openim.openchat.admin.LoginResp
+	3,   // 105: openim.openchat.admin.admin.Logout:output_type -> openim.openchat.admin.LogoutResp
+	9,   // 106: openim.openchat.admin.admin.ChangePassword:output_type -> openim.openchat.admin.ChangePasswordResp
+	7,   // 107: openim.openchat.admin.admin.AdminUpdateInfo:output_type -> openim.openchat.admin.AdminUpdateInfoResp
+	17,  // 108: openim.openchat.admin.admin.GetAdminInfo:output_type -> openim.openchat.admin.GetAdminInfoResp
+	5,   // 109: openim.openchat.admin.admin.AddAdminAccount:output_type -> openim.openchat.admin.AddAdminAccountResp
+	12,  // 110: openim.openchat.admin.admin.ChangeAdminPassword:output_type -> openim.openchat.admin.ChangeAdminPasswordResp
+	14,  // 111: openim.openchat.admin.admin.DelAdminAccount:output_type -> openim.openchat.admin.DelAdminAccountResp
+	16,  // 112: openim.openchat.admin.admin.SearchAdminAccount:output_type -> openim.openchat.admin.SearchAdminAccountResp
+	19,  // 113: openim.openchat.admin.admin.DisableAdminAccount:output_type -> openim.openchat.admin.DisableAdminAccountResp
+	21,  // 114: openim.openchat.admin.admin.AddDefaultFriend:output_type -> openim.openchat.admin.AddDefaultFriendResp
+	23,  // 115: openim.openchat.admin.admin.DelDefaultFriend:output_type -> openim.openchat.admin.DelDefaultFriendResp
+	25,  // 116: openim.openchat.admin.admin.FindDefaultFriend:output_type -> openim.openchat.admin.FindDefaultFriendResp
+	28,  // 117: openim.openchat.admin.admin.SearchDefaultFriend:output_type -> openim.openchat.admin.SearchDefaultFriendResp
+	30,  // 118: openim.openchat.admin.admin.AddDefaultGroup:output_type -> openim.openchat.admin.AddDefaultGroupResp
+	32,  // 119: openim.openchat.admin.admin.DelDefaultGroup:output_type -> openim.openchat.admin.DelDefaultGroupResp
+	34,  // 120: openim.openchat.admin.admin.FindDefaultGroup:output_type -> openim.openchat.admin.FindDefaultGroupResp
+	37,  // 121: openim.openchat.admin.admin.SearchDefaultGroup:output_type -> openim.openchat.admin.SearchDefaultGroupResp
+	39,  // 122: openim.openchat.admin.admin.AddInvitationCode:output_type -> openim.openchat.admin.AddInvitationCodeResp
+	41,  // 123: openim.openchat.admin.admin.GenInvitationCode:output_type -> openim.openchat.admin.GenInvitationCodeResp
+	43,  // 124: openim.openchat.admin.admin.FindInvitationCode:output_type -> openim.openchat.admin.FindInvitationCodeResp
+	45,  // 125: openim.openchat.admin.admin.UseInvitationCode:output_type -> openim.openchat.admin.UseInvitationCodeResp
+	47,  // 126: openim.openchat.admin.admin.DelInvitationCode:output_type -> openim.openchat.admin.DelInvitationCodeResp
+	50,  // 127: openim.openchat.admin.admin.SearchInvitationCode:output_type -> openim.openchat.admin.SearchInvitationCodeResp
+	53,  // 128: openim.openchat.admin.admin.SearchUserIPLimitLogin:output_type -> openim.openchat.admin.SearchUserIPLimitLoginResp
+	56,  // 129: openim.openchat.admin.admin.AddUserIPLimitLogin:output_type -> openim.openchat.admin.AddUserIPLimitLoginResp
+	58,  // 130: openim.openchat.admin.admin.DelUserIPLimitLogin:output_type -> openim.openchat.admin.DelUserIPLimitLoginResp
+	62,  // 131: openim.openchat.admin.admin.SearchIPForbidden:output_type -> openim.openchat.admin.SearchIPForbiddenResp
+	64,  // 132: openim.openchat.admin.admin.AddIPForbidden:output_type -> openim.openchat.admin.AddIPForbiddenResp
+	66,  // 133: openim.openchat.admin.admin.DelIPForbidden:output_type -> openim.openchat.admin.DelIPForbiddenResp
+	72,  // 134: openim.openchat.admin.admin.CancellationUser:output_type -> openim.openchat.admin.CancellationUserResp
+	74,  // 135: openim.openchat.admin.admin.BlockUser:output_type -> openim.openchat.admin.BlockUserResp
+	76,  // 136: openim.openchat.admin.admin.UnblockUser:output_type -> openim.openchat.admin.UnblockUserResp
+	79,  // 137: openim.openchat.admin.admin.SearchBlockUser:output_type -> openim.openchat.admin.SearchBlockUserResp
+	82,  // 138: openim.openchat.admin.admin.FindUserBlockInfo:output_type -> openim.openchat.admin.FindUserBlockInfoResp
+	68,  // 139: openim.openchat.admin.admin.CheckRegisterForbidden:output_type -> openim.openchat.admin.CheckRegisterForbiddenResp
+	70,  // 140: openim.openchat.admin.admin.CheckLoginForbidden:output_type -> openim.openchat.admin.CheckLoginForbiddenResp
+	84,  // 141: openim.openchat.admin.admin.CreateToken:output_type -> openim.openchat.admin.CreateTokenResp
+	86,  // 142: openim.openchat.admin.admin.ParseToken:output_type -> openim.openchat.admin.ParseTokenResp
+	90,  // 143: openim.openchat.admin.admin.AddApplet:output_type -> openim.openchat.admin.AddAppletResp
+	92,  // 144: openim.openchat.admin.admin.DelApplet:output_type -> openim.openchat.admin.DelAppletResp
+	94,  // 145: openim.openchat.admin.admin.UpdateApplet:output_type -> openim.openchat.admin.UpdateAppletResp
+	96,  // 146: openim.openchat.admin.admin.FindApplet:output_type -> openim.openchat.admin.FindAppletResp
+	98,  // 147: openim.openchat.admin.admin.SearchApplet:output_type -> openim.openchat.admin.SearchAppletResp
+	104, // 148: openim.openchat.admin.admin.GetClientConfig:output_type -> openim.openchat.admin.GetClientConfigResp
+	100, // 149: openim.openchat.admin.admin.SetClientConfig:output_type -> openim.openchat.admin.SetClientConfigResp
+	102, // 150: openim.openchat.admin.admin.DelClientConfig:output_type -> openim.openchat.admin.DelClientConfigResp
+	106, // 151: openim.openchat.admin.admin.GetUserToken:output_type -> openim.openchat.admin.GetUserTokenResp
+	88,  // 152: openim.openchat.admin.admin.InvalidateToken:output_type -> openim.openchat.admin.InvalidateTokenResp
+	111, // 153: openim.openchat.admin.admin.UpdateMenuInfo:output_type -> openim.openchat.admin.UpdateMenuResp
+	114, // 154: openim.openchat.admin.admin.MenuInfo:output_type -> openim.openchat.admin.MenuInfoResp
+	115, // 155: openim.openchat.admin.admin.AddMenu:output_type -> openim.openchat.admin.AddMenuResp
+	116, // 156: openim.openchat.admin.admin.DelMenu:output_type -> openim.openchat.admin.DelMenuResp
+	117, // 157: openim.openchat.admin.admin.SearchMenu:output_type -> openim.openchat.admin.SearchMenuResp
+	123, // 158: openim.openchat.admin.admin.DisableMenu:output_type -> openim.openchat.admin.DisableMenuResp
+	104, // [104:159] is the sub-list for method output_type
+	49,  // [49:104] is the sub-list for method input_type
 	49,  // [49:49] is the sub-list for extension type_name
 	49,  // [49:49] is the sub-list for extension extendee
 	0,   // [0:49] is the sub-list for field type_name

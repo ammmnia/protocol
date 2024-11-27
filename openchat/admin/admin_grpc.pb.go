@@ -88,8 +88,6 @@ const (
 	Admin_DelMenu_FullMethodName                = "/openim.openchat.admin.admin/DelMenu"
 	Admin_SearchMenu_FullMethodName             = "/openim.openchat.admin.admin/SearchMenu"
 	Admin_DisableMenu_FullMethodName            = "/openim.openchat.admin.admin/DisableMenu"
-	Admin_GetPaginationFriends_FullMethodName   = "/openim.openchat.admin.admin/GetPaginationFriends"
-	Admin_DeleteFriend_FullMethodName           = "/openim.openchat.admin.admin/DeleteFriend"
 )
 
 // AdminClient is the client API for Admin service.
@@ -164,10 +162,6 @@ type AdminClient interface {
 	DelMenu(ctx context.Context, in *DelMenuReq, opts ...grpc.CallOption) (*DelMenuResp, error)
 	SearchMenu(ctx context.Context, in *SearchMenuReq, opts ...grpc.CallOption) (*SearchMenuResp, error)
 	DisableMenu(ctx context.Context, in *DisableMenuReq, opts ...grpc.CallOption) (*DisableMenuResp, error)
-	// friends
-	GetPaginationFriends(ctx context.Context, in *GetPaginationFriendsReq, opts ...grpc.CallOption) (*GetPaginationFriendsResp, error)
-	// Delete friend
-	DeleteFriend(ctx context.Context, in *DeleteFriendReq, opts ...grpc.CallOption) (*DeleteFriendResp, error)
 }
 
 type adminClient struct {
@@ -673,24 +667,6 @@ func (c *adminClient) DisableMenu(ctx context.Context, in *DisableMenuReq, opts 
 	return out, nil
 }
 
-func (c *adminClient) GetPaginationFriends(ctx context.Context, in *GetPaginationFriendsReq, opts ...grpc.CallOption) (*GetPaginationFriendsResp, error) {
-	out := new(GetPaginationFriendsResp)
-	err := c.cc.Invoke(ctx, Admin_GetPaginationFriends_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adminClient) DeleteFriend(ctx context.Context, in *DeleteFriendReq, opts ...grpc.CallOption) (*DeleteFriendResp, error) {
-	out := new(DeleteFriendResp)
-	err := c.cc.Invoke(ctx, Admin_DeleteFriend_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -763,10 +739,6 @@ type AdminServer interface {
 	DelMenu(context.Context, *DelMenuReq) (*DelMenuResp, error)
 	SearchMenu(context.Context, *SearchMenuReq) (*SearchMenuResp, error)
 	DisableMenu(context.Context, *DisableMenuReq) (*DisableMenuResp, error)
-	// friends
-	GetPaginationFriends(context.Context, *GetPaginationFriendsReq) (*GetPaginationFriendsResp, error)
-	// Delete friend
-	DeleteFriend(context.Context, *DeleteFriendReq) (*DeleteFriendResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -938,12 +910,6 @@ func (UnimplementedAdminServer) SearchMenu(context.Context, *SearchMenuReq) (*Se
 }
 func (UnimplementedAdminServer) DisableMenu(context.Context, *DisableMenuReq) (*DisableMenuResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableMenu not implemented")
-}
-func (UnimplementedAdminServer) GetPaginationFriends(context.Context, *GetPaginationFriendsReq) (*GetPaginationFriendsResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetPaginationFriends not implemented")
-}
-func (UnimplementedAdminServer) DeleteFriend(context.Context, *DeleteFriendReq) (*DeleteFriendResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteFriend not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1948,42 +1914,6 @@ func _Admin_DisableMenu_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Admin_GetPaginationFriends_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetPaginationFriendsReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdminServer).GetPaginationFriends(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Admin_GetPaginationFriends_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServer).GetPaginationFriends(ctx, req.(*GetPaginationFriendsReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Admin_DeleteFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteFriendReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdminServer).DeleteFriend(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Admin_DeleteFriend_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServer).DeleteFriend(ctx, req.(*DeleteFriendReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2210,14 +2140,6 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DisableMenu",
 			Handler:    _Admin_DisableMenu_Handler,
-		},
-		{
-			MethodName: "GetPaginationFriends",
-			Handler:    _Admin_GetPaginationFriends_Handler,
-		},
-		{
-			MethodName: "DeleteFriend",
-			Handler:    _Admin_DeleteFriend_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

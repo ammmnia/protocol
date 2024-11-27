@@ -89,10 +89,6 @@ func (m *UserFullInfo) validate(all bool) error {
 
 	// no validation rules for RegisterType
 
-	// no validation rules for CreateTime
-
-	// no validation rules for ChangeTime
-
 	if len(errors) > 0 {
 		return UserFullInfoMultiError(errors)
 	}

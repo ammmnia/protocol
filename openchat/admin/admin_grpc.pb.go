@@ -88,8 +88,8 @@ const (
 	Admin_DelMenu_FullMethodName                = "/openim.openchat.admin.admin/DelMenu"
 	Admin_SearchMenu_FullMethodName             = "/openim.openchat.admin.admin/SearchMenu"
 	Admin_DisableMenu_FullMethodName            = "/openim.openchat.admin.admin/DisableMenu"
-	Admin_GetPaginationFriends_FullMethodName   = "/openim.openchat.admin.admin/getPaginationFriends"
-	Admin_DeleteFriend_FullMethodName           = "/openim.openchat.admin.admin/deleteFriend"
+	Admin_GetPaginationFriends_FullMethodName   = "/openim.openchat.admin.admin/GetPaginationFriends"
+	Admin_DeleteFriend_FullMethodName           = "/openim.openchat.admin.admin/DeleteFriend"
 )
 
 // AdminClient is the client API for Admin service.
@@ -2212,11 +2212,11 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Admin_DisableMenu_Handler,
 		},
 		{
-			MethodName: "getPaginationFriends",
+			MethodName: "GetPaginationFriends",
 			Handler:    _Admin_GetPaginationFriends_Handler,
 		},
 		{
-			MethodName: "deleteFriend",
+			MethodName: "DeleteFriend",
 			Handler:    _Admin_DeleteFriend_Handler,
 		},
 	},

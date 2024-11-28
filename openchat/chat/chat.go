@@ -157,6 +157,15 @@ func (x *LoginReq) Check() error {
 	if x.Account == "" {
 		return errs.ErrArgs.WrapMsg("Account is empty")
 	}
+	if x.Password == "" {
+		return errs.ErrArgs.WrapMsg("Password is empty")
+	}
+	if x.DeviceID == "" {
+		return errs.ErrArgs.WrapMsg("DeviceID is empty")
+	}
+	if x.Ip == "" {
+		return errs.ErrArgs.WrapMsg("Ip is empty")
+	}
 	//if x.Email == "" {
 	//	if x.AreaCode == "" {
 	//		return errs.ErrArgs.WrapMsg("AreaCode is empty")

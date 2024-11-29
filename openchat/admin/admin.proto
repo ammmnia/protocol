@@ -561,7 +561,7 @@ message SearchMenuReq {
   string path = 6;
   uint32 status = 8;
   uint64 roleId = 9;
-  string create_by = 10;
+  string createBy = 10;
   string startTime = 11;
   string endTime = 12;
   openim.openchat.sdkws.RequestPagination pagination = 13;
@@ -581,8 +581,8 @@ message MenuInfoResp {
   uint32 isCache = 7;
   uint32 status = 8;
   uint64 menuId = 9;
-  string create_by = 10;
-  int64 create_time = 11;
+  string createBy = 10;
+  int64 createTime = 11;
 }
 
 message AddMenuResp {
@@ -598,6 +598,110 @@ message SearchMenuResp {
 }
 
 message DisableMenuResp {
+}
+
+message UpdateRoleReq {
+  uint64 roleId = 1;
+  string roleName = 2;
+  uint32 roleFlag = 3;
+  string desc = 4;
+}
+
+message UpdateRoleResp {
+
+}
+
+message RoleInfoReq {
+  uint64 roleId = 1;
+}
+
+message RoleInfoResp {
+   uint64 roleId = 1;
+   string roleName = 2;
+   string roleFlag = 3;
+   string desc = 4;
+}
+
+message AddRoleReq {
+    string roleName = 1;
+    string roleFlag = 2;
+    string desc = 3;
+}
+
+message AddRoleResp {
+  
+}
+
+// 删除角色，会删除该角色绑定的所有菜单，但是绑定该角色的用户不会删除
+// 没有角色的用户不会展示任何菜单
+message DelRoleReq {
+   uint64 roleId = 1;
+}
+
+message DelRoleResp {
+
+}
+
+message SearchRoleReq {
+  string roleName = 1;
+  string roleFlag = 2;
+  string desc = 3;
+  uint32 status = 4;
+  string createBy = 5;
+  string opTime = 6;
+}
+
+message SearchRoleResp {
+  string roleName = 1;
+  string roleFlag = 2;
+  string desc = 3;
+  uint32 status = 4;
+  string createBy = 5;
+  string opTime = 6;
+}
+
+message DisableRoleReq {
+  uint64 roleId = 1;
+}
+
+message DisableRoleResp {
+
+}
+
+message UpdateRoleMenuReq {
+  uint64 roleId = 1;
+  repeated uint64 menuIds = 2;
+}
+
+message UpdateRoleMenuResp {
+
+}
+
+message RoleMenuInfoReq {
+  uint64 roleId = 1;
+}
+
+message RoleMenuInfoResp {
+  uint64 roleId = 1;
+  repeated uint64 menuIds = 2;
+}
+
+message AddRoleMenuReq {
+  uint64 roleId = 1;
+  repeated uint64 menuIds = 2;
+}
+
+message AddRoleMenuResp {
+
+}
+
+// 删除该角色绑定的所有菜单
+message DelRoleMenuReq {
+  uint64 roleId = 1;
+}
+
+message DelRoleMenuResp {
+
 }
 
 service admin {
@@ -683,4 +787,17 @@ service admin {
   rpc SearchMenu(SearchMenuReq) returns (SearchMenuResp);
   rpc DisableMenu(DisableMenuReq) returns (DisableMenuResp);
 
+  // role
+  rpc UpdateRoleInfo(UpdateRoleReq) returns (UpdateRoleResp);
+  rpc RoleInfo(RoleInfoReq) returns (RoleInfoResp);
+  rpc AddRole(AddRoleReq) returns (AddRoleResp);
+  rpc DelRole(DelRoleReq) returns (DelRoleResp);
+  rpc SearchRole(SearchRoleReq) returns (SearchRoleResp);
+  rpc DisableRole(DisableRoleReq) returns (DisableRoleResp);
+
+  // role_menu
+  rpc UpdateRoleMenuInfo(UpdateRoleMenuReq) returns (UpdateRoleMenuResp);
+  rpc RoleMenuInfo(RoleMenuInfoReq) returns (RoleMenuInfoResp);
+  rpc AddRoleMenu(AddRoleMenuReq) returns (AddRoleMenuResp);
+  rpc DelRoleMenu(DelRoleMenuReq) returns (DelRoleMenuResp);
 }

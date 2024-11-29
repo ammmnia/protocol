@@ -88,6 +88,16 @@ const (
 	Admin_DelMenu_FullMethodName                = "/openim.openchat.admin.admin/DelMenu"
 	Admin_SearchMenu_FullMethodName             = "/openim.openchat.admin.admin/SearchMenu"
 	Admin_DisableMenu_FullMethodName            = "/openim.openchat.admin.admin/DisableMenu"
+	Admin_UpdateRoleInfo_FullMethodName         = "/openim.openchat.admin.admin/UpdateRoleInfo"
+	Admin_RoleInfo_FullMethodName               = "/openim.openchat.admin.admin/RoleInfo"
+	Admin_AddRole_FullMethodName                = "/openim.openchat.admin.admin/AddRole"
+	Admin_DelRole_FullMethodName                = "/openim.openchat.admin.admin/DelRole"
+	Admin_SearchRole_FullMethodName             = "/openim.openchat.admin.admin/SearchRole"
+	Admin_DisableRole_FullMethodName            = "/openim.openchat.admin.admin/DisableRole"
+	Admin_UpdateRoleMenuInfo_FullMethodName     = "/openim.openchat.admin.admin/UpdateRoleMenuInfo"
+	Admin_RoleMenuInfo_FullMethodName           = "/openim.openchat.admin.admin/RoleMenuInfo"
+	Admin_AddRoleMenu_FullMethodName            = "/openim.openchat.admin.admin/AddRoleMenu"
+	Admin_DelRoleMenu_FullMethodName            = "/openim.openchat.admin.admin/DelRoleMenu"
 )
 
 // AdminClient is the client API for Admin service.
@@ -162,6 +172,18 @@ type AdminClient interface {
 	DelMenu(ctx context.Context, in *DelMenuReq, opts ...grpc.CallOption) (*DelMenuResp, error)
 	SearchMenu(ctx context.Context, in *SearchMenuReq, opts ...grpc.CallOption) (*SearchMenuResp, error)
 	DisableMenu(ctx context.Context, in *DisableMenuReq, opts ...grpc.CallOption) (*DisableMenuResp, error)
+	// role
+	UpdateRoleInfo(ctx context.Context, in *UpdateRoleReq, opts ...grpc.CallOption) (*UpdateRoleResp, error)
+	RoleInfo(ctx context.Context, in *RoleInfoReq, opts ...grpc.CallOption) (*RoleInfoResp, error)
+	AddRole(ctx context.Context, in *AddRoleReq, opts ...grpc.CallOption) (*AddRoleResp, error)
+	DelRole(ctx context.Context, in *DelRoleReq, opts ...grpc.CallOption) (*DelRoleResp, error)
+	SearchRole(ctx context.Context, in *SearchRoleReq, opts ...grpc.CallOption) (*SearchRoleResp, error)
+	DisableRole(ctx context.Context, in *DisableRoleReq, opts ...grpc.CallOption) (*DisableRoleResp, error)
+	// role_menu
+	UpdateRoleMenuInfo(ctx context.Context, in *UpdateRoleMenuReq, opts ...grpc.CallOption) (*UpdateRoleMenuResp, error)
+	RoleMenuInfo(ctx context.Context, in *RoleMenuInfoReq, opts ...grpc.CallOption) (*RoleMenuInfoResp, error)
+	AddRoleMenu(ctx context.Context, in *AddRoleMenuReq, opts ...grpc.CallOption) (*AddRoleMenuResp, error)
+	DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts ...grpc.CallOption) (*DelRoleMenuResp, error)
 }
 
 type adminClient struct {
@@ -667,6 +689,96 @@ func (c *adminClient) DisableMenu(ctx context.Context, in *DisableMenuReq, opts 
 	return out, nil
 }
 
+func (c *adminClient) UpdateRoleInfo(ctx context.Context, in *UpdateRoleReq, opts ...grpc.CallOption) (*UpdateRoleResp, error) {
+	out := new(UpdateRoleResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateRoleInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) RoleInfo(ctx context.Context, in *RoleInfoReq, opts ...grpc.CallOption) (*RoleInfoResp, error) {
+	out := new(RoleInfoResp)
+	err := c.cc.Invoke(ctx, Admin_RoleInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddRole(ctx context.Context, in *AddRoleReq, opts ...grpc.CallOption) (*AddRoleResp, error) {
+	out := new(AddRoleResp)
+	err := c.cc.Invoke(ctx, Admin_AddRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelRole(ctx context.Context, in *DelRoleReq, opts ...grpc.CallOption) (*DelRoleResp, error) {
+	out := new(DelRoleResp)
+	err := c.cc.Invoke(ctx, Admin_DelRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) SearchRole(ctx context.Context, in *SearchRoleReq, opts ...grpc.CallOption) (*SearchRoleResp, error) {
+	out := new(SearchRoleResp)
+	err := c.cc.Invoke(ctx, Admin_SearchRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DisableRole(ctx context.Context, in *DisableRoleReq, opts ...grpc.CallOption) (*DisableRoleResp, error) {
+	out := new(DisableRoleResp)
+	err := c.cc.Invoke(ctx, Admin_DisableRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) UpdateRoleMenuInfo(ctx context.Context, in *UpdateRoleMenuReq, opts ...grpc.CallOption) (*UpdateRoleMenuResp, error) {
+	out := new(UpdateRoleMenuResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateRoleMenuInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) RoleMenuInfo(ctx context.Context, in *RoleMenuInfoReq, opts ...grpc.CallOption) (*RoleMenuInfoResp, error) {
+	out := new(RoleMenuInfoResp)
+	err := c.cc.Invoke(ctx, Admin_RoleMenuInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddRoleMenu(ctx context.Context, in *AddRoleMenuReq, opts ...grpc.CallOption) (*AddRoleMenuResp, error) {
+	out := new(AddRoleMenuResp)
+	err := c.cc.Invoke(ctx, Admin_AddRoleMenu_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts ...grpc.CallOption) (*DelRoleMenuResp, error) {
+	out := new(DelRoleMenuResp)
+	err := c.cc.Invoke(ctx, Admin_DelRoleMenu_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -739,6 +851,18 @@ type AdminServer interface {
 	DelMenu(context.Context, *DelMenuReq) (*DelMenuResp, error)
 	SearchMenu(context.Context, *SearchMenuReq) (*SearchMenuResp, error)
 	DisableMenu(context.Context, *DisableMenuReq) (*DisableMenuResp, error)
+	// role
+	UpdateRoleInfo(context.Context, *UpdateRoleReq) (*UpdateRoleResp, error)
+	RoleInfo(context.Context, *RoleInfoReq) (*RoleInfoResp, error)
+	AddRole(context.Context, *AddRoleReq) (*AddRoleResp, error)
+	DelRole(context.Context, *DelRoleReq) (*DelRoleResp, error)
+	SearchRole(context.Context, *SearchRoleReq) (*SearchRoleResp, error)
+	DisableRole(context.Context, *DisableRoleReq) (*DisableRoleResp, error)
+	// role_menu
+	UpdateRoleMenuInfo(context.Context, *UpdateRoleMenuReq) (*UpdateRoleMenuResp, error)
+	RoleMenuInfo(context.Context, *RoleMenuInfoReq) (*RoleMenuInfoResp, error)
+	AddRoleMenu(context.Context, *AddRoleMenuReq) (*AddRoleMenuResp, error)
+	DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -910,6 +1034,36 @@ func (UnimplementedAdminServer) SearchMenu(context.Context, *SearchMenuReq) (*Se
 }
 func (UnimplementedAdminServer) DisableMenu(context.Context, *DisableMenuReq) (*DisableMenuResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableMenu not implemented")
+}
+func (UnimplementedAdminServer) UpdateRoleInfo(context.Context, *UpdateRoleReq) (*UpdateRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRoleInfo not implemented")
+}
+func (UnimplementedAdminServer) RoleInfo(context.Context, *RoleInfoReq) (*RoleInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RoleInfo not implemented")
+}
+func (UnimplementedAdminServer) AddRole(context.Context, *AddRoleReq) (*AddRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddRole not implemented")
+}
+func (UnimplementedAdminServer) DelRole(context.Context, *DelRoleReq) (*DelRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelRole not implemented")
+}
+func (UnimplementedAdminServer) SearchRole(context.Context, *SearchRoleReq) (*SearchRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchRole not implemented")
+}
+func (UnimplementedAdminServer) DisableRole(context.Context, *DisableRoleReq) (*DisableRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DisableRole not implemented")
+}
+func (UnimplementedAdminServer) UpdateRoleMenuInfo(context.Context, *UpdateRoleMenuReq) (*UpdateRoleMenuResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRoleMenuInfo not implemented")
+}
+func (UnimplementedAdminServer) RoleMenuInfo(context.Context, *RoleMenuInfoReq) (*RoleMenuInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RoleMenuInfo not implemented")
+}
+func (UnimplementedAdminServer) AddRoleMenu(context.Context, *AddRoleMenuReq) (*AddRoleMenuResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddRoleMenu not implemented")
+}
+func (UnimplementedAdminServer) DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelRoleMenu not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1914,6 +2068,186 @@ func _Admin_DisableMenu_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_UpdateRoleInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateRoleInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateRoleInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateRoleInfo(ctx, req.(*UpdateRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_RoleInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RoleInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).RoleInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_RoleInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).RoleInfo(ctx, req.(*RoleInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddRole(ctx, req.(*AddRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelRole(ctx, req.(*DelRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_SearchRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchRole(ctx, req.(*SearchRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DisableRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DisableRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DisableRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DisableRole(ctx, req.(*DisableRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_UpdateRoleMenuInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRoleMenuReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateRoleMenuInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateRoleMenuInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateRoleMenuInfo(ctx, req.(*UpdateRoleMenuReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_RoleMenuInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RoleMenuInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).RoleMenuInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_RoleMenuInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).RoleMenuInfo(ctx, req.(*RoleMenuInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddRoleMenu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddRoleMenuReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddRoleMenu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddRoleMenu_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddRoleMenu(ctx, req.(*AddRoleMenuReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelRoleMenu_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelRoleMenuReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelRoleMenu(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelRoleMenu_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelRoleMenu(ctx, req.(*DelRoleMenuReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2140,6 +2474,46 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DisableMenu",
 			Handler:    _Admin_DisableMenu_Handler,
+		},
+		{
+			MethodName: "UpdateRoleInfo",
+			Handler:    _Admin_UpdateRoleInfo_Handler,
+		},
+		{
+			MethodName: "RoleInfo",
+			Handler:    _Admin_RoleInfo_Handler,
+		},
+		{
+			MethodName: "AddRole",
+			Handler:    _Admin_AddRole_Handler,
+		},
+		{
+			MethodName: "DelRole",
+			Handler:    _Admin_DelRole_Handler,
+		},
+		{
+			MethodName: "SearchRole",
+			Handler:    _Admin_SearchRole_Handler,
+		},
+		{
+			MethodName: "DisableRole",
+			Handler:    _Admin_DisableRole_Handler,
+		},
+		{
+			MethodName: "UpdateRoleMenuInfo",
+			Handler:    _Admin_UpdateRoleMenuInfo_Handler,
+		},
+		{
+			MethodName: "RoleMenuInfo",
+			Handler:    _Admin_RoleMenuInfo_Handler,
+		},
+		{
+			MethodName: "AddRoleMenu",
+			Handler:    _Admin_AddRoleMenu_Handler,
+		},
+		{
+			MethodName: "DelRoleMenu",
+			Handler:    _Admin_DelRoleMenu_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

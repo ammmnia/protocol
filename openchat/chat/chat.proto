@@ -92,8 +92,7 @@ message SendVerifyCodeReq {
   string email = 8;
 }
 
-message SendVerifyCodeResp {
-}
+message SendVerifyCodeResp {}
 
 message VerifyCodeReq {
   string areaCode = 1;
@@ -166,7 +165,7 @@ message AddUserAccountResp {}
 message LoginReq {
 //  string areaCode = 1;
 //  string phoneNumber = 2;
-  string verifyCode = 3;
+//  string verifyCode = 3;
   string account = 4;
   string password = 5;
   int32 platform = 6;
@@ -176,11 +175,11 @@ message LoginReq {
 }
 
 message ResetPasswordReq {
-  string areaCode = 1;
-  string phoneNumber = 2;
-  string verifyCode = 3;
+//  string areaCode = 1;
+//  string phoneNumber = 2;
+//  string verifyCode = 3;
   string password = 4;
-  string email = 5;
+//  string email = 5;
 }
 
 message ResetPasswordResp {}
@@ -325,42 +324,47 @@ service chat {
 
   rpc SendVerifyImgCode(SendVerifyImgCodeReq) returns (SendVerifyImgCodeResp){
     option (google.api.http) = {
-      post:"/account/imgcode/send"
+      post:"/chat/account/imgcode/send"
       body: "*"
     };
   };
   rpc VerifyImgCode(VerifyImgCodeReq) returns (VerifyImgCodeResp) {
     option (google.api.http) = {
-      post:"/account/imgcode/verify"
+      post:"/chat/account/imgcode/verify"
       body: "*"
     };
   };
 
   rpc SendVerifyCode(SendVerifyCodeReq) returns (SendVerifyCodeResp) {
     option (google.api.http) = {
-      post:"/account/code/send"
+      post:"/chat/account/code/send"
       body: "*"
     };
   };
   rpc VerifyCode(VerifyCodeReq) returns (VerifyCodeResp) {
     option (google.api.http) = {
-      post:"/account/code/verify"
+      post:"/chat/account/code/verify"
       body: "*"
     };
   };
   rpc RegisterUser(RegisterUserReq) returns (RegisterUserResp){
     option (google.api.http) = {
-      post:"/account/register"
+      post:"/chat/account/register"
       body: "*"
     };
   };
   rpc Login(LoginReq) returns (LoginResp) {
     option (google.api.http) = {
-      post:"/account/login"
+      post:"/chat/account/login"
       body: "*"
     };
   };
-  rpc ResetPassword(ResetPasswordReq) returns (ResetPasswordResp);
+  rpc ResetPassword(ResetPasswordReq) returns (ResetPasswordResp) {
+    option (google.api.http) = {
+      post:"/chat/account/password/reset"
+      body: "*"
+    };
+  };
   rpc ChangePassword(ChangePasswordReq) returns (ChangePasswordResp);
   rpc CheckUserExist(CheckUserExistReq) returns (CheckUserExistResp);
   rpc DelUserAccount(DelUserAccountReq) returns (DelUserAccountResp);

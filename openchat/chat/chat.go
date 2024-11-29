@@ -180,25 +180,25 @@ func (x *ResetPasswordReq) Check() error {
 	if x.Password == "" {
 		return errs.ErrArgs.WrapMsg("password is empty")
 	}
-	if x.Email == "" {
-		if x.AreaCode == "" {
-			return errs.ErrArgs.WrapMsg("AreaCode is empty")
-		} else if err := AreaCodeCheck(x.AreaCode); err != nil {
-			return err
-		}
-		if x.PhoneNumber == "" {
-			return errs.ErrArgs.WrapMsg("PhoneNumber is empty")
-		} else if err := PhoneNumberCheck(x.PhoneNumber); err != nil {
-			return err
-		}
-	} else {
-		if err := EmailCheck(x.Email); err != nil {
-			return err
-		}
-	}
-	if x.VerifyCode == "" {
-		return errs.ErrArgs.WrapMsg("VerifyCode is empty")
-	}
+	//if x.Email == "" {
+	//	if x.AreaCode == "" {
+	//		return errs.ErrArgs.WrapMsg("AreaCode is empty")
+	//	} else if err := AreaCodeCheck(x.AreaCode); err != nil {
+	//		return err
+	//	}
+	//	if x.PhoneNumber == "" {
+	//		return errs.ErrArgs.WrapMsg("PhoneNumber is empty")
+	//	} else if err := PhoneNumberCheck(x.PhoneNumber); err != nil {
+	//		return err
+	//	}
+	//} else {
+	//	if err := EmailCheck(x.Email); err != nil {
+	//		return err
+	//	}
+	//}
+	//if x.VerifyCode == "" {
+	//	return errs.ErrArgs.WrapMsg("VerifyCode is empty")
+	//}
 	return nil
 }
 

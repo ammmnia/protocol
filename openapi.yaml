@@ -6,7 +6,7 @@ info:
     title: Chat API
     version: 0.0.1
 paths:
-    /account/code/send:
+    /chat/account/code/send:
         post:
             tags:
                 - Chat
@@ -30,7 +30,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/code/verify:
+    /chat/account/code/verify:
         post:
             tags:
                 - Chat
@@ -54,7 +54,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/imgcode/send:
+    /chat/account/imgcode/send:
         post:
             tags:
                 - Chat
@@ -78,7 +78,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/imgcode/verify:
+    /chat/account/imgcode/verify:
         post:
             tags:
                 - Chat
@@ -102,7 +102,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/login:
+    /chat/account/login:
         post:
             tags:
                 - Chat
@@ -126,7 +126,31 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
-    /account/register:
+    /chat/account/password/reset:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_ResetPassword
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ResetPasswordReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ResetPasswordResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /chat/account/register:
         post:
             tags:
                 - Chat
@@ -163,13 +187,12 @@ components:
         LoginReq:
             type: object
             properties:
-                verifyCode:
+                account:
                     type: string
                     description: |-
                         string areaCode = 1;
                           string phoneNumber = 2;
-                account:
-                    type: string
+                          string verifyCode = 3;
                 password:
                     type: string
                 platform:
@@ -236,6 +259,18 @@ components:
                     type: string
                 chatToken:
                     type: string
+        ResetPasswordReq:
+            type: object
+            properties:
+                password:
+                    type: string
+                    description: |-
+                        string areaCode = 1;
+                          string phoneNumber = 2;
+                          string verifyCode = 3;
+        ResetPasswordResp:
+            type: object
+            properties: {}
         SendVerifyCodeReq:
             type: object
             properties:

@@ -13788,7 +13788,7 @@ func (m *UpdateRoleReq) validate(all bool) error {
 
 	// no validation rules for RoleName
 
-	// no validation rules for RoleFlag
+	// no validation rules for RoleCode
 
 	// no validation rules for Desc
 
@@ -14097,7 +14097,7 @@ func (m *RoleInfoResp) validate(all bool) error {
 
 	// no validation rules for RoleName
 
-	// no validation rules for RoleFlag
+	// no validation rules for RoleCode
 
 	// no validation rules for Desc
 
@@ -14202,7 +14202,7 @@ func (m *AddRoleReq) validate(all bool) error {
 
 	// no validation rules for RoleName
 
-	// no validation rules for RoleFlag
+	// no validation rules for RoleCode
 
 	// no validation rules for Desc
 
@@ -14606,7 +14606,7 @@ func (m *SearchRoleReq) validate(all bool) error {
 
 	// no validation rules for RoleName
 
-	// no validation rules for RoleFlag
+	// no validation rules for RoleCode
 
 	// no validation rules for Desc
 
@@ -14718,7 +14718,7 @@ func (m *SearchRoleResp) validate(all bool) error {
 
 	// no validation rules for RoleName
 
-	// no validation rules for RoleFlag
+	// no validation rules for RoleCode
 
 	// no validation rules for Desc
 

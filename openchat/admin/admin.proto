@@ -603,7 +603,7 @@ message DisableMenuResp {
 message UpdateRoleReq {
   uint64 roleId = 1;
   string roleName = 2;
-  uint32 roleFlag = 3;
+  string roleCode = 3;
   string desc = 4;
 }
 
@@ -618,13 +618,13 @@ message RoleInfoReq {
 message RoleInfoResp {
    uint64 roleId = 1;
    string roleName = 2;
-   string roleFlag = 3;
+   string roleCode = 3;
    string desc = 4;
 }
 
 message AddRoleReq {
     string roleName = 1;
-    string roleFlag = 2;
+    string roleCode = 2;
     string desc = 3;
 }
 
@@ -644,7 +644,7 @@ message DelRoleResp {
 
 message SearchRoleReq {
   string roleName = 1;
-  string roleFlag = 2;
+  string roleCode = 2;
   string desc = 3;
   uint32 status = 4;
   string createBy = 5;
@@ -653,7 +653,7 @@ message SearchRoleReq {
 
 message SearchRoleResp {
   string roleName = 1;
-  string roleFlag = 2;
+  string roleCode = 2;
   string desc = 3;
   uint32 status = 4;
   string createBy = 5;

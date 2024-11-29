@@ -13792,6 +13792,8 @@ func (m *UpdateRoleReq) validate(all bool) error {
 
 	// no validation rules for Desc
 
+	// no validation rules for Status
+
 	if len(errors) > 0 {
 		return UpdateRoleReqMultiError(errors)
 	}
@@ -14205,6 +14207,8 @@ func (m *AddRoleReq) validate(all bool) error {
 	// no validation rules for RoleCode
 
 	// no validation rules for Desc
+
+	// no validation rules for Status
 
 	if len(errors) > 0 {
 		return AddRoleReqMultiError(errors)

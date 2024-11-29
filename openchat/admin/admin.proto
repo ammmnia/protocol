@@ -605,6 +605,7 @@ message UpdateRoleReq {
   string roleName = 2;
   string roleCode = 3;
   string desc = 4;
+  uint32 status = 5;
 }
 
 message UpdateRoleResp {
@@ -626,6 +627,7 @@ message AddRoleReq {
     string roleName = 1;
     string roleCode = 2;
     string desc = 3;
+    uint32 status = 4;
 }
 
 message AddRoleResp {

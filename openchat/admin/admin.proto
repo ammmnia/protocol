@@ -617,10 +617,13 @@ message RoleInfoReq {
 }
 
 message RoleInfoResp {
-   uint64 roleId = 1;
-   string roleName = 2;
-   string roleCode = 3;
-   string desc = 4;
+  uint64 roleId = 1;
+  string roleName = 2;
+  string roleCode = 3;
+  string desc = 4;
+  uint32 status = 5;
+  string createBy = 6;
+  string opTime = 7;
 }
 
 message AddRoleReq {
@@ -650,16 +653,15 @@ message SearchRoleReq {
   string desc = 3;
   uint32 status = 4;
   string createBy = 5;
-  string opTime = 6;
+  string startTime = 6;
+  string endTime = 7;
+  openim.openchat.sdkws.RequestPagination pagination = 8;
 }
 
 message SearchRoleResp {
-  string roleName = 1;
-  string roleCode = 2;
-  string desc = 3;
-  uint32 status = 4;
-  string createBy = 5;
-  string opTime = 6;
+  repeated RoleInfoResp roleInfo = 1;
+  uint64 total = 2;
+  uint64 pages = 3;
 }
 
 message DisableRoleReq {

@@ -14103,6 +14103,12 @@ func (m *RoleInfoResp) validate(all bool) error {
 
 	// no validation rules for Desc
 
+	// no validation rules for Status
+
+	// no validation rules for CreateBy
+
+	// no validation rules for OpTime
+
 	if len(errors) > 0 {
 		return RoleInfoRespMultiError(errors)
 	}
@@ -14618,7 +14624,38 @@ func (m *SearchRoleReq) validate(all bool) error {
 
 	// no validation rules for CreateBy
 
-	// no validation rules for OpTime
+	// no validation rules for StartTime
+
+	// no validation rules for EndTime
+
+	if all {
+		switch v := interface{}(m.GetPagination()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, SearchRoleReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, SearchRoleReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return SearchRoleReqValidationError{
+				field:  "Pagination",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if len(errors) > 0 {
 		return SearchRoleReqMultiError(errors)
@@ -14720,17 +14757,43 @@ func (m *SearchRoleResp) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for RoleName
+	for idx, item := range m.GetRoleInfo() {
+		_, _ = idx, item
 
-	// no validation rules for RoleCode
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SearchRoleRespValidationError{
+						field:  fmt.Sprintf("RoleInfo[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SearchRoleRespValidationError{
+						field:  fmt.Sprintf("RoleInfo[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SearchRoleRespValidationError{
+					field:  fmt.Sprintf("RoleInfo[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
 
-	// no validation rules for Desc
+	}
 
-	// no validation rules for Status
+	// no validation rules for Total
 
-	// no validation rules for CreateBy
-
-	// no validation rules for OpTime
+	// no validation rules for Pages
 
 	if len(errors) > 0 {
 		return SearchRoleRespMultiError(errors)

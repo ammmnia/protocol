@@ -14107,7 +14107,7 @@ func (m *RoleInfoResp) validate(all bool) error {
 
 	// no validation rules for CreateBy
 
-	// no validation rules for OpTime
+	// no validation rules for CreateTime
 
 	if len(errors) > 0 {
 		return RoleInfoRespMultiError(errors)

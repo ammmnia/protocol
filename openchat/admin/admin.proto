@@ -623,7 +623,7 @@ message RoleInfoResp {
   string desc = 4;
   uint32 status = 5;
   string createBy = 6;
-  string opTime = 7;
+  int64 createTime = 7;
 }
 
 message AddRoleReq {

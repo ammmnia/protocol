@@ -91,6 +91,12 @@ func (m *GroupInfo) validate(all bool) error {
 
 	// no validation rules for NotificationUserID
 
+	// no validation rules for LastSpeakingTime
+
+	// no validation rules for Operator
+
+	// no validation rules for ChangeTime
+
 	if len(errors) > 0 {
 		return GroupInfoMultiError(errors)
 	}

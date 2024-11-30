@@ -39,6 +39,9 @@ message GroupInfo {
   int32 applyMemberFriend = 15;
   int64 notificationUpdateTime = 16;
   string notificationUserID = 17;
+  int64 LastSpeakingTime = 18;//最近发言时间
+  string operator = 19;//操作人
+  int64 changeTime = 20;//操作时间
 }
 
 message GroupInfoForSet {

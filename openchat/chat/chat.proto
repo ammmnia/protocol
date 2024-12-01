@@ -313,14 +313,29 @@ message GetAllowRegisterResp {
 
 service chat {
   // Edit personal information - called by the user or an administrator
-  rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp);
+  rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/update"
+      body: "*"
+    };
+  };
   rpc AddUserAccount(AddUserAccountReq) returns (AddUserAccountResp);
   // Get user's public information - called by strangers
   rpc SearchUserPublicInfo(SearchUserPublicInfoReq) returns (SearchUserPublicInfoResp);
   rpc FindUserPublicInfo(FindUserPublicInfoReq) returns (FindUserPublicInfoResp);
   // Search user information - called by administrators, other users get public fields
-  rpc SearchUserFullInfo(SearchUserFullInfoReq) returns (SearchUserFullInfoResp);
-  rpc FindUserFullInfo(FindUserFullInfoReq) returns (FindUserFullInfoResp);
+  rpc SearchUserFullInfo(SearchUserFullInfoReq) returns (SearchUserFullInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/search/full"
+      body: "*"
+    };
+  };
+  rpc FindUserFullInfo(FindUserFullInfoReq) returns (FindUserFullInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/find/full"
+      body: "*"
+    };
+  };
 
   rpc SendVerifyImgCode(SendVerifyImgCodeReq) returns (SendVerifyImgCodeResp){
     option (google.api.http) = {

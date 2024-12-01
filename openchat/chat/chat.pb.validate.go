@@ -2401,8 +2401,6 @@ func (m *RegisterUserInfo) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for RegisterType
-
 	if len(errors) > 0 {
 		return RegisterUserInfoMultiError(errors)
 	}
@@ -2503,17 +2501,9 @@ func (m *RegisterUserReq) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for InvitationCode
-
 	// no validation rules for VerifyCode
 
-	// no validation rules for Ip
-
-	// no validation rules for DeviceID
-
 	// no validation rules for Platform
-
-	// no validation rules for AutoLogin
 
 	if all {
 		switch v := interface{}(m.GetUser()).(type) {

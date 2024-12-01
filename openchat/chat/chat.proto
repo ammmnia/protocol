@@ -135,17 +135,12 @@ message RegisterUserInfo {
 //  string email = 8;
   string account = 9;
   string password = 10;
-  int32 RegisterType = 11;
 }
 
 message RegisterUserReq {
-  string invitationCode = 1;
-  string verifyCode = 2;
-  string ip = 3;
-  string deviceID = 4;
-  int32 platform = 5;
-  bool autoLogin = 6;
-  RegisterUserInfo user = 7;
+  string verifyCode = 1;
+  int32 platform = 2;
+  RegisterUserInfo user = 4;
 }
 
 message RegisterUserResp {

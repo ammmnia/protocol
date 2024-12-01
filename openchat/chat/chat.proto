@@ -17,7 +17,7 @@ package openim.openchat.chat;
 
 import "google/api/annotations.proto";
 import "openchat/common/common.proto";
-import "openchat/sdkws/sdkws.proto";
+import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/chat";
@@ -64,7 +64,7 @@ message FindUserPublicInfoResp {
 
 message SearchUserPublicInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
 }
 
@@ -234,7 +234,7 @@ message OpenIMCallbackResp {}
 
 message SearchUserFullInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
   int32 normal = 4;
 }
@@ -262,7 +262,7 @@ message LoginResp {
 
 message SearchUserInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   repeated int32 genders = 3;
   repeated string userIDs = 4;
 }

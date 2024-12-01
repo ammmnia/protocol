@@ -113,6 +113,9 @@ func (x *RegisterUserReq) Check() error {
 	//if x.VerifyCode == "" {
 	//	return errs.ErrArgs.WrapMsg("VerifyCode is empty")
 	//}
+	if len(x.Ip) <= 0 {
+		return errs.ErrArgs.WrapMsg("ip is empty")
+	}
 	if x.Platform < constantpb.IOSPlatformID || x.Platform > constantpb.AdminPlatformID {
 		return errs.ErrArgs.WrapMsg("platform is invalid")
 	}

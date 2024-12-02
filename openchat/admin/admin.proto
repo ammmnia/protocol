@@ -16,7 +16,7 @@ syntax = "proto3";
 package openim.openchat.admin;
 
 import "openchat/common/common.proto";
-import "openchat/sdkws/sdkws.proto";
+import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/admin";
@@ -97,7 +97,7 @@ message DelAdminAccountReq {
 message DelAdminAccountResp {}
 
 message SearchAdminAccountReq {
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   string userName = 3;
   uint64 roleId = 4;
   string opUserName = 5;
@@ -156,7 +156,7 @@ message FindDefaultFriendResp {
 
 message SearchDefaultFriendReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message DefaultFriendAttribute {
@@ -192,13 +192,13 @@ message FindDefaultGroupResp {
 
 message SearchDefaultGroupReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message GroupAttribute {
   string groupID = 1;
   int64 createTime = 2;
-  openim.openchat.sdkws.GroupInfo group = 3;
+  openim.sdkws.GroupInfo group = 3;
 }
 
 message SearchDefaultGroupResp {
@@ -255,7 +255,7 @@ message SearchInvitationCodeReq {
   repeated string userIDs = 2;
   repeated string codes = 3;
   string keyword = 4;
-  openim.openchat.sdkws.RequestPagination pagination = 5;
+  openim.sdkws.RequestPagination pagination = 5;
 }
 
 message SearchInvitationCodeResp {
@@ -267,7 +267,7 @@ message SearchInvitationCodeResp {
 
 message SearchUserIPLimitLoginReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message LimitUserLoginIP {
@@ -317,7 +317,7 @@ message IPForbiddenAdd {
 message SearchIPForbiddenReq {
   string keyword = 1;
   int32 status = 2;
-  openim.openchat.sdkws.RequestPagination pagination = 3;
+  openim.sdkws.RequestPagination pagination = 3;
 }
 
 message SearchIPForbiddenResp {
@@ -373,7 +373,7 @@ message UnblockUserResp {}
 
 message SearchBlockUserReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message BlockUserInfo {
@@ -485,7 +485,7 @@ message FindAppletResp {
 
 message SearchAppletReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message SearchAppletResp {
@@ -564,7 +564,7 @@ message SearchMenuReq {
   string createBy = 10;
   string startTime = 11;
   string endTime = 12;
-  openim.openchat.sdkws.RequestPagination pagination = 13;
+  openim.sdkws.RequestPagination pagination = 13;
 }
 
 message DisableMenuReq {
@@ -655,7 +655,7 @@ message SearchRoleReq {
   string createBy = 5;
   string startTime = 6;
   string endTime = 7;
-  openim.openchat.sdkws.RequestPagination pagination = 8;
+  openim.sdkws.RequestPagination pagination = 8;
 }
 
 message SearchRoleResp {

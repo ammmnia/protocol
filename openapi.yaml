@@ -174,8 +174,96 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/Status'
+    /chat/user/find/full:
+        post:
+            tags:
+                - Chat
+            operationId: Chat_FindUserFullInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/FindUserFullInfoReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/FindUserFullInfoResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /chat/user/search/full:
+        post:
+            tags:
+                - Chat
+            description: Search user information - called by administrators, other users get public fields
+            operationId: Chat_SearchUserFullInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/SearchUserFullInfoReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/SearchUserFullInfoResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /chat/user/update:
+        post:
+            tags:
+                - Chat
+            description: Edit personal information - called by the user or an administrator
+            operationId: Chat_UpdateUserInfo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateUserInfoReq'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateUserInfoResp'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
 components:
     schemas:
+        FindUserFullInfoReq:
+            type: object
+            properties:
+                userIDs:
+                    type: array
+                    items:
+                        type: string
+        FindUserFullInfoResp:
+            type: object
+            properties:
+                users:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserFullInfo'
         GoogleProtobufAny:
             type: object
             properties:
@@ -259,6 +347,15 @@ components:
                     type: string
                 chatToken:
                     type: string
+        RequestPagination:
+            type: object
+            properties:
+                pageNumber:
+                    type: integer
+                    format: int32
+                showNumber:
+                    type: integer
+                    format: int32
         ResetPasswordReq:
             type: object
             properties:
@@ -271,6 +368,29 @@ components:
         ResetPasswordResp:
             type: object
             properties: {}
+        SearchUserFullInfoReq:
+            type: object
+            properties:
+                keyword:
+                    type: string
+                pagination:
+                    $ref: '#/components/schemas/RequestPagination'
+                genders:
+                    type: integer
+                    format: int32
+                normal:
+                    type: integer
+                    format: int32
+        SearchUserFullInfoResp:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    format: uint32
+                users:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserFullInfo'
         SendVerifyCodeReq:
             type: object
             properties:
@@ -333,6 +453,81 @@ components:
                         $ref: '#/components/schemas/GoogleProtobufAny'
                     description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
             description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        UpdateUserInfoReq:
+            type: object
+            properties:
+                userInfo:
+                    $ref: '#/components/schemas/UserInfo'
+        UpdateUserInfoResp:
+            type: object
+            properties: {}
+        UserFullInfo:
+            type: object
+            properties:
+                userID:
+                    type: string
+                password:
+                    type: string
+                account:
+                    type: string
+                phoneNumber:
+                    type: string
+                areaCode:
+                    type: string
+                email:
+                    type: string
+                nickname:
+                    type: string
+                faceURL:
+                    type: string
+                gender:
+                    type: integer
+                    format: int32
+                level:
+                    type: integer
+                    format: int32
+                birth:
+                    type: string
+                allowAddFriend:
+                    type: integer
+                    format: int32
+                allowBeep:
+                    type: integer
+                    format: int32
+                allowVibration:
+                    type: integer
+                    format: int32
+                globalRecvMsgOpt:
+                    type: integer
+                    format: int32
+                registerType:
+                    type: integer
+                    format: int32
+                createTime:
+                    type: string
+                changeTime:
+                    type: string
+                lastLoginTime:
+                    type: string
+                operator:
+                    type: string
+                userStatus:
+                    type: integer
+                    format: int32
+                onlineStatus:
+                    type: integer
+                    format: int32
+        UserInfo:
+            type: object
+            properties:
+                userID:
+                    type: string
+                nickname:
+                    type: string
+                account:
+                    type: string
+                password:
+                    type: string
         VerifyCodeReq:
             type: object
             properties:

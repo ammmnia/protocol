@@ -34,6 +34,12 @@ message UserFullInfo{
   int32  allowVibration = 14;
   int32 globalRecvMsgOpt = 15;
   int32 registerType = 16;
+  int64 createTime = 17;//注册时间
+  int64 changeTime = 18;//操作时间
+  int64 lastLoginTime = 19;//最近登录时间
+  string operator = 20;//操作人
+  int32 userStatus = 21;//用户状态
+  int32 onlineStatus = 22;//在线状态
 }
 
 message UserPublicInfo{

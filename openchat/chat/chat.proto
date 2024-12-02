@@ -17,7 +17,7 @@ package openim.openchat.chat;
 
 import "google/api/annotations.proto";
 import "openchat/common/common.proto";
-import "openchat/sdkws/sdkws.proto";
+import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/chat";
@@ -64,7 +64,7 @@ message FindUserPublicInfoResp {
 
 message SearchUserPublicInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
 }
 
@@ -234,7 +234,7 @@ message OpenIMCallbackResp {}
 
 message SearchUserFullInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   int32 genders = 3;
   int32 normal = 4;
 }
@@ -262,7 +262,7 @@ message LoginResp {
 
 message SearchUserInfoReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   repeated int32 genders = 3;
   repeated string userIDs = 4;
 }
@@ -313,14 +313,29 @@ message GetAllowRegisterResp {
 
 service chat {
   // Edit personal information - called by the user or an administrator
-  rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp);
+  rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/update"
+      body: "*"
+    };
+  };
   rpc AddUserAccount(AddUserAccountReq) returns (AddUserAccountResp);
   // Get user's public information - called by strangers
   rpc SearchUserPublicInfo(SearchUserPublicInfoReq) returns (SearchUserPublicInfoResp);
   rpc FindUserPublicInfo(FindUserPublicInfoReq) returns (FindUserPublicInfoResp);
   // Search user information - called by administrators, other users get public fields
-  rpc SearchUserFullInfo(SearchUserFullInfoReq) returns (SearchUserFullInfoResp);
-  rpc FindUserFullInfo(FindUserFullInfoReq) returns (FindUserFullInfoResp);
+  rpc SearchUserFullInfo(SearchUserFullInfoReq) returns (SearchUserFullInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/search/full"
+      body: "*"
+    };
+  };
+  rpc FindUserFullInfo(FindUserFullInfoReq) returns (FindUserFullInfoResp) {
+    option (google.api.http) = {
+      post:"/chat/user/find/full"
+      body: "*"
+    };
+  };
 
   rpc SendVerifyImgCode(SendVerifyImgCodeReq) returns (SendVerifyImgCodeResp){
     option (google.api.http) = {

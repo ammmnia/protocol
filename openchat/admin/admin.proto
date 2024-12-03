@@ -767,7 +767,7 @@ message VersionInfoResp {
   uint32 ShowForceUpgrade = 7;
   uint32 ShowUpgradeTip = 8;
   uint64 versionId = 10;
-  uint64 creatTime = 11;
+  int64 creatTime = 11;
 }
 
 message DelVersionReq {

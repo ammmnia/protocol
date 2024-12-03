@@ -711,7 +711,7 @@ message DelRoleMenuResp {
 // 跟新版本请求
 message UpdateVersionReq {
   string ProductName = 1;
-  string Platform = 2;
+  uint32 Platform = 2;
   string VersionCode = 3;
   string Desc = 4;
   string AndroidDownloadUrl = 5;
@@ -726,7 +726,7 @@ message UpdateVersionResp {
 
 message AddVersionReq {
   string ProductName = 1;
-  string Platform = 2;
+  uint32 Platform = 2;
   string VersionCode = 3;
   string Desc = 4;
   string AndroidDownloadUrl = 5;
@@ -739,7 +739,7 @@ message AddVersionResp {
 }
 message SearchVersionReq {
   string ProductName = 1;
-  string Platform = 2;
+  uint32 Platform = 2;
   string VersionCode = 3;
   uint32 ForceUpgrade = 4;
   string createBy = 5;
@@ -760,7 +760,7 @@ message VersionInfoReq {
 
 message VersionInfoResp {
   string ProductName = 1;
-  string Platform = 2;
+  uint32 Platform = 2;
   string VersionCode = 3;
   string Desc = 4;
   string AndroidDownloadUrl = 5;

@@ -777,7 +777,14 @@ message DelVersionReq {
 message DelVersionResp {
 
 }
-
+message CheckVersionReq {
+  uint32 platform = 1;  //1:安卓，2:ios
+}
+message CheckVersionResp {
+  string curVersion = 1;
+  string downloadUrl = 2;
+  string desc = 3;
+}
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -881,4 +888,5 @@ service admin {
   rpc AddVersion(AddVersionReq) returns (AddVersionResp);
   rpc DelVersion(DelVersionReq) returns (DelVersionResp);
   rpc SearchVersion(SearchVersionReq) returns (SearchVersionResp);
+  rpc CheckVersion(CheckVersionReq) returns(CheckVersionResp);
 }

@@ -17058,3 +17058,211 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = DelVersionRespValidationError{}
+
+// Validate checks the field values on CheckVersionReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *CheckVersionReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckVersionReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckVersionReqMultiError, or nil if none found.
+func (m *CheckVersionReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckVersionReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Platform
+
+	if len(errors) > 0 {
+		return CheckVersionReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckVersionReqMultiError is an error wrapping multiple validation errors
+// returned by CheckVersionReq.ValidateAll() if the designated constraints
+// aren't met.
+type CheckVersionReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckVersionReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckVersionReqMultiError) AllErrors() []error { return m }
+
+// CheckVersionReqValidationError is the validation error returned by
+// CheckVersionReq.Validate if the designated constraints aren't met.
+type CheckVersionReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckVersionReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckVersionReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckVersionReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckVersionReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckVersionReqValidationError) ErrorName() string { return "CheckVersionReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CheckVersionReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckVersionReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckVersionReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckVersionReqValidationError{}
+
+// Validate checks the field values on CheckVersionResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *CheckVersionResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckVersionResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckVersionRespMultiError, or nil if none found.
+func (m *CheckVersionResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckVersionResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for CurVersion
+
+	// no validation rules for DownloadUrl
+
+	// no validation rules for Desc
+
+	if len(errors) > 0 {
+		return CheckVersionRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckVersionRespMultiError is an error wrapping multiple validation errors
+// returned by CheckVersionResp.ValidateAll() if the designated constraints
+// aren't met.
+type CheckVersionRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckVersionRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckVersionRespMultiError) AllErrors() []error { return m }
+
+// CheckVersionRespValidationError is the validation error returned by
+// CheckVersionResp.Validate if the designated constraints aren't met.
+type CheckVersionRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckVersionRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckVersionRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckVersionRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckVersionRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckVersionRespValidationError) ErrorName() string { return "CheckVersionRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CheckVersionRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckVersionResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckVersionRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckVersionRespValidationError{}

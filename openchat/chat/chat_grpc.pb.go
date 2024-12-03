@@ -57,7 +57,6 @@ const (
 	Chat_GetTokenForVideoMeeting_FullMethodName = "/openim.openchat.chat.chat/GetTokenForVideoMeeting"
 	Chat_SetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/SetAllowRegister"
 	Chat_GetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/GetAllowRegister"
-	Chat_CheckVersion_FullMethodName            = "/openim.openchat.chat.chat/CheckVersion"
 )
 
 // ChatClient is the client API for Chat service.
@@ -93,8 +92,6 @@ type ChatClient interface {
 	GetTokenForVideoMeeting(ctx context.Context, in *GetTokenForVideoMeetingReq, opts ...grpc.CallOption) (*GetTokenForVideoMeetingResp, error)
 	SetAllowRegister(ctx context.Context, in *SetAllowRegisterReq, opts ...grpc.CallOption) (*SetAllowRegisterResp, error)
 	GetAllowRegister(ctx context.Context, in *GetAllowRegisterReq, opts ...grpc.CallOption) (*GetAllowRegisterResp, error)
-	// version
-	CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error)
 }
 
 type chatClient struct {
@@ -321,15 +318,6 @@ func (c *chatClient) GetAllowRegister(ctx context.Context, in *GetAllowRegisterR
 	return out, nil
 }
 
-func (c *chatClient) CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error) {
-	out := new(CheckVersionResp)
-	err := c.cc.Invoke(ctx, Chat_CheckVersion_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ChatServer is the server API for Chat service.
 // All implementations must embed UnimplementedChatServer
 // for forward compatibility
@@ -363,8 +351,6 @@ type ChatServer interface {
 	GetTokenForVideoMeeting(context.Context, *GetTokenForVideoMeetingReq) (*GetTokenForVideoMeetingResp, error)
 	SetAllowRegister(context.Context, *SetAllowRegisterReq) (*SetAllowRegisterResp, error)
 	GetAllowRegister(context.Context, *GetAllowRegisterReq) (*GetAllowRegisterResp, error)
-	// version
-	CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error)
 	mustEmbedUnimplementedChatServer()
 }
 
@@ -443,9 +429,6 @@ func (UnimplementedChatServer) SetAllowRegister(context.Context, *SetAllowRegist
 }
 func (UnimplementedChatServer) GetAllowRegister(context.Context, *GetAllowRegisterReq) (*GetAllowRegisterResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllowRegister not implemented")
-}
-func (UnimplementedChatServer) CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CheckVersion not implemented")
 }
 func (UnimplementedChatServer) mustEmbedUnimplementedChatServer() {}
 
@@ -892,24 +875,6 @@ func _Chat_GetAllowRegister_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Chat_CheckVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CheckVersionReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChatServer).CheckVersion(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Chat_CheckVersion_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServer).CheckVersion(ctx, req.(*CheckVersionReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // Chat_ServiceDesc is the grpc.ServiceDesc for Chat service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1012,10 +977,6 @@ var Chat_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAllowRegister",
 			Handler:    _Chat_GetAllowRegister_Handler,
-		},
-		{
-			MethodName: "CheckVersion",
-			Handler:    _Chat_CheckVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

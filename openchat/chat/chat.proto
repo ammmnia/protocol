@@ -309,17 +309,6 @@ message GetAllowRegisterReq {
 message GetAllowRegisterResp {
   bool allowRegister = 1;
 }
-
-//version
-message CheckVersionReq {
-  uint32 platform = 1;  //1:安卓，2:ios
-}
-message CheckVersionResp {
-  string curVersion = 1;
-  string downloadUrl = 2;
-  string desc = 3;
-}
-
 service chat {
   // Edit personal information - called by the user or an administrator
   rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp) {
@@ -407,7 +396,4 @@ service chat {
 
   rpc SetAllowRegister(SetAllowRegisterReq) returns(SetAllowRegisterResp);
   rpc GetAllowRegister(GetAllowRegisterReq) returns(GetAllowRegisterResp);
-
-  // version
-  rpc CheckVersion(CheckVersionReq) returns(CheckVersionResp);
 }

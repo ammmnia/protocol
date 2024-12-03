@@ -16494,35 +16494,6 @@ func (m *SearchVersionResp) validate(all bool) error {
 
 	// no validation rules for Pages
 
-	if all {
-		switch v := interface{}(m.GetPagination()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, SearchVersionRespValidationError{
-					field:  "Pagination",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, SearchVersionRespValidationError{
-					field:  "Pagination",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return SearchVersionRespValidationError{
-				field:  "Pagination",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
 	for idx, item := range m.GetVersions() {
 		_, _ = idx, item
 

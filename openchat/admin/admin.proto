@@ -750,7 +750,6 @@ message SearchVersionReq {
 message SearchVersionResp {
   uint64 total = 1;
   uint64 pages = 2;
-  openim.sdkws.RequestPagination pagination = 3;
   repeated VersionInfoResp versions = 4;
 }
 

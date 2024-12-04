@@ -309,6 +309,18 @@ message GetAllowRegisterReq {
 message GetAllowRegisterResp {
   bool allowRegister = 1;
 }
+
+message FindLoginRecordReq {
+  repeated string userIDs = 1;
+  openim.sdkws.RequestPagination pagination = 2;
+}
+
+message FindLoginRecordResp {
+  uint32 total = 1;
+  repeated openim.openchat.common.UserLoginRecord loginRecord = 2;
+}
+
+
 service chat {
   // Edit personal information - called by the user or an administrator
   rpc UpdateUserInfo(UpdateUserInfoReq) returns (UpdateUserInfoResp) {
@@ -396,4 +408,6 @@ service chat {
 
   rpc SetAllowRegister(SetAllowRegisterReq) returns(SetAllowRegisterResp);
   rpc GetAllowRegister(GetAllowRegisterReq) returns(GetAllowRegisterResp);
+
+  rpc FindLoginRecord(FindLoginRecordReq) returns (FindLoginRecordResp);
 }

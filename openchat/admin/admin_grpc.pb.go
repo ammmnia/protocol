@@ -85,6 +85,7 @@ type AdminClient interface {
 	CreateToken(ctx context.Context, in *CreateTokenReq, opts ...grpc.CallOption) (*CreateTokenResp, error)
 	// parse token
 	ParseToken(ctx context.Context, in *ParseTokenReq, opts ...grpc.CallOption) (*ParseTokenResp, error)
+	// get user token
 	GetUserToken(ctx context.Context, in *GetUserTokenReq, opts ...grpc.CallOption) (*GetUserTokenResp, error)
 	// invalidate token
 	InvalidateToken(ctx context.Context, in *InvalidateTokenReq, opts ...grpc.CallOption) (*InvalidateTokenResp, error)
@@ -407,6 +408,7 @@ type AdminServer interface {
 	CreateToken(context.Context, *CreateTokenReq) (*CreateTokenResp, error)
 	// parse token
 	ParseToken(context.Context, *ParseTokenReq) (*ParseTokenResp, error)
+	// get user token
 	GetUserToken(context.Context, *GetUserTokenReq) (*GetUserTokenResp, error)
 	// invalidate token
 	InvalidateToken(context.Context, *InvalidateTokenReq) (*InvalidateTokenResp, error)

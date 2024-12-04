@@ -376,11 +376,8 @@ service admin {
   rpc CreateToken(CreateTokenReq) returns (CreateTokenResp);
   // parse token
   rpc ParseToken(ParseTokenReq) returns (ParseTokenResp);
-
-
-
+  // get user token
   rpc GetUserToken(GetUserTokenReq) returns (GetUserTokenResp);
-
   // invalidate token
   rpc InvalidateToken(InvalidateTokenReq) returns (InvalidateTokenResp);
 
@@ -405,5 +402,4 @@ service admin {
   rpc RoleMenuInfo(RoleMenuInfoReq) returns (RoleMenuInfoResp);
   rpc AddRoleMenu(AddRoleMenuReq) returns (AddRoleMenuResp);
   rpc DelRoleMenu(DelRoleMenuReq) returns (DelRoleMenuResp);
-
 }

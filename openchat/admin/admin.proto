@@ -414,6 +414,7 @@ message FindUserBlockInfoResp {
 
 message CreateTokenReq {
   string userID = 1;
+  string account = 2;
   int32 userType = 32;
 }
 
@@ -778,7 +779,7 @@ message DelVersionResp {
 
 }
 message CheckVersionReq {
-  uint32 platform = 1;  //1:安卓，2:ios
+  uint32 platform = 1;  //1:安卓，2:ios，3:都有
 }
 message CheckVersionResp {
   string curVersion = 1;

@@ -9592,6 +9592,8 @@ func (m *CreateTokenReq) validate(all bool) error {
 
 	// no validation rules for UserID
 
+	// no validation rules for Account
+
 	// no validation rules for UserType
 
 	if len(errors) > 0 {

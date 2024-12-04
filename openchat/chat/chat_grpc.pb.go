@@ -58,6 +58,47 @@ const (
 	Chat_SetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/SetAllowRegister"
 	Chat_GetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/GetAllowRegister"
 	Chat_FindLoginRecord_FullMethodName         = "/openim.openchat.chat.chat/FindLoginRecord"
+	Chat_UpdateVersionInfo_FullMethodName       = "/openim.openchat.chat.chat/UpdateVersionInfo"
+	Chat_VersionInfo_FullMethodName             = "/openim.openchat.chat.chat/VersionInfo"
+	Chat_AddVersion_FullMethodName              = "/openim.openchat.chat.chat/AddVersion"
+	Chat_DelVersion_FullMethodName              = "/openim.openchat.chat.chat/DelVersion"
+	Chat_SearchVersion_FullMethodName           = "/openim.openchat.chat.chat/SearchVersion"
+	Chat_CheckVersion_FullMethodName            = "/openim.openchat.chat.chat/CheckVersion"
+	Chat_AddDefaultFriend_FullMethodName        = "/openim.openchat.chat.chat/AddDefaultFriend"
+	Chat_DelDefaultFriend_FullMethodName        = "/openim.openchat.chat.chat/DelDefaultFriend"
+	Chat_FindDefaultFriend_FullMethodName       = "/openim.openchat.chat.chat/FindDefaultFriend"
+	Chat_SearchDefaultFriend_FullMethodName     = "/openim.openchat.chat.chat/SearchDefaultFriend"
+	Chat_AddDefaultGroup_FullMethodName         = "/openim.openchat.chat.chat/AddDefaultGroup"
+	Chat_DelDefaultGroup_FullMethodName         = "/openim.openchat.chat.chat/DelDefaultGroup"
+	Chat_FindDefaultGroup_FullMethodName        = "/openim.openchat.chat.chat/FindDefaultGroup"
+	Chat_SearchDefaultGroup_FullMethodName      = "/openim.openchat.chat.chat/SearchDefaultGroup"
+	Chat_AddInvitationCode_FullMethodName       = "/openim.openchat.chat.chat/AddInvitationCode"
+	Chat_GenInvitationCode_FullMethodName       = "/openim.openchat.chat.chat/GenInvitationCode"
+	Chat_FindInvitationCode_FullMethodName      = "/openim.openchat.chat.chat/FindInvitationCode"
+	Chat_UseInvitationCode_FullMethodName       = "/openim.openchat.chat.chat/UseInvitationCode"
+	Chat_DelInvitationCode_FullMethodName       = "/openim.openchat.chat.chat/DelInvitationCode"
+	Chat_SearchInvitationCode_FullMethodName    = "/openim.openchat.chat.chat/SearchInvitationCode"
+	Chat_SearchUserIPLimitLogin_FullMethodName  = "/openim.openchat.chat.chat/SearchUserIPLimitLogin"
+	Chat_AddUserIPLimitLogin_FullMethodName     = "/openim.openchat.chat.chat/AddUserIPLimitLogin"
+	Chat_DelUserIPLimitLogin_FullMethodName     = "/openim.openchat.chat.chat/DelUserIPLimitLogin"
+	Chat_SearchIPForbidden_FullMethodName       = "/openim.openchat.chat.chat/SearchIPForbidden"
+	Chat_AddIPForbidden_FullMethodName          = "/openim.openchat.chat.chat/AddIPForbidden"
+	Chat_DelIPForbidden_FullMethodName          = "/openim.openchat.chat.chat/DelIPForbidden"
+	Chat_CancellationUser_FullMethodName        = "/openim.openchat.chat.chat/CancellationUser"
+	Chat_BlockUser_FullMethodName               = "/openim.openchat.chat.chat/BlockUser"
+	Chat_UnblockUser_FullMethodName             = "/openim.openchat.chat.chat/UnblockUser"
+	Chat_SearchBlockUser_FullMethodName         = "/openim.openchat.chat.chat/SearchBlockUser"
+	Chat_FindUserBlockInfo_FullMethodName       = "/openim.openchat.chat.chat/FindUserBlockInfo"
+	Chat_CheckRegisterForbidden_FullMethodName  = "/openim.openchat.chat.chat/CheckRegisterForbidden"
+	Chat_CheckLoginForbidden_FullMethodName     = "/openim.openchat.chat.chat/CheckLoginForbidden"
+	Chat_GetClientConfig_FullMethodName         = "/openim.openchat.chat.chat/GetClientConfig"
+	Chat_SetClientConfig_FullMethodName         = "/openim.openchat.chat.chat/SetClientConfig"
+	Chat_DelClientConfig_FullMethodName         = "/openim.openchat.chat.chat/DelClientConfig"
+	Chat_AddApplet_FullMethodName               = "/openim.openchat.chat.chat/AddApplet"
+	Chat_DelApplet_FullMethodName               = "/openim.openchat.chat.chat/DelApplet"
+	Chat_UpdateApplet_FullMethodName            = "/openim.openchat.chat.chat/UpdateApplet"
+	Chat_FindApplet_FullMethodName              = "/openim.openchat.chat.chat/FindApplet"
+	Chat_SearchApplet_FullMethodName            = "/openim.openchat.chat.chat/SearchApplet"
 )
 
 // ChatClient is the client API for Chat service.
@@ -91,9 +132,60 @@ type ChatClient interface {
 	SearchUserInfo(ctx context.Context, in *SearchUserInfoReq, opts ...grpc.CallOption) (*SearchUserInfoResp, error)
 	// Audio/video call and video meeting
 	GetTokenForVideoMeeting(ctx context.Context, in *GetTokenForVideoMeetingReq, opts ...grpc.CallOption) (*GetTokenForVideoMeetingResp, error)
+	// Allow Register
 	SetAllowRegister(ctx context.Context, in *SetAllowRegisterReq, opts ...grpc.CallOption) (*SetAllowRegisterResp, error)
 	GetAllowRegister(ctx context.Context, in *GetAllowRegisterReq, opts ...grpc.CallOption) (*GetAllowRegisterResp, error)
+	// Login Record
 	FindLoginRecord(ctx context.Context, in *FindLoginRecordReq, opts ...grpc.CallOption) (*FindLoginRecordResp, error)
+	// version
+	UpdateVersionInfo(ctx context.Context, in *UpdateVersionReq, opts ...grpc.CallOption) (*UpdateVersionResp, error)
+	VersionInfo(ctx context.Context, in *VersionInfoReq, opts ...grpc.CallOption) (*VersionInfoResp, error)
+	AddVersion(ctx context.Context, in *AddVersionReq, opts ...grpc.CallOption) (*AddVersionResp, error)
+	DelVersion(ctx context.Context, in *DelVersionReq, opts ...grpc.CallOption) (*DelVersionResp, error)
+	SearchVersion(ctx context.Context, in *SearchVersionReq, opts ...grpc.CallOption) (*SearchVersionResp, error)
+	CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error)
+	// Add Remove Get default friend list on registration
+	AddDefaultFriend(ctx context.Context, in *AddDefaultFriendReq, opts ...grpc.CallOption) (*AddDefaultFriendResp, error)
+	DelDefaultFriend(ctx context.Context, in *DelDefaultFriendReq, opts ...grpc.CallOption) (*DelDefaultFriendResp, error)
+	FindDefaultFriend(ctx context.Context, in *FindDefaultFriendReq, opts ...grpc.CallOption) (*FindDefaultFriendResp, error)
+	SearchDefaultFriend(ctx context.Context, in *SearchDefaultFriendReq, opts ...grpc.CallOption) (*SearchDefaultFriendResp, error)
+	AddDefaultGroup(ctx context.Context, in *AddDefaultGroupReq, opts ...grpc.CallOption) (*AddDefaultGroupResp, error)
+	DelDefaultGroup(ctx context.Context, in *DelDefaultGroupReq, opts ...grpc.CallOption) (*DelDefaultGroupResp, error)
+	FindDefaultGroup(ctx context.Context, in *FindDefaultGroupReq, opts ...grpc.CallOption) (*FindDefaultGroupResp, error)
+	SearchDefaultGroup(ctx context.Context, in *SearchDefaultGroupReq, opts ...grpc.CallOption) (*SearchDefaultGroupResp, error)
+	// Invitation Code Generate Query Get
+	AddInvitationCode(ctx context.Context, in *AddInvitationCodeReq, opts ...grpc.CallOption) (*AddInvitationCodeResp, error)
+	GenInvitationCode(ctx context.Context, in *GenInvitationCodeReq, opts ...grpc.CallOption) (*GenInvitationCodeResp, error)
+	FindInvitationCode(ctx context.Context, in *FindInvitationCodeReq, opts ...grpc.CallOption) (*FindInvitationCodeResp, error)
+	UseInvitationCode(ctx context.Context, in *UseInvitationCodeReq, opts ...grpc.CallOption) (*UseInvitationCodeResp, error)
+	DelInvitationCode(ctx context.Context, in *DelInvitationCodeReq, opts ...grpc.CallOption) (*DelInvitationCodeResp, error)
+	SearchInvitationCode(ctx context.Context, in *SearchInvitationCodeReq, opts ...grpc.CallOption) (*SearchInvitationCodeResp, error)
+	// User login ip limit Query Add Remove
+	SearchUserIPLimitLogin(ctx context.Context, in *SearchUserIPLimitLoginReq, opts ...grpc.CallOption) (*SearchUserIPLimitLoginResp, error)
+	AddUserIPLimitLogin(ctx context.Context, in *AddUserIPLimitLoginReq, opts ...grpc.CallOption) (*AddUserIPLimitLoginResp, error)
+	DelUserIPLimitLogin(ctx context.Context, in *DelUserIPLimitLoginReq, opts ...grpc.CallOption) (*DelUserIPLimitLoginResp, error)
+	// Prohibit users from registering at certain ip Query Add Remove
+	SearchIPForbidden(ctx context.Context, in *SearchIPForbiddenReq, opts ...grpc.CallOption) (*SearchIPForbiddenResp, error)
+	AddIPForbidden(ctx context.Context, in *AddIPForbiddenReq, opts ...grpc.CallOption) (*AddIPForbiddenResp, error)
+	DelIPForbidden(ctx context.Context, in *DelIPForbiddenReq, opts ...grpc.CallOption) (*DelIPForbiddenResp, error)
+	// User Management Related Add Block/Unblock Pull
+	CancellationUser(ctx context.Context, in *CancellationUserReq, opts ...grpc.CallOption) (*CancellationUserResp, error)
+	BlockUser(ctx context.Context, in *BlockUserReq, opts ...grpc.CallOption) (*BlockUserResp, error)
+	UnblockUser(ctx context.Context, in *UnblockUserReq, opts ...grpc.CallOption) (*UnblockUserResp, error)
+	SearchBlockUser(ctx context.Context, in *SearchBlockUserReq, opts ...grpc.CallOption) (*SearchBlockUserResp, error)
+	FindUserBlockInfo(ctx context.Context, in *FindUserBlockInfoReq, opts ...grpc.CallOption) (*FindUserBlockInfoResp, error)
+	CheckRegisterForbidden(ctx context.Context, in *CheckRegisterForbiddenReq, opts ...grpc.CallOption) (*CheckRegisterForbiddenResp, error)
+	CheckLoginForbidden(ctx context.Context, in *CheckLoginForbiddenReq, opts ...grpc.CallOption) (*CheckLoginForbiddenResp, error)
+	// Client Configuration
+	GetClientConfig(ctx context.Context, in *GetClientConfigReq, opts ...grpc.CallOption) (*GetClientConfigResp, error)
+	SetClientConfig(ctx context.Context, in *SetClientConfigReq, opts ...grpc.CallOption) (*SetClientConfigResp, error)
+	DelClientConfig(ctx context.Context, in *DelClientConfigReq, opts ...grpc.CallOption) (*DelClientConfigResp, error)
+	// app
+	AddApplet(ctx context.Context, in *AddAppletReq, opts ...grpc.CallOption) (*AddAppletResp, error)
+	DelApplet(ctx context.Context, in *DelAppletReq, opts ...grpc.CallOption) (*DelAppletResp, error)
+	UpdateApplet(ctx context.Context, in *UpdateAppletReq, opts ...grpc.CallOption) (*UpdateAppletResp, error)
+	FindApplet(ctx context.Context, in *FindAppletReq, opts ...grpc.CallOption) (*FindAppletResp, error)
+	SearchApplet(ctx context.Context, in *SearchAppletReq, opts ...grpc.CallOption) (*SearchAppletResp, error)
 }
 
 type chatClient struct {
@@ -329,6 +421,375 @@ func (c *chatClient) FindLoginRecord(ctx context.Context, in *FindLoginRecordReq
 	return out, nil
 }
 
+func (c *chatClient) UpdateVersionInfo(ctx context.Context, in *UpdateVersionReq, opts ...grpc.CallOption) (*UpdateVersionResp, error) {
+	out := new(UpdateVersionResp)
+	err := c.cc.Invoke(ctx, Chat_UpdateVersionInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) VersionInfo(ctx context.Context, in *VersionInfoReq, opts ...grpc.CallOption) (*VersionInfoResp, error) {
+	out := new(VersionInfoResp)
+	err := c.cc.Invoke(ctx, Chat_VersionInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddVersion(ctx context.Context, in *AddVersionReq, opts ...grpc.CallOption) (*AddVersionResp, error) {
+	out := new(AddVersionResp)
+	err := c.cc.Invoke(ctx, Chat_AddVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelVersion(ctx context.Context, in *DelVersionReq, opts ...grpc.CallOption) (*DelVersionResp, error) {
+	out := new(DelVersionResp)
+	err := c.cc.Invoke(ctx, Chat_DelVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchVersion(ctx context.Context, in *SearchVersionReq, opts ...grpc.CallOption) (*SearchVersionResp, error) {
+	out := new(SearchVersionResp)
+	err := c.cc.Invoke(ctx, Chat_SearchVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error) {
+	out := new(CheckVersionResp)
+	err := c.cc.Invoke(ctx, Chat_CheckVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddDefaultFriend(ctx context.Context, in *AddDefaultFriendReq, opts ...grpc.CallOption) (*AddDefaultFriendResp, error) {
+	out := new(AddDefaultFriendResp)
+	err := c.cc.Invoke(ctx, Chat_AddDefaultFriend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelDefaultFriend(ctx context.Context, in *DelDefaultFriendReq, opts ...grpc.CallOption) (*DelDefaultFriendResp, error) {
+	out := new(DelDefaultFriendResp)
+	err := c.cc.Invoke(ctx, Chat_DelDefaultFriend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) FindDefaultFriend(ctx context.Context, in *FindDefaultFriendReq, opts ...grpc.CallOption) (*FindDefaultFriendResp, error) {
+	out := new(FindDefaultFriendResp)
+	err := c.cc.Invoke(ctx, Chat_FindDefaultFriend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchDefaultFriend(ctx context.Context, in *SearchDefaultFriendReq, opts ...grpc.CallOption) (*SearchDefaultFriendResp, error) {
+	out := new(SearchDefaultFriendResp)
+	err := c.cc.Invoke(ctx, Chat_SearchDefaultFriend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddDefaultGroup(ctx context.Context, in *AddDefaultGroupReq, opts ...grpc.CallOption) (*AddDefaultGroupResp, error) {
+	out := new(AddDefaultGroupResp)
+	err := c.cc.Invoke(ctx, Chat_AddDefaultGroup_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelDefaultGroup(ctx context.Context, in *DelDefaultGroupReq, opts ...grpc.CallOption) (*DelDefaultGroupResp, error) {
+	out := new(DelDefaultGroupResp)
+	err := c.cc.Invoke(ctx, Chat_DelDefaultGroup_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) FindDefaultGroup(ctx context.Context, in *FindDefaultGroupReq, opts ...grpc.CallOption) (*FindDefaultGroupResp, error) {
+	out := new(FindDefaultGroupResp)
+	err := c.cc.Invoke(ctx, Chat_FindDefaultGroup_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchDefaultGroup(ctx context.Context, in *SearchDefaultGroupReq, opts ...grpc.CallOption) (*SearchDefaultGroupResp, error) {
+	out := new(SearchDefaultGroupResp)
+	err := c.cc.Invoke(ctx, Chat_SearchDefaultGroup_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddInvitationCode(ctx context.Context, in *AddInvitationCodeReq, opts ...grpc.CallOption) (*AddInvitationCodeResp, error) {
+	out := new(AddInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_AddInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) GenInvitationCode(ctx context.Context, in *GenInvitationCodeReq, opts ...grpc.CallOption) (*GenInvitationCodeResp, error) {
+	out := new(GenInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_GenInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) FindInvitationCode(ctx context.Context, in *FindInvitationCodeReq, opts ...grpc.CallOption) (*FindInvitationCodeResp, error) {
+	out := new(FindInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_FindInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) UseInvitationCode(ctx context.Context, in *UseInvitationCodeReq, opts ...grpc.CallOption) (*UseInvitationCodeResp, error) {
+	out := new(UseInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_UseInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelInvitationCode(ctx context.Context, in *DelInvitationCodeReq, opts ...grpc.CallOption) (*DelInvitationCodeResp, error) {
+	out := new(DelInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_DelInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchInvitationCode(ctx context.Context, in *SearchInvitationCodeReq, opts ...grpc.CallOption) (*SearchInvitationCodeResp, error) {
+	out := new(SearchInvitationCodeResp)
+	err := c.cc.Invoke(ctx, Chat_SearchInvitationCode_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchUserIPLimitLogin(ctx context.Context, in *SearchUserIPLimitLoginReq, opts ...grpc.CallOption) (*SearchUserIPLimitLoginResp, error) {
+	out := new(SearchUserIPLimitLoginResp)
+	err := c.cc.Invoke(ctx, Chat_SearchUserIPLimitLogin_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddUserIPLimitLogin(ctx context.Context, in *AddUserIPLimitLoginReq, opts ...grpc.CallOption) (*AddUserIPLimitLoginResp, error) {
+	out := new(AddUserIPLimitLoginResp)
+	err := c.cc.Invoke(ctx, Chat_AddUserIPLimitLogin_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelUserIPLimitLogin(ctx context.Context, in *DelUserIPLimitLoginReq, opts ...grpc.CallOption) (*DelUserIPLimitLoginResp, error) {
+	out := new(DelUserIPLimitLoginResp)
+	err := c.cc.Invoke(ctx, Chat_DelUserIPLimitLogin_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchIPForbidden(ctx context.Context, in *SearchIPForbiddenReq, opts ...grpc.CallOption) (*SearchIPForbiddenResp, error) {
+	out := new(SearchIPForbiddenResp)
+	err := c.cc.Invoke(ctx, Chat_SearchIPForbidden_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddIPForbidden(ctx context.Context, in *AddIPForbiddenReq, opts ...grpc.CallOption) (*AddIPForbiddenResp, error) {
+	out := new(AddIPForbiddenResp)
+	err := c.cc.Invoke(ctx, Chat_AddIPForbidden_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelIPForbidden(ctx context.Context, in *DelIPForbiddenReq, opts ...grpc.CallOption) (*DelIPForbiddenResp, error) {
+	out := new(DelIPForbiddenResp)
+	err := c.cc.Invoke(ctx, Chat_DelIPForbidden_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) CancellationUser(ctx context.Context, in *CancellationUserReq, opts ...grpc.CallOption) (*CancellationUserResp, error) {
+	out := new(CancellationUserResp)
+	err := c.cc.Invoke(ctx, Chat_CancellationUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) BlockUser(ctx context.Context, in *BlockUserReq, opts ...grpc.CallOption) (*BlockUserResp, error) {
+	out := new(BlockUserResp)
+	err := c.cc.Invoke(ctx, Chat_BlockUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) UnblockUser(ctx context.Context, in *UnblockUserReq, opts ...grpc.CallOption) (*UnblockUserResp, error) {
+	out := new(UnblockUserResp)
+	err := c.cc.Invoke(ctx, Chat_UnblockUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchBlockUser(ctx context.Context, in *SearchBlockUserReq, opts ...grpc.CallOption) (*SearchBlockUserResp, error) {
+	out := new(SearchBlockUserResp)
+	err := c.cc.Invoke(ctx, Chat_SearchBlockUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) FindUserBlockInfo(ctx context.Context, in *FindUserBlockInfoReq, opts ...grpc.CallOption) (*FindUserBlockInfoResp, error) {
+	out := new(FindUserBlockInfoResp)
+	err := c.cc.Invoke(ctx, Chat_FindUserBlockInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) CheckRegisterForbidden(ctx context.Context, in *CheckRegisterForbiddenReq, opts ...grpc.CallOption) (*CheckRegisterForbiddenResp, error) {
+	out := new(CheckRegisterForbiddenResp)
+	err := c.cc.Invoke(ctx, Chat_CheckRegisterForbidden_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) CheckLoginForbidden(ctx context.Context, in *CheckLoginForbiddenReq, opts ...grpc.CallOption) (*CheckLoginForbiddenResp, error) {
+	out := new(CheckLoginForbiddenResp)
+	err := c.cc.Invoke(ctx, Chat_CheckLoginForbidden_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) GetClientConfig(ctx context.Context, in *GetClientConfigReq, opts ...grpc.CallOption) (*GetClientConfigResp, error) {
+	out := new(GetClientConfigResp)
+	err := c.cc.Invoke(ctx, Chat_GetClientConfig_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SetClientConfig(ctx context.Context, in *SetClientConfigReq, opts ...grpc.CallOption) (*SetClientConfigResp, error) {
+	out := new(SetClientConfigResp)
+	err := c.cc.Invoke(ctx, Chat_SetClientConfig_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelClientConfig(ctx context.Context, in *DelClientConfigReq, opts ...grpc.CallOption) (*DelClientConfigResp, error) {
+	out := new(DelClientConfigResp)
+	err := c.cc.Invoke(ctx, Chat_DelClientConfig_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) AddApplet(ctx context.Context, in *AddAppletReq, opts ...grpc.CallOption) (*AddAppletResp, error) {
+	out := new(AddAppletResp)
+	err := c.cc.Invoke(ctx, Chat_AddApplet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) DelApplet(ctx context.Context, in *DelAppletReq, opts ...grpc.CallOption) (*DelAppletResp, error) {
+	out := new(DelAppletResp)
+	err := c.cc.Invoke(ctx, Chat_DelApplet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) UpdateApplet(ctx context.Context, in *UpdateAppletReq, opts ...grpc.CallOption) (*UpdateAppletResp, error) {
+	out := new(UpdateAppletResp)
+	err := c.cc.Invoke(ctx, Chat_UpdateApplet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) FindApplet(ctx context.Context, in *FindAppletReq, opts ...grpc.CallOption) (*FindAppletResp, error) {
+	out := new(FindAppletResp)
+	err := c.cc.Invoke(ctx, Chat_FindApplet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) SearchApplet(ctx context.Context, in *SearchAppletReq, opts ...grpc.CallOption) (*SearchAppletResp, error) {
+	out := new(SearchAppletResp)
+	err := c.cc.Invoke(ctx, Chat_SearchApplet_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ChatServer is the server API for Chat service.
 // All implementations must embed UnimplementedChatServer
 // for forward compatibility
@@ -360,9 +821,60 @@ type ChatServer interface {
 	SearchUserInfo(context.Context, *SearchUserInfoReq) (*SearchUserInfoResp, error)
 	// Audio/video call and video meeting
 	GetTokenForVideoMeeting(context.Context, *GetTokenForVideoMeetingReq) (*GetTokenForVideoMeetingResp, error)
+	// Allow Register
 	SetAllowRegister(context.Context, *SetAllowRegisterReq) (*SetAllowRegisterResp, error)
 	GetAllowRegister(context.Context, *GetAllowRegisterReq) (*GetAllowRegisterResp, error)
+	// Login Record
 	FindLoginRecord(context.Context, *FindLoginRecordReq) (*FindLoginRecordResp, error)
+	// version
+	UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error)
+	VersionInfo(context.Context, *VersionInfoReq) (*VersionInfoResp, error)
+	AddVersion(context.Context, *AddVersionReq) (*AddVersionResp, error)
+	DelVersion(context.Context, *DelVersionReq) (*DelVersionResp, error)
+	SearchVersion(context.Context, *SearchVersionReq) (*SearchVersionResp, error)
+	CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error)
+	// Add Remove Get default friend list on registration
+	AddDefaultFriend(context.Context, *AddDefaultFriendReq) (*AddDefaultFriendResp, error)
+	DelDefaultFriend(context.Context, *DelDefaultFriendReq) (*DelDefaultFriendResp, error)
+	FindDefaultFriend(context.Context, *FindDefaultFriendReq) (*FindDefaultFriendResp, error)
+	SearchDefaultFriend(context.Context, *SearchDefaultFriendReq) (*SearchDefaultFriendResp, error)
+	AddDefaultGroup(context.Context, *AddDefaultGroupReq) (*AddDefaultGroupResp, error)
+	DelDefaultGroup(context.Context, *DelDefaultGroupReq) (*DelDefaultGroupResp, error)
+	FindDefaultGroup(context.Context, *FindDefaultGroupReq) (*FindDefaultGroupResp, error)
+	SearchDefaultGroup(context.Context, *SearchDefaultGroupReq) (*SearchDefaultGroupResp, error)
+	// Invitation Code Generate Query Get
+	AddInvitationCode(context.Context, *AddInvitationCodeReq) (*AddInvitationCodeResp, error)
+	GenInvitationCode(context.Context, *GenInvitationCodeReq) (*GenInvitationCodeResp, error)
+	FindInvitationCode(context.Context, *FindInvitationCodeReq) (*FindInvitationCodeResp, error)
+	UseInvitationCode(context.Context, *UseInvitationCodeReq) (*UseInvitationCodeResp, error)
+	DelInvitationCode(context.Context, *DelInvitationCodeReq) (*DelInvitationCodeResp, error)
+	SearchInvitationCode(context.Context, *SearchInvitationCodeReq) (*SearchInvitationCodeResp, error)
+	// User login ip limit Query Add Remove
+	SearchUserIPLimitLogin(context.Context, *SearchUserIPLimitLoginReq) (*SearchUserIPLimitLoginResp, error)
+	AddUserIPLimitLogin(context.Context, *AddUserIPLimitLoginReq) (*AddUserIPLimitLoginResp, error)
+	DelUserIPLimitLogin(context.Context, *DelUserIPLimitLoginReq) (*DelUserIPLimitLoginResp, error)
+	// Prohibit users from registering at certain ip Query Add Remove
+	SearchIPForbidden(context.Context, *SearchIPForbiddenReq) (*SearchIPForbiddenResp, error)
+	AddIPForbidden(context.Context, *AddIPForbiddenReq) (*AddIPForbiddenResp, error)
+	DelIPForbidden(context.Context, *DelIPForbiddenReq) (*DelIPForbiddenResp, error)
+	// User Management Related Add Block/Unblock Pull
+	CancellationUser(context.Context, *CancellationUserReq) (*CancellationUserResp, error)
+	BlockUser(context.Context, *BlockUserReq) (*BlockUserResp, error)
+	UnblockUser(context.Context, *UnblockUserReq) (*UnblockUserResp, error)
+	SearchBlockUser(context.Context, *SearchBlockUserReq) (*SearchBlockUserResp, error)
+	FindUserBlockInfo(context.Context, *FindUserBlockInfoReq) (*FindUserBlockInfoResp, error)
+	CheckRegisterForbidden(context.Context, *CheckRegisterForbiddenReq) (*CheckRegisterForbiddenResp, error)
+	CheckLoginForbidden(context.Context, *CheckLoginForbiddenReq) (*CheckLoginForbiddenResp, error)
+	// Client Configuration
+	GetClientConfig(context.Context, *GetClientConfigReq) (*GetClientConfigResp, error)
+	SetClientConfig(context.Context, *SetClientConfigReq) (*SetClientConfigResp, error)
+	DelClientConfig(context.Context, *DelClientConfigReq) (*DelClientConfigResp, error)
+	// app
+	AddApplet(context.Context, *AddAppletReq) (*AddAppletResp, error)
+	DelApplet(context.Context, *DelAppletReq) (*DelAppletResp, error)
+	UpdateApplet(context.Context, *UpdateAppletReq) (*UpdateAppletResp, error)
+	FindApplet(context.Context, *FindAppletReq) (*FindAppletResp, error)
+	SearchApplet(context.Context, *SearchAppletReq) (*SearchAppletResp, error)
 	mustEmbedUnimplementedChatServer()
 }
 
@@ -444,6 +956,129 @@ func (UnimplementedChatServer) GetAllowRegister(context.Context, *GetAllowRegist
 }
 func (UnimplementedChatServer) FindLoginRecord(context.Context, *FindLoginRecordReq) (*FindLoginRecordResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindLoginRecord not implemented")
+}
+func (UnimplementedChatServer) UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateVersionInfo not implemented")
+}
+func (UnimplementedChatServer) VersionInfo(context.Context, *VersionInfoReq) (*VersionInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VersionInfo not implemented")
+}
+func (UnimplementedChatServer) AddVersion(context.Context, *AddVersionReq) (*AddVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddVersion not implemented")
+}
+func (UnimplementedChatServer) DelVersion(context.Context, *DelVersionReq) (*DelVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelVersion not implemented")
+}
+func (UnimplementedChatServer) SearchVersion(context.Context, *SearchVersionReq) (*SearchVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchVersion not implemented")
+}
+func (UnimplementedChatServer) CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckVersion not implemented")
+}
+func (UnimplementedChatServer) AddDefaultFriend(context.Context, *AddDefaultFriendReq) (*AddDefaultFriendResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddDefaultFriend not implemented")
+}
+func (UnimplementedChatServer) DelDefaultFriend(context.Context, *DelDefaultFriendReq) (*DelDefaultFriendResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelDefaultFriend not implemented")
+}
+func (UnimplementedChatServer) FindDefaultFriend(context.Context, *FindDefaultFriendReq) (*FindDefaultFriendResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindDefaultFriend not implemented")
+}
+func (UnimplementedChatServer) SearchDefaultFriend(context.Context, *SearchDefaultFriendReq) (*SearchDefaultFriendResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchDefaultFriend not implemented")
+}
+func (UnimplementedChatServer) AddDefaultGroup(context.Context, *AddDefaultGroupReq) (*AddDefaultGroupResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddDefaultGroup not implemented")
+}
+func (UnimplementedChatServer) DelDefaultGroup(context.Context, *DelDefaultGroupReq) (*DelDefaultGroupResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelDefaultGroup not implemented")
+}
+func (UnimplementedChatServer) FindDefaultGroup(context.Context, *FindDefaultGroupReq) (*FindDefaultGroupResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindDefaultGroup not implemented")
+}
+func (UnimplementedChatServer) SearchDefaultGroup(context.Context, *SearchDefaultGroupReq) (*SearchDefaultGroupResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchDefaultGroup not implemented")
+}
+func (UnimplementedChatServer) AddInvitationCode(context.Context, *AddInvitationCodeReq) (*AddInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddInvitationCode not implemented")
+}
+func (UnimplementedChatServer) GenInvitationCode(context.Context, *GenInvitationCodeReq) (*GenInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenInvitationCode not implemented")
+}
+func (UnimplementedChatServer) FindInvitationCode(context.Context, *FindInvitationCodeReq) (*FindInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindInvitationCode not implemented")
+}
+func (UnimplementedChatServer) UseInvitationCode(context.Context, *UseInvitationCodeReq) (*UseInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UseInvitationCode not implemented")
+}
+func (UnimplementedChatServer) DelInvitationCode(context.Context, *DelInvitationCodeReq) (*DelInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelInvitationCode not implemented")
+}
+func (UnimplementedChatServer) SearchInvitationCode(context.Context, *SearchInvitationCodeReq) (*SearchInvitationCodeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchInvitationCode not implemented")
+}
+func (UnimplementedChatServer) SearchUserIPLimitLogin(context.Context, *SearchUserIPLimitLoginReq) (*SearchUserIPLimitLoginResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchUserIPLimitLogin not implemented")
+}
+func (UnimplementedChatServer) AddUserIPLimitLogin(context.Context, *AddUserIPLimitLoginReq) (*AddUserIPLimitLoginResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddUserIPLimitLogin not implemented")
+}
+func (UnimplementedChatServer) DelUserIPLimitLogin(context.Context, *DelUserIPLimitLoginReq) (*DelUserIPLimitLoginResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelUserIPLimitLogin not implemented")
+}
+func (UnimplementedChatServer) SearchIPForbidden(context.Context, *SearchIPForbiddenReq) (*SearchIPForbiddenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchIPForbidden not implemented")
+}
+func (UnimplementedChatServer) AddIPForbidden(context.Context, *AddIPForbiddenReq) (*AddIPForbiddenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddIPForbidden not implemented")
+}
+func (UnimplementedChatServer) DelIPForbidden(context.Context, *DelIPForbiddenReq) (*DelIPForbiddenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelIPForbidden not implemented")
+}
+func (UnimplementedChatServer) CancellationUser(context.Context, *CancellationUserReq) (*CancellationUserResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancellationUser not implemented")
+}
+func (UnimplementedChatServer) BlockUser(context.Context, *BlockUserReq) (*BlockUserResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BlockUser not implemented")
+}
+func (UnimplementedChatServer) UnblockUser(context.Context, *UnblockUserReq) (*UnblockUserResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnblockUser not implemented")
+}
+func (UnimplementedChatServer) SearchBlockUser(context.Context, *SearchBlockUserReq) (*SearchBlockUserResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchBlockUser not implemented")
+}
+func (UnimplementedChatServer) FindUserBlockInfo(context.Context, *FindUserBlockInfoReq) (*FindUserBlockInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindUserBlockInfo not implemented")
+}
+func (UnimplementedChatServer) CheckRegisterForbidden(context.Context, *CheckRegisterForbiddenReq) (*CheckRegisterForbiddenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckRegisterForbidden not implemented")
+}
+func (UnimplementedChatServer) CheckLoginForbidden(context.Context, *CheckLoginForbiddenReq) (*CheckLoginForbiddenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckLoginForbidden not implemented")
+}
+func (UnimplementedChatServer) GetClientConfig(context.Context, *GetClientConfigReq) (*GetClientConfigResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetClientConfig not implemented")
+}
+func (UnimplementedChatServer) SetClientConfig(context.Context, *SetClientConfigReq) (*SetClientConfigResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetClientConfig not implemented")
+}
+func (UnimplementedChatServer) DelClientConfig(context.Context, *DelClientConfigReq) (*DelClientConfigResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelClientConfig not implemented")
+}
+func (UnimplementedChatServer) AddApplet(context.Context, *AddAppletReq) (*AddAppletResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddApplet not implemented")
+}
+func (UnimplementedChatServer) DelApplet(context.Context, *DelAppletReq) (*DelAppletResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelApplet not implemented")
+}
+func (UnimplementedChatServer) UpdateApplet(context.Context, *UpdateAppletReq) (*UpdateAppletResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateApplet not implemented")
+}
+func (UnimplementedChatServer) FindApplet(context.Context, *FindAppletReq) (*FindAppletResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindApplet not implemented")
+}
+func (UnimplementedChatServer) SearchApplet(context.Context, *SearchAppletReq) (*SearchAppletResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchApplet not implemented")
 }
 func (UnimplementedChatServer) mustEmbedUnimplementedChatServer() {}
 
@@ -908,6 +1543,744 @@ func _Chat_FindLoginRecord_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Chat_UpdateVersionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).UpdateVersionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_UpdateVersionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).UpdateVersionInfo(ctx, req.(*UpdateVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_VersionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VersionInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).VersionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_VersionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).VersionInfo(ctx, req.(*VersionInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddVersion(ctx, req.(*AddVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelVersion(ctx, req.(*DelVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchVersion(ctx, req.(*SearchVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_CheckVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).CheckVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_CheckVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).CheckVersion(ctx, req.(*CheckVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddDefaultFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDefaultFriendReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddDefaultFriend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddDefaultFriend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddDefaultFriend(ctx, req.(*AddDefaultFriendReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelDefaultFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelDefaultFriendReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelDefaultFriend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelDefaultFriend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelDefaultFriend(ctx, req.(*DelDefaultFriendReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_FindDefaultFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindDefaultFriendReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).FindDefaultFriend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_FindDefaultFriend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).FindDefaultFriend(ctx, req.(*FindDefaultFriendReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchDefaultFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchDefaultFriendReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchDefaultFriend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchDefaultFriend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchDefaultFriend(ctx, req.(*SearchDefaultFriendReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddDefaultGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDefaultGroupReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddDefaultGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddDefaultGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddDefaultGroup(ctx, req.(*AddDefaultGroupReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelDefaultGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelDefaultGroupReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelDefaultGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelDefaultGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelDefaultGroup(ctx, req.(*DelDefaultGroupReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_FindDefaultGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindDefaultGroupReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).FindDefaultGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_FindDefaultGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).FindDefaultGroup(ctx, req.(*FindDefaultGroupReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchDefaultGroup_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchDefaultGroupReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchDefaultGroup(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchDefaultGroup_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchDefaultGroup(ctx, req.(*SearchDefaultGroupReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddInvitationCode(ctx, req.(*AddInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_GenInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).GenInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_GenInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).GenInvitationCode(ctx, req.(*GenInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_FindInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).FindInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_FindInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).FindInvitationCode(ctx, req.(*FindInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_UseInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UseInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).UseInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_UseInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).UseInvitationCode(ctx, req.(*UseInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelInvitationCode(ctx, req.(*DelInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchInvitationCode_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchInvitationCodeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchInvitationCode(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchInvitationCode_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchInvitationCode(ctx, req.(*SearchInvitationCodeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchUserIPLimitLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchUserIPLimitLoginReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchUserIPLimitLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchUserIPLimitLogin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchUserIPLimitLogin(ctx, req.(*SearchUserIPLimitLoginReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddUserIPLimitLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddUserIPLimitLoginReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddUserIPLimitLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddUserIPLimitLogin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddUserIPLimitLogin(ctx, req.(*AddUserIPLimitLoginReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelUserIPLimitLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelUserIPLimitLoginReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelUserIPLimitLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelUserIPLimitLogin_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelUserIPLimitLogin(ctx, req.(*DelUserIPLimitLoginReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchIPForbidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchIPForbiddenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchIPForbidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchIPForbidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchIPForbidden(ctx, req.(*SearchIPForbiddenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddIPForbidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIPForbiddenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddIPForbidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddIPForbidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddIPForbidden(ctx, req.(*AddIPForbiddenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelIPForbidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelIPForbiddenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelIPForbidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelIPForbidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelIPForbidden(ctx, req.(*DelIPForbiddenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_CancellationUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancellationUserReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).CancellationUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_CancellationUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).CancellationUser(ctx, req.(*CancellationUserReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_BlockUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BlockUserReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).BlockUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_BlockUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).BlockUser(ctx, req.(*BlockUserReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_UnblockUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnblockUserReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).UnblockUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_UnblockUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).UnblockUser(ctx, req.(*UnblockUserReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchBlockUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchBlockUserReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchBlockUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchBlockUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchBlockUser(ctx, req.(*SearchBlockUserReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_FindUserBlockInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindUserBlockInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).FindUserBlockInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_FindUserBlockInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).FindUserBlockInfo(ctx, req.(*FindUserBlockInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_CheckRegisterForbidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckRegisterForbiddenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).CheckRegisterForbidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_CheckRegisterForbidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).CheckRegisterForbidden(ctx, req.(*CheckRegisterForbiddenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_CheckLoginForbidden_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckLoginForbiddenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).CheckLoginForbidden(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_CheckLoginForbidden_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).CheckLoginForbidden(ctx, req.(*CheckLoginForbiddenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_GetClientConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetClientConfigReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).GetClientConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_GetClientConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).GetClientConfig(ctx, req.(*GetClientConfigReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SetClientConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetClientConfigReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SetClientConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SetClientConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SetClientConfig(ctx, req.(*SetClientConfigReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelClientConfig_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelClientConfigReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelClientConfig(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelClientConfig_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelClientConfig(ctx, req.(*DelClientConfigReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_AddApplet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddAppletReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).AddApplet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_AddApplet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).AddApplet(ctx, req.(*AddAppletReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_DelApplet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelAppletReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).DelApplet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_DelApplet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).DelApplet(ctx, req.(*DelAppletReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_UpdateApplet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAppletReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).UpdateApplet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_UpdateApplet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).UpdateApplet(ctx, req.(*UpdateAppletReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_FindApplet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FindAppletReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).FindApplet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_FindApplet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).FindApplet(ctx, req.(*FindAppletReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_SearchApplet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchAppletReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).SearchApplet(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_SearchApplet_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).SearchApplet(ctx, req.(*SearchAppletReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Chat_ServiceDesc is the grpc.ServiceDesc for Chat service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1014,6 +2387,170 @@ var Chat_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindLoginRecord",
 			Handler:    _Chat_FindLoginRecord_Handler,
+		},
+		{
+			MethodName: "UpdateVersionInfo",
+			Handler:    _Chat_UpdateVersionInfo_Handler,
+		},
+		{
+			MethodName: "VersionInfo",
+			Handler:    _Chat_VersionInfo_Handler,
+		},
+		{
+			MethodName: "AddVersion",
+			Handler:    _Chat_AddVersion_Handler,
+		},
+		{
+			MethodName: "DelVersion",
+			Handler:    _Chat_DelVersion_Handler,
+		},
+		{
+			MethodName: "SearchVersion",
+			Handler:    _Chat_SearchVersion_Handler,
+		},
+		{
+			MethodName: "CheckVersion",
+			Handler:    _Chat_CheckVersion_Handler,
+		},
+		{
+			MethodName: "AddDefaultFriend",
+			Handler:    _Chat_AddDefaultFriend_Handler,
+		},
+		{
+			MethodName: "DelDefaultFriend",
+			Handler:    _Chat_DelDefaultFriend_Handler,
+		},
+		{
+			MethodName: "FindDefaultFriend",
+			Handler:    _Chat_FindDefaultFriend_Handler,
+		},
+		{
+			MethodName: "SearchDefaultFriend",
+			Handler:    _Chat_SearchDefaultFriend_Handler,
+		},
+		{
+			MethodName: "AddDefaultGroup",
+			Handler:    _Chat_AddDefaultGroup_Handler,
+		},
+		{
+			MethodName: "DelDefaultGroup",
+			Handler:    _Chat_DelDefaultGroup_Handler,
+		},
+		{
+			MethodName: "FindDefaultGroup",
+			Handler:    _Chat_FindDefaultGroup_Handler,
+		},
+		{
+			MethodName: "SearchDefaultGroup",
+			Handler:    _Chat_SearchDefaultGroup_Handler,
+		},
+		{
+			MethodName: "AddInvitationCode",
+			Handler:    _Chat_AddInvitationCode_Handler,
+		},
+		{
+			MethodName: "GenInvitationCode",
+			Handler:    _Chat_GenInvitationCode_Handler,
+		},
+		{
+			MethodName: "FindInvitationCode",
+			Handler:    _Chat_FindInvitationCode_Handler,
+		},
+		{
+			MethodName: "UseInvitationCode",
+			Handler:    _Chat_UseInvitationCode_Handler,
+		},
+		{
+			MethodName: "DelInvitationCode",
+			Handler:    _Chat_DelInvitationCode_Handler,
+		},
+		{
+			MethodName: "SearchInvitationCode",
+			Handler:    _Chat_SearchInvitationCode_Handler,
+		},
+		{
+			MethodName: "SearchUserIPLimitLogin",
+			Handler:    _Chat_SearchUserIPLimitLogin_Handler,
+		},
+		{
+			MethodName: "AddUserIPLimitLogin",
+			Handler:    _Chat_AddUserIPLimitLogin_Handler,
+		},
+		{
+			MethodName: "DelUserIPLimitLogin",
+			Handler:    _Chat_DelUserIPLimitLogin_Handler,
+		},
+		{
+			MethodName: "SearchIPForbidden",
+			Handler:    _Chat_SearchIPForbidden_Handler,
+		},
+		{
+			MethodName: "AddIPForbidden",
+			Handler:    _Chat_AddIPForbidden_Handler,
+		},
+		{
+			MethodName: "DelIPForbidden",
+			Handler:    _Chat_DelIPForbidden_Handler,
+		},
+		{
+			MethodName: "CancellationUser",
+			Handler:    _Chat_CancellationUser_Handler,
+		},
+		{
+			MethodName: "BlockUser",
+			Handler:    _Chat_BlockUser_Handler,
+		},
+		{
+			MethodName: "UnblockUser",
+			Handler:    _Chat_UnblockUser_Handler,
+		},
+		{
+			MethodName: "SearchBlockUser",
+			Handler:    _Chat_SearchBlockUser_Handler,
+		},
+		{
+			MethodName: "FindUserBlockInfo",
+			Handler:    _Chat_FindUserBlockInfo_Handler,
+		},
+		{
+			MethodName: "CheckRegisterForbidden",
+			Handler:    _Chat_CheckRegisterForbidden_Handler,
+		},
+		{
+			MethodName: "CheckLoginForbidden",
+			Handler:    _Chat_CheckLoginForbidden_Handler,
+		},
+		{
+			MethodName: "GetClientConfig",
+			Handler:    _Chat_GetClientConfig_Handler,
+		},
+		{
+			MethodName: "SetClientConfig",
+			Handler:    _Chat_SetClientConfig_Handler,
+		},
+		{
+			MethodName: "DelClientConfig",
+			Handler:    _Chat_DelClientConfig_Handler,
+		},
+		{
+			MethodName: "AddApplet",
+			Handler:    _Chat_AddApplet_Handler,
+		},
+		{
+			MethodName: "DelApplet",
+			Handler:    _Chat_DelApplet_Handler,
+		},
+		{
+			MethodName: "UpdateApplet",
+			Handler:    _Chat_UpdateApplet_Handler,
+		},
+		{
+			MethodName: "FindApplet",
+			Handler:    _Chat_FindApplet_Handler,
+		},
+		{
+			MethodName: "SearchApplet",
+			Handler:    _Chat_SearchApplet_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

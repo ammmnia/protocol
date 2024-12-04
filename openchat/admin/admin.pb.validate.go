@@ -9902,6 +9902,8 @@ func (m *ParseTokenResp) validate(all bool) error {
 
 	// no validation rules for UserID
 
+	// no validation rules for Account
+
 	// no validation rules for UserType
 
 	// no validation rules for ExpireTimeSeconds

@@ -428,8 +428,9 @@ message ParseTokenReq {
 
 message ParseTokenResp {
   string userID = 1;
-  int32 userType = 2;
-  int64 expireTimeSeconds = 3;
+  string account = 2;
+  int32 userType = 3;
+  int64 expireTimeSeconds = 4;
 }
 
 message InvalidateTokenReq {

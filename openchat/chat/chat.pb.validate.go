@@ -6218,35 +6218,6 @@ func (m *FindLoginRecordReq) validate(all bool) error {
 
 	var errors []error
 
-	if all {
-		switch v := interface{}(m.GetPagination()).(type) {
-		case interface{ ValidateAll() error }:
-			if err := v.ValidateAll(); err != nil {
-				errors = append(errors, FindLoginRecordReqValidationError{
-					field:  "Pagination",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		case interface{ Validate() error }:
-			if err := v.Validate(); err != nil {
-				errors = append(errors, FindLoginRecordReqValidationError{
-					field:  "Pagination",
-					reason: "embedded message failed validation",
-					cause:  err,
-				})
-			}
-		}
-	} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
-		if err := v.Validate(); err != nil {
-			return FindLoginRecordReqValidationError{
-				field:  "Pagination",
-				reason: "embedded message failed validation",
-				cause:  err,
-			}
-		}
-	}
-
 	if len(errors) > 0 {
 		return FindLoginRecordReqMultiError(errors)
 	}
@@ -6348,8 +6319,6 @@ func (m *FindLoginRecordResp) validate(all bool) error {
 	}
 
 	var errors []error
-
-	// no validation rules for Total
 
 	for idx, item := range m.GetLoginRecord() {
 		_, _ = idx, item

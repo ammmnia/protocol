@@ -98,6 +98,12 @@ const (
 	Admin_RoleMenuInfo_FullMethodName           = "/openim.openchat.admin.admin/RoleMenuInfo"
 	Admin_AddRoleMenu_FullMethodName            = "/openim.openchat.admin.admin/AddRoleMenu"
 	Admin_DelRoleMenu_FullMethodName            = "/openim.openchat.admin.admin/DelRoleMenu"
+	Admin_UpdateVersionInfo_FullMethodName      = "/openim.openchat.admin.admin/UpdateVersionInfo"
+	Admin_VersionInfo_FullMethodName            = "/openim.openchat.admin.admin/VersionInfo"
+	Admin_AddVersion_FullMethodName             = "/openim.openchat.admin.admin/AddVersion"
+	Admin_DelVersion_FullMethodName             = "/openim.openchat.admin.admin/DelVersion"
+	Admin_SearchVersion_FullMethodName          = "/openim.openchat.admin.admin/SearchVersion"
+	Admin_CheckVersion_FullMethodName           = "/openim.openchat.admin.admin/CheckVersion"
 )
 
 // AdminClient is the client API for Admin service.
@@ -184,6 +190,13 @@ type AdminClient interface {
 	RoleMenuInfo(ctx context.Context, in *RoleMenuInfoReq, opts ...grpc.CallOption) (*RoleMenuInfoResp, error)
 	AddRoleMenu(ctx context.Context, in *AddRoleMenuReq, opts ...grpc.CallOption) (*AddRoleMenuResp, error)
 	DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts ...grpc.CallOption) (*DelRoleMenuResp, error)
+	// version
+	UpdateVersionInfo(ctx context.Context, in *UpdateVersionReq, opts ...grpc.CallOption) (*UpdateVersionResp, error)
+	VersionInfo(ctx context.Context, in *VersionInfoReq, opts ...grpc.CallOption) (*VersionInfoResp, error)
+	AddVersion(ctx context.Context, in *AddVersionReq, opts ...grpc.CallOption) (*AddVersionResp, error)
+	DelVersion(ctx context.Context, in *DelVersionReq, opts ...grpc.CallOption) (*DelVersionResp, error)
+	SearchVersion(ctx context.Context, in *SearchVersionReq, opts ...grpc.CallOption) (*SearchVersionResp, error)
+	CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error)
 }
 
 type adminClient struct {
@@ -779,6 +792,60 @@ func (c *adminClient) DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts 
 	return out, nil
 }
 
+func (c *adminClient) UpdateVersionInfo(ctx context.Context, in *UpdateVersionReq, opts ...grpc.CallOption) (*UpdateVersionResp, error) {
+	out := new(UpdateVersionResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateVersionInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) VersionInfo(ctx context.Context, in *VersionInfoReq, opts ...grpc.CallOption) (*VersionInfoResp, error) {
+	out := new(VersionInfoResp)
+	err := c.cc.Invoke(ctx, Admin_VersionInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddVersion(ctx context.Context, in *AddVersionReq, opts ...grpc.CallOption) (*AddVersionResp, error) {
+	out := new(AddVersionResp)
+	err := c.cc.Invoke(ctx, Admin_AddVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelVersion(ctx context.Context, in *DelVersionReq, opts ...grpc.CallOption) (*DelVersionResp, error) {
+	out := new(DelVersionResp)
+	err := c.cc.Invoke(ctx, Admin_DelVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) SearchVersion(ctx context.Context, in *SearchVersionReq, opts ...grpc.CallOption) (*SearchVersionResp, error) {
+	out := new(SearchVersionResp)
+	err := c.cc.Invoke(ctx, Admin_SearchVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) CheckVersion(ctx context.Context, in *CheckVersionReq, opts ...grpc.CallOption) (*CheckVersionResp, error) {
+	out := new(CheckVersionResp)
+	err := c.cc.Invoke(ctx, Admin_CheckVersion_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -863,6 +930,13 @@ type AdminServer interface {
 	RoleMenuInfo(context.Context, *RoleMenuInfoReq) (*RoleMenuInfoResp, error)
 	AddRoleMenu(context.Context, *AddRoleMenuReq) (*AddRoleMenuResp, error)
 	DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error)
+	// version
+	UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error)
+	VersionInfo(context.Context, *VersionInfoReq) (*VersionInfoResp, error)
+	AddVersion(context.Context, *AddVersionReq) (*AddVersionResp, error)
+	DelVersion(context.Context, *DelVersionReq) (*DelVersionResp, error)
+	SearchVersion(context.Context, *SearchVersionReq) (*SearchVersionResp, error)
+	CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -1064,6 +1138,24 @@ func (UnimplementedAdminServer) AddRoleMenu(context.Context, *AddRoleMenuReq) (*
 }
 func (UnimplementedAdminServer) DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DelRoleMenu not implemented")
+}
+func (UnimplementedAdminServer) UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateVersionInfo not implemented")
+}
+func (UnimplementedAdminServer) VersionInfo(context.Context, *VersionInfoReq) (*VersionInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method VersionInfo not implemented")
+}
+func (UnimplementedAdminServer) AddVersion(context.Context, *AddVersionReq) (*AddVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddVersion not implemented")
+}
+func (UnimplementedAdminServer) DelVersion(context.Context, *DelVersionReq) (*DelVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelVersion not implemented")
+}
+func (UnimplementedAdminServer) SearchVersion(context.Context, *SearchVersionReq) (*SearchVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchVersion not implemented")
+}
+func (UnimplementedAdminServer) CheckVersion(context.Context, *CheckVersionReq) (*CheckVersionResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckVersion not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -2248,6 +2340,114 @@ func _Admin_DelRoleMenu_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_UpdateVersionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateVersionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateVersionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateVersionInfo(ctx, req.(*UpdateVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_VersionInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(VersionInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).VersionInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_VersionInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).VersionInfo(ctx, req.(*VersionInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddVersion(ctx, req.(*AddVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelVersion(ctx, req.(*DelVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_SearchVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchVersion(ctx, req.(*SearchVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_CheckVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckVersionReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).CheckVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_CheckVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).CheckVersion(ctx, req.(*CheckVersionReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -2514,6 +2714,30 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DelRoleMenu",
 			Handler:    _Admin_DelRoleMenu_Handler,
+		},
+		{
+			MethodName: "UpdateVersionInfo",
+			Handler:    _Admin_UpdateVersionInfo_Handler,
+		},
+		{
+			MethodName: "VersionInfo",
+			Handler:    _Admin_VersionInfo_Handler,
+		},
+		{
+			MethodName: "AddVersion",
+			Handler:    _Admin_AddVersion_Handler,
+		},
+		{
+			MethodName: "DelVersion",
+			Handler:    _Admin_DelVersion_Handler,
+		},
+		{
+			MethodName: "SearchVersion",
+			Handler:    _Admin_SearchVersion_Handler,
+		},
+		{
+			MethodName: "CheckVersion",
+			Handler:    _Admin_CheckVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

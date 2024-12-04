@@ -8095,6 +8095,204 @@ var _ interface {
 	ErrorName() string
 } = GetAllOnlineUsersRespValidationError{}
 
+// Validate checks the field values on DelUsersReq with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *DelUsersReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DelUsersReq with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in DelUsersReqMultiError, or
+// nil if none found.
+func (m *DelUsersReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DelUsersReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DelUsersReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// DelUsersReqMultiError is an error wrapping multiple validation errors
+// returned by DelUsersReq.ValidateAll() if the designated constraints aren't met.
+type DelUsersReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DelUsersReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DelUsersReqMultiError) AllErrors() []error { return m }
+
+// DelUsersReqValidationError is the validation error returned by
+// DelUsersReq.Validate if the designated constraints aren't met.
+type DelUsersReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DelUsersReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DelUsersReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DelUsersReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DelUsersReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DelUsersReqValidationError) ErrorName() string { return "DelUsersReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DelUsersReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDelUsersReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DelUsersReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DelUsersReqValidationError{}
+
+// Validate checks the field values on DelUsersResp with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *DelUsersResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DelUsersResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in DelUsersRespMultiError, or
+// nil if none found.
+func (m *DelUsersResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DelUsersResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DelUsersRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// DelUsersRespMultiError is an error wrapping multiple validation errors
+// returned by DelUsersResp.ValidateAll() if the designated constraints aren't met.
+type DelUsersRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DelUsersRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DelUsersRespMultiError) AllErrors() []error { return m }
+
+// DelUsersRespValidationError is the validation error returned by
+// DelUsersResp.Validate if the designated constraints aren't met.
+type DelUsersRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DelUsersRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DelUsersRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DelUsersRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DelUsersRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DelUsersRespValidationError) ErrorName() string { return "DelUsersRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e DelUsersRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDelUsersResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DelUsersRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DelUsersRespValidationError{}
+
 // Validate checks the field values on AccountCheckRespSingleUserStatus with
 // the rules defined in the proto definition for this message. If any rules
 // are violated, the first error encountered is returned, or nil if there are

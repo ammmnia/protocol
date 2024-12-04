@@ -59,6 +59,7 @@ const (
 	User_SortQuery_FullMethodName                     = "/openim.user.user/sortQuery"
 	User_SetUserOnlineStatus_FullMethodName           = "/openim.user.user/setUserOnlineStatus"
 	User_GetAllOnlineUsers_FullMethodName             = "/openim.user.user/getAllOnlineUsers"
+	User_DelUsers_FullMethodName                      = "/openim.user.user/delUsers"
 )
 
 // UserClient is the client API for User service.
@@ -114,6 +115,8 @@ type UserClient interface {
 	SetUserOnlineStatus(ctx context.Context, in *SetUserOnlineStatusReq, opts ...grpc.CallOption) (*SetUserOnlineStatusResp, error)
 	// get all online users
 	GetAllOnlineUsers(ctx context.Context, in *GetAllOnlineUsersReq, opts ...grpc.CallOption) (*GetAllOnlineUsersResp, error)
+	// 删除用户
+	DelUsers(ctx context.Context, in *DelUsersReq, opts ...grpc.CallOption) (*DelUsersResp, error)
 }
 
 type userClient struct {
@@ -358,6 +361,15 @@ func (c *userClient) GetAllOnlineUsers(ctx context.Context, in *GetAllOnlineUser
 	return out, nil
 }
 
+func (c *userClient) DelUsers(ctx context.Context, in *DelUsersReq, opts ...grpc.CallOption) (*DelUsersResp, error) {
+	out := new(DelUsersResp)
+	err := c.cc.Invoke(ctx, User_DelUsers_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility
@@ -411,6 +423,8 @@ type UserServer interface {
 	SetUserOnlineStatus(context.Context, *SetUserOnlineStatusReq) (*SetUserOnlineStatusResp, error)
 	// get all online users
 	GetAllOnlineUsers(context.Context, *GetAllOnlineUsersReq) (*GetAllOnlineUsersResp, error)
+	// 删除用户
+	DelUsers(context.Context, *DelUsersReq) (*DelUsersResp, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -495,6 +509,9 @@ func (UnimplementedUserServer) SetUserOnlineStatus(context.Context, *SetUserOnli
 }
 func (UnimplementedUserServer) GetAllOnlineUsers(context.Context, *GetAllOnlineUsersReq) (*GetAllOnlineUsersResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllOnlineUsers not implemented")
+}
+func (UnimplementedUserServer) DelUsers(context.Context, *DelUsersReq) (*DelUsersResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelUsers not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 
@@ -977,6 +994,24 @@ func _User_GetAllOnlineUsers_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_DelUsers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelUsersReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).DelUsers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_DelUsers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).DelUsers(ctx, req.(*DelUsersReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1087,6 +1122,10 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "getAllOnlineUsers",
 			Handler:    _User_GetAllOnlineUsers_Handler,
+		},
+		{
+			MethodName: "delUsers",
+			Handler:    _User_DelUsers_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

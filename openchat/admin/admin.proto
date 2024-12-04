@@ -16,7 +16,7 @@ syntax = "proto3";
 package openim.openchat.admin;
 
 import "openchat/common/common.proto";
-import "openchat/sdkws/sdkws.proto";
+import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/admin";
@@ -97,7 +97,7 @@ message DelAdminAccountReq {
 message DelAdminAccountResp {}
 
 message SearchAdminAccountReq {
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
   string userName = 3;
   uint64 roleId = 4;
   string opUserName = 5;
@@ -156,7 +156,7 @@ message FindDefaultFriendResp {
 
 message SearchDefaultFriendReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message DefaultFriendAttribute {
@@ -192,13 +192,13 @@ message FindDefaultGroupResp {
 
 message SearchDefaultGroupReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message GroupAttribute {
   string groupID = 1;
   int64 createTime = 2;
-  openim.openchat.sdkws.GroupInfo group = 3;
+  openim.sdkws.GroupInfo group = 3;
 }
 
 message SearchDefaultGroupResp {
@@ -255,7 +255,7 @@ message SearchInvitationCodeReq {
   repeated string userIDs = 2;
   repeated string codes = 3;
   string keyword = 4;
-  openim.openchat.sdkws.RequestPagination pagination = 5;
+  openim.sdkws.RequestPagination pagination = 5;
 }
 
 message SearchInvitationCodeResp {
@@ -267,7 +267,7 @@ message SearchInvitationCodeResp {
 
 message SearchUserIPLimitLoginReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message LimitUserLoginIP {
@@ -317,7 +317,7 @@ message IPForbiddenAdd {
 message SearchIPForbiddenReq {
   string keyword = 1;
   int32 status = 2;
-  openim.openchat.sdkws.RequestPagination pagination = 3;
+  openim.sdkws.RequestPagination pagination = 3;
 }
 
 message SearchIPForbiddenResp {
@@ -373,7 +373,7 @@ message UnblockUserResp {}
 
 message SearchBlockUserReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message BlockUserInfo {
@@ -414,6 +414,7 @@ message FindUserBlockInfoResp {
 
 message CreateTokenReq {
   string userID = 1;
+  string account = 2;
   int32 userType = 32;
 }
 
@@ -427,8 +428,9 @@ message ParseTokenReq {
 
 message ParseTokenResp {
   string userID = 1;
-  int32 userType = 2;
-  int64 expireTimeSeconds = 3;
+  string account = 2;
+  int32 userType = 3;
+  int64 expireTimeSeconds = 4;
 }
 
 message InvalidateTokenReq {
@@ -485,7 +487,7 @@ message FindAppletResp {
 
 message SearchAppletReq {
   string keyword = 1;
-  openim.openchat.sdkws.RequestPagination pagination = 2;
+  openim.sdkws.RequestPagination pagination = 2;
 }
 
 message SearchAppletResp {
@@ -564,7 +566,7 @@ message SearchMenuReq {
   string createBy = 10;
   string startTime = 11;
   string endTime = 12;
-  openim.openchat.sdkws.RequestPagination pagination = 13;
+  openim.sdkws.RequestPagination pagination = 13;
 }
 
 message DisableMenuReq {
@@ -655,7 +657,7 @@ message SearchRoleReq {
   string createBy = 5;
   string startTime = 6;
   string endTime = 7;
-  openim.openchat.sdkws.RequestPagination pagination = 8;
+  openim.sdkws.RequestPagination pagination = 8;
 }
 
 message SearchRoleResp {
@@ -708,6 +710,83 @@ message DelRoleMenuResp {
 
 }
 
+// 跟新版本请求
+message UpdateVersionReq {
+  string ProductName = 1;
+  uint32 Platform = 2;
+  string VersionCode = 3;
+  string Desc = 4;
+  string AndroidDownloadUrl = 5;
+  string IosDownloadUrl = 6;
+  uint32 ShowForceUpgrade = 7;
+  uint32 ShowUpgradeTip = 8;
+  uint64 versionId = 10;
+}
+message UpdateVersionResp {
+
+}
+
+message AddVersionReq {
+  string ProductName = 1;
+  uint32 Platform = 2;
+  string VersionCode = 3;
+  string Desc = 4;
+  string AndroidDownloadUrl = 5;
+  string IosDownloadUrl = 6;
+  uint32 ShowForceUpgrade = 7;
+  uint32 ShowUpgradeTip = 8;
+}
+message AddVersionResp {
+
+}
+message SearchVersionReq {
+  string ProductName = 1;
+  uint32 Platform = 2;
+  string VersionCode = 3;
+  uint32 ForceUpgrade = 4;
+  string createBy = 5;
+  string startTime = 6;
+  string endTime = 7;
+  openim.sdkws.RequestPagination pagination = 8;
+}
+message SearchVersionResp {
+  uint64 total = 1;
+  uint64 pages = 2;
+  repeated VersionInfoResp versions = 4;
+}
+
+message VersionInfoReq {
+  uint64 versionId = 1;
+}
+
+message VersionInfoResp {
+  string ProductName = 1;
+  uint32 Platform = 2;
+  string VersionCode = 3;
+  string Desc = 4;
+  string AndroidDownloadUrl = 5;
+  string IosDownloadUrl = 6;
+  uint32 ShowForceUpgrade = 7;
+  uint32 ShowUpgradeTip = 8;
+  uint64 versionId = 10;
+  int64 creatTime = 11;
+}
+
+message DelVersionReq {
+  uint64 versionId = 1;
+}
+
+message DelVersionResp {
+
+}
+message CheckVersionReq {
+  uint32 platform = 1;  //1:安卓，2:ios，3:都有
+}
+message CheckVersionResp {
+  string curVersion = 1;
+  string downloadUrl = 2;
+  string desc = 3;
+}
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -804,4 +883,12 @@ service admin {
   rpc RoleMenuInfo(RoleMenuInfoReq) returns (RoleMenuInfoResp);
   rpc AddRoleMenu(AddRoleMenuReq) returns (AddRoleMenuResp);
   rpc DelRoleMenu(DelRoleMenuReq) returns (DelRoleMenuResp);
+
+  // version
+  rpc UpdateVersionInfo(UpdateVersionReq) returns (UpdateVersionResp);
+  rpc VersionInfo(VersionInfoReq) returns (VersionInfoResp);
+  rpc AddVersion(AddVersionReq) returns (AddVersionResp);
+  rpc DelVersion(DelVersionReq) returns (DelVersionResp);
+  rpc SearchVersion(SearchVersionReq) returns (SearchVersionResp);
+  rpc CheckVersion(CheckVersionReq) returns(CheckVersionResp);
 }

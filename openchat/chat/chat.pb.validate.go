@@ -6195,3 +6195,272 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = GetAllowRegisterRespValidationError{}
+
+// Validate checks the field values on FindLoginRecordReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *FindLoginRecordReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on FindLoginRecordReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// FindLoginRecordReqMultiError, or nil if none found.
+func (m *FindLoginRecordReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *FindLoginRecordReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if all {
+		switch v := interface{}(m.GetPagination()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, FindLoginRecordReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, FindLoginRecordReqValidationError{
+					field:  "Pagination",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPagination()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return FindLoginRecordReqValidationError{
+				field:  "Pagination",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
+	if len(errors) > 0 {
+		return FindLoginRecordReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// FindLoginRecordReqMultiError is an error wrapping multiple validation errors
+// returned by FindLoginRecordReq.ValidateAll() if the designated constraints
+// aren't met.
+type FindLoginRecordReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FindLoginRecordReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FindLoginRecordReqMultiError) AllErrors() []error { return m }
+
+// FindLoginRecordReqValidationError is the validation error returned by
+// FindLoginRecordReq.Validate if the designated constraints aren't met.
+type FindLoginRecordReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FindLoginRecordReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FindLoginRecordReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FindLoginRecordReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FindLoginRecordReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FindLoginRecordReqValidationError) ErrorName() string {
+	return "FindLoginRecordReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FindLoginRecordReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFindLoginRecordReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FindLoginRecordReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FindLoginRecordReqValidationError{}
+
+// Validate checks the field values on FindLoginRecordResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *FindLoginRecordResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on FindLoginRecordResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// FindLoginRecordRespMultiError, or nil if none found.
+func (m *FindLoginRecordResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *FindLoginRecordResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Total
+
+	for idx, item := range m.GetLoginRecord() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, FindLoginRecordRespValidationError{
+						field:  fmt.Sprintf("LoginRecord[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, FindLoginRecordRespValidationError{
+						field:  fmt.Sprintf("LoginRecord[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return FindLoginRecordRespValidationError{
+					field:  fmt.Sprintf("LoginRecord[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return FindLoginRecordRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// FindLoginRecordRespMultiError is an error wrapping multiple validation
+// errors returned by FindLoginRecordResp.ValidateAll() if the designated
+// constraints aren't met.
+type FindLoginRecordRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m FindLoginRecordRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m FindLoginRecordRespMultiError) AllErrors() []error { return m }
+
+// FindLoginRecordRespValidationError is the validation error returned by
+// FindLoginRecordResp.Validate if the designated constraints aren't met.
+type FindLoginRecordRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e FindLoginRecordRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e FindLoginRecordRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e FindLoginRecordRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e FindLoginRecordRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e FindLoginRecordRespValidationError) ErrorName() string {
+	return "FindLoginRecordRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e FindLoginRecordRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sFindLoginRecordResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = FindLoginRecordRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = FindLoginRecordRespValidationError{}

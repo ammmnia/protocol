@@ -59,6 +59,7 @@ const (
 	Friend_GetFullFriendUserIDs_FullMethodName           = "/openim.relation.friend/getFullFriendUserIDs"
 	Friend_NotificationUserInfoUpdate_FullMethodName     = "/openim.relation.friend/NotificationUserInfoUpdate"
 	Friend_GetFriendInfo_FullMethodName                  = "/openim.relation.friend/getFriendInfo"
+	Friend_DelUser_FullMethodName                        = "/openim.relation.friend/delUser"
 )
 
 // FriendClient is the client API for Friend service.
@@ -114,6 +115,7 @@ type FriendClient interface {
 	GetFullFriendUserIDs(ctx context.Context, in *GetFullFriendUserIDsReq, opts ...grpc.CallOption) (*GetFullFriendUserIDsResp, error)
 	NotificationUserInfoUpdate(ctx context.Context, in *NotificationUserInfoUpdateReq, opts ...grpc.CallOption) (*NotificationUserInfoUpdateResp, error)
 	GetFriendInfo(ctx context.Context, in *GetFriendInfoReq, opts ...grpc.CallOption) (*GetFriendInfoResp, error)
+	DelUser(ctx context.Context, in *DelUserReq, opts ...grpc.CallOption) (*DelUserResp, error)
 }
 
 type friendClient struct {
@@ -358,6 +360,15 @@ func (c *friendClient) GetFriendInfo(ctx context.Context, in *GetFriendInfoReq, 
 	return out, nil
 }
 
+func (c *friendClient) DelUser(ctx context.Context, in *DelUserReq, opts ...grpc.CallOption) (*DelUserResp, error) {
+	out := new(DelUserResp)
+	err := c.cc.Invoke(ctx, Friend_DelUser_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FriendServer is the server API for Friend service.
 // All implementations must embed UnimplementedFriendServer
 // for forward compatibility
@@ -411,6 +422,7 @@ type FriendServer interface {
 	GetFullFriendUserIDs(context.Context, *GetFullFriendUserIDsReq) (*GetFullFriendUserIDsResp, error)
 	NotificationUserInfoUpdate(context.Context, *NotificationUserInfoUpdateReq) (*NotificationUserInfoUpdateResp, error)
 	GetFriendInfo(context.Context, *GetFriendInfoReq) (*GetFriendInfoResp, error)
+	DelUser(context.Context, *DelUserReq) (*DelUserResp, error)
 	mustEmbedUnimplementedFriendServer()
 }
 
@@ -495,6 +507,9 @@ func (UnimplementedFriendServer) NotificationUserInfoUpdate(context.Context, *No
 }
 func (UnimplementedFriendServer) GetFriendInfo(context.Context, *GetFriendInfoReq) (*GetFriendInfoResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetFriendInfo not implemented")
+}
+func (UnimplementedFriendServer) DelUser(context.Context, *DelUserReq) (*DelUserResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelUser not implemented")
 }
 func (UnimplementedFriendServer) mustEmbedUnimplementedFriendServer() {}
 
@@ -977,6 +992,24 @@ func _Friend_GetFriendInfo_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Friend_DelUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelUserReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FriendServer).DelUser(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Friend_DelUser_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FriendServer).DelUser(ctx, req.(*DelUserReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Friend_ServiceDesc is the grpc.ServiceDesc for Friend service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1087,6 +1120,10 @@ var Friend_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "getFriendInfo",
 			Handler:    _Friend_GetFriendInfo_Handler,
+		},
+		{
+			MethodName: "delUser",
+			Handler:    _Friend_DelUser_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

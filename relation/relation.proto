@@ -292,6 +292,12 @@ message getFriendInfoReq {
 message getFriendInfoResp {
   repeated FriendInfoOnly friendInfos = 1;
 }
+message delUserReq {
+  repeated string userIds = 1;
+}
+message delUserResp {
+  
+}
 
 service friend {
   // Friend request
@@ -346,4 +352,6 @@ service friend {
   rpc NotificationUserInfoUpdate(notificationUserInfoUpdateReq) returns (notificationUserInfoUpdateResp);
 
   rpc getFriendInfo(getFriendInfoReq) returns (getFriendInfoResp);
+
+  rpc delUser(delUserReq) returns (delUserResp);
 }

@@ -293,6 +293,7 @@ message CheckUserExistResp {
 
 message DelUserAccountReq {
   repeated string userIDs = 1;
+  repeated string accounts = 2;
 }
 message DelUserAccountResp {}
 

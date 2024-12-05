@@ -319,6 +319,43 @@ message FindLoginRecordResp {
   repeated openim.openchat.common.UserLoginRecord loginRecord = 1;
 }
 
+// ################### TOKEN ###################
+
+message CreateTokenReq {
+  string userID = 1;
+  string account = 2;
+  int32 userType = 32;
+}
+
+message CreateTokenResp {
+  string token = 1;
+}
+
+message ParseTokenReq {
+  string token = 1;
+}
+
+message ParseTokenResp {
+  string userID = 1;
+  string account = 2;
+  int32 userType = 3;
+  int64 expireTimeSeconds = 4;
+}
+
+message InvalidateTokenReq {
+  string userID = 1;
+}
+
+message InvalidateTokenResp {}
+
+message GetUserTokenReq {
+  string userID = 1;
+}
+
+message GetUserTokenResp {
+  map<string, int32> tokensMap = 1;
+}
+
 // ################### Version ###################
 // 跟新版本请求
 message UpdateVersionReq {
@@ -837,6 +874,15 @@ service chat {
   // Login Record
   rpc FindLoginRecord(FindLoginRecordReq) returns (FindLoginRecordResp);
 
+  // create token
+  rpc CreateToken(CreateTokenReq) returns (CreateTokenResp);
+  // parse token
+  rpc ParseToken(ParseTokenReq) returns (ParseTokenResp);
+  // get user token
+  rpc GetUserToken(GetUserTokenReq) returns (GetUserTokenResp);
+  // invalidate token
+  rpc InvalidateToken(InvalidateTokenReq) returns (InvalidateTokenResp);
+
   // version
   rpc UpdateVersionInfo(UpdateVersionReq) returns (UpdateVersionResp);
   rpc VersionInfo(VersionInfoReq) returns (VersionInfoResp);
@@ -851,6 +897,7 @@ service chat {
   rpc FindDefaultFriend(FindDefaultFriendReq) returns (FindDefaultFriendResp);
   rpc SearchDefaultFriend(SearchDefaultFriendReq) returns (SearchDefaultFriendResp);
 
+  // Add Remove Get default group list on registration
   rpc AddDefaultGroup(AddDefaultGroupReq) returns (AddDefaultGroupResp);
   rpc DelDefaultGroup(DelDefaultGroupReq) returns (DelDefaultGroupResp);
   rpc FindDefaultGroup(FindDefaultGroupReq) returns (FindDefaultGroupResp);
@@ -881,6 +928,7 @@ service chat {
   rpc SearchBlockUser(SearchBlockUserReq) returns (SearchBlockUserResp);
   rpc FindUserBlockInfo(FindUserBlockInfoReq) returns (FindUserBlockInfoResp);
 
+  // check
   rpc CheckRegisterForbidden(CheckRegisterForbiddenReq) returns (CheckRegisterForbiddenResp);
   rpc CheckLoginForbidden(CheckLoginForbiddenReq) returns (CheckLoginForbiddenResp);
 

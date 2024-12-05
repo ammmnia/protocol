@@ -8125,6 +8125,8 @@ func (m *VersionInfoResp) validate(all bool) error {
 
 	// no validation rules for CreatTime
 
+	// no validation rules for CreatBy
+
 	if len(errors) > 0 {
 		return VersionInfoRespMultiError(errors)
 	}

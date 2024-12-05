@@ -353,5 +353,5 @@ service friend {
 
   rpc getFriendInfo(getFriendInfoReq) returns (getFriendInfoResp);
 
-  rpc delUser(delUserReq) returns (delUserResp);
+  rpc deleteUser(delUserReq) returns (delUserResp);
 }

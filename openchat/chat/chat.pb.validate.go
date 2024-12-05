@@ -6434,6 +6434,834 @@ var _ interface {
 	ErrorName() string
 } = FindLoginRecordRespValidationError{}
 
+// Validate checks the field values on CreateTokenReq with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *CreateTokenReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTokenReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in CreateTokenReqMultiError,
+// or nil if none found.
+func (m *CreateTokenReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTokenReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserID
+
+	// no validation rules for Account
+
+	// no validation rules for UserType
+
+	if len(errors) > 0 {
+		return CreateTokenReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTokenReqMultiError is an error wrapping multiple validation errors
+// returned by CreateTokenReq.ValidateAll() if the designated constraints
+// aren't met.
+type CreateTokenReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTokenReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTokenReqMultiError) AllErrors() []error { return m }
+
+// CreateTokenReqValidationError is the validation error returned by
+// CreateTokenReq.Validate if the designated constraints aren't met.
+type CreateTokenReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTokenReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTokenReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTokenReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTokenReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTokenReqValidationError) ErrorName() string { return "CreateTokenReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CreateTokenReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTokenReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTokenReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTokenReqValidationError{}
+
+// Validate checks the field values on CreateTokenResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *CreateTokenResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CreateTokenResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CreateTokenRespMultiError, or nil if none found.
+func (m *CreateTokenResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CreateTokenResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Token
+
+	if len(errors) > 0 {
+		return CreateTokenRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// CreateTokenRespMultiError is an error wrapping multiple validation errors
+// returned by CreateTokenResp.ValidateAll() if the designated constraints
+// aren't met.
+type CreateTokenRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CreateTokenRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CreateTokenRespMultiError) AllErrors() []error { return m }
+
+// CreateTokenRespValidationError is the validation error returned by
+// CreateTokenResp.Validate if the designated constraints aren't met.
+type CreateTokenRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CreateTokenRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CreateTokenRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CreateTokenRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CreateTokenRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CreateTokenRespValidationError) ErrorName() string { return "CreateTokenRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CreateTokenRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCreateTokenResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CreateTokenRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CreateTokenRespValidationError{}
+
+// Validate checks the field values on ParseTokenReq with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ParseTokenReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ParseTokenReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in ParseTokenReqMultiError, or
+// nil if none found.
+func (m *ParseTokenReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ParseTokenReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Token
+
+	if len(errors) > 0 {
+		return ParseTokenReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// ParseTokenReqMultiError is an error wrapping multiple validation errors
+// returned by ParseTokenReq.ValidateAll() if the designated constraints
+// aren't met.
+type ParseTokenReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ParseTokenReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ParseTokenReqMultiError) AllErrors() []error { return m }
+
+// ParseTokenReqValidationError is the validation error returned by
+// ParseTokenReq.Validate if the designated constraints aren't met.
+type ParseTokenReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ParseTokenReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ParseTokenReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ParseTokenReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ParseTokenReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ParseTokenReqValidationError) ErrorName() string { return "ParseTokenReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ParseTokenReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sParseTokenReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ParseTokenReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ParseTokenReqValidationError{}
+
+// Validate checks the field values on ParseTokenResp with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *ParseTokenResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on ParseTokenResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in ParseTokenRespMultiError,
+// or nil if none found.
+func (m *ParseTokenResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *ParseTokenResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserID
+
+	// no validation rules for Account
+
+	// no validation rules for UserType
+
+	// no validation rules for ExpireTimeSeconds
+
+	if len(errors) > 0 {
+		return ParseTokenRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// ParseTokenRespMultiError is an error wrapping multiple validation errors
+// returned by ParseTokenResp.ValidateAll() if the designated constraints
+// aren't met.
+type ParseTokenRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m ParseTokenRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m ParseTokenRespMultiError) AllErrors() []error { return m }
+
+// ParseTokenRespValidationError is the validation error returned by
+// ParseTokenResp.Validate if the designated constraints aren't met.
+type ParseTokenRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e ParseTokenRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e ParseTokenRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e ParseTokenRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e ParseTokenRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e ParseTokenRespValidationError) ErrorName() string { return "ParseTokenRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e ParseTokenRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sParseTokenResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = ParseTokenRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = ParseTokenRespValidationError{}
+
+// Validate checks the field values on InvalidateTokenReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *InvalidateTokenReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on InvalidateTokenReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// InvalidateTokenReqMultiError, or nil if none found.
+func (m *InvalidateTokenReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *InvalidateTokenReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserID
+
+	if len(errors) > 0 {
+		return InvalidateTokenReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// InvalidateTokenReqMultiError is an error wrapping multiple validation errors
+// returned by InvalidateTokenReq.ValidateAll() if the designated constraints
+// aren't met.
+type InvalidateTokenReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m InvalidateTokenReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m InvalidateTokenReqMultiError) AllErrors() []error { return m }
+
+// InvalidateTokenReqValidationError is the validation error returned by
+// InvalidateTokenReq.Validate if the designated constraints aren't met.
+type InvalidateTokenReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e InvalidateTokenReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e InvalidateTokenReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e InvalidateTokenReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e InvalidateTokenReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e InvalidateTokenReqValidationError) ErrorName() string {
+	return "InvalidateTokenReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e InvalidateTokenReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sInvalidateTokenReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = InvalidateTokenReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = InvalidateTokenReqValidationError{}
+
+// Validate checks the field values on InvalidateTokenResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *InvalidateTokenResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on InvalidateTokenResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// InvalidateTokenRespMultiError, or nil if none found.
+func (m *InvalidateTokenResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *InvalidateTokenResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return InvalidateTokenRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// InvalidateTokenRespMultiError is an error wrapping multiple validation
+// errors returned by InvalidateTokenResp.ValidateAll() if the designated
+// constraints aren't met.
+type InvalidateTokenRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m InvalidateTokenRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m InvalidateTokenRespMultiError) AllErrors() []error { return m }
+
+// InvalidateTokenRespValidationError is the validation error returned by
+// InvalidateTokenResp.Validate if the designated constraints aren't met.
+type InvalidateTokenRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e InvalidateTokenRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e InvalidateTokenRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e InvalidateTokenRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e InvalidateTokenRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e InvalidateTokenRespValidationError) ErrorName() string {
+	return "InvalidateTokenRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e InvalidateTokenRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sInvalidateTokenResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = InvalidateTokenRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = InvalidateTokenRespValidationError{}
+
+// Validate checks the field values on GetUserTokenReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *GetUserTokenReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetUserTokenReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetUserTokenReqMultiError, or nil if none found.
+func (m *GetUserTokenReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetUserTokenReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserID
+
+	if len(errors) > 0 {
+		return GetUserTokenReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetUserTokenReqMultiError is an error wrapping multiple validation errors
+// returned by GetUserTokenReq.ValidateAll() if the designated constraints
+// aren't met.
+type GetUserTokenReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetUserTokenReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetUserTokenReqMultiError) AllErrors() []error { return m }
+
+// GetUserTokenReqValidationError is the validation error returned by
+// GetUserTokenReq.Validate if the designated constraints aren't met.
+type GetUserTokenReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetUserTokenReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetUserTokenReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetUserTokenReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetUserTokenReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetUserTokenReqValidationError) ErrorName() string { return "GetUserTokenReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e GetUserTokenReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetUserTokenReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetUserTokenReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetUserTokenReqValidationError{}
+
+// Validate checks the field values on GetUserTokenResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *GetUserTokenResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on GetUserTokenResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// GetUserTokenRespMultiError, or nil if none found.
+func (m *GetUserTokenResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *GetUserTokenResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for TokensMap
+
+	if len(errors) > 0 {
+		return GetUserTokenRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// GetUserTokenRespMultiError is an error wrapping multiple validation errors
+// returned by GetUserTokenResp.ValidateAll() if the designated constraints
+// aren't met.
+type GetUserTokenRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m GetUserTokenRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m GetUserTokenRespMultiError) AllErrors() []error { return m }
+
+// GetUserTokenRespValidationError is the validation error returned by
+// GetUserTokenResp.Validate if the designated constraints aren't met.
+type GetUserTokenRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e GetUserTokenRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e GetUserTokenRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e GetUserTokenRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e GetUserTokenRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e GetUserTokenRespValidationError) ErrorName() string { return "GetUserTokenRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e GetUserTokenRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sGetUserTokenResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = GetUserTokenRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = GetUserTokenRespValidationError{}
+
 // Validate checks the field values on UpdateVersionReq with the rules defined
 // in the proto definition for this message. If any rules are violated, the
 // first error encountered is returned, or nil if there are no violations.

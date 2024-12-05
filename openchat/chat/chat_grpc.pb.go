@@ -58,6 +58,10 @@ const (
 	Chat_SetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/SetAllowRegister"
 	Chat_GetAllowRegister_FullMethodName        = "/openim.openchat.chat.chat/GetAllowRegister"
 	Chat_FindLoginRecord_FullMethodName         = "/openim.openchat.chat.chat/FindLoginRecord"
+	Chat_CreateToken_FullMethodName             = "/openim.openchat.chat.chat/CreateToken"
+	Chat_ParseToken_FullMethodName              = "/openim.openchat.chat.chat/ParseToken"
+	Chat_GetUserToken_FullMethodName            = "/openim.openchat.chat.chat/GetUserToken"
+	Chat_InvalidateToken_FullMethodName         = "/openim.openchat.chat.chat/InvalidateToken"
 	Chat_UpdateVersionInfo_FullMethodName       = "/openim.openchat.chat.chat/UpdateVersionInfo"
 	Chat_VersionInfo_FullMethodName             = "/openim.openchat.chat.chat/VersionInfo"
 	Chat_AddVersion_FullMethodName              = "/openim.openchat.chat.chat/AddVersion"
@@ -137,6 +141,14 @@ type ChatClient interface {
 	GetAllowRegister(ctx context.Context, in *GetAllowRegisterReq, opts ...grpc.CallOption) (*GetAllowRegisterResp, error)
 	// Login Record
 	FindLoginRecord(ctx context.Context, in *FindLoginRecordReq, opts ...grpc.CallOption) (*FindLoginRecordResp, error)
+	// create token
+	CreateToken(ctx context.Context, in *CreateTokenReq, opts ...grpc.CallOption) (*CreateTokenResp, error)
+	// parse token
+	ParseToken(ctx context.Context, in *ParseTokenReq, opts ...grpc.CallOption) (*ParseTokenResp, error)
+	// get user token
+	GetUserToken(ctx context.Context, in *GetUserTokenReq, opts ...grpc.CallOption) (*GetUserTokenResp, error)
+	// invalidate token
+	InvalidateToken(ctx context.Context, in *InvalidateTokenReq, opts ...grpc.CallOption) (*InvalidateTokenResp, error)
 	// version
 	UpdateVersionInfo(ctx context.Context, in *UpdateVersionReq, opts ...grpc.CallOption) (*UpdateVersionResp, error)
 	VersionInfo(ctx context.Context, in *VersionInfoReq, opts ...grpc.CallOption) (*VersionInfoResp, error)
@@ -149,6 +161,7 @@ type ChatClient interface {
 	DelDefaultFriend(ctx context.Context, in *DelDefaultFriendReq, opts ...grpc.CallOption) (*DelDefaultFriendResp, error)
 	FindDefaultFriend(ctx context.Context, in *FindDefaultFriendReq, opts ...grpc.CallOption) (*FindDefaultFriendResp, error)
 	SearchDefaultFriend(ctx context.Context, in *SearchDefaultFriendReq, opts ...grpc.CallOption) (*SearchDefaultFriendResp, error)
+	// Add Remove Get default group list on registration
 	AddDefaultGroup(ctx context.Context, in *AddDefaultGroupReq, opts ...grpc.CallOption) (*AddDefaultGroupResp, error)
 	DelDefaultGroup(ctx context.Context, in *DelDefaultGroupReq, opts ...grpc.CallOption) (*DelDefaultGroupResp, error)
 	FindDefaultGroup(ctx context.Context, in *FindDefaultGroupReq, opts ...grpc.CallOption) (*FindDefaultGroupResp, error)
@@ -174,6 +187,7 @@ type ChatClient interface {
 	UnblockUser(ctx context.Context, in *UnblockUserReq, opts ...grpc.CallOption) (*UnblockUserResp, error)
 	SearchBlockUser(ctx context.Context, in *SearchBlockUserReq, opts ...grpc.CallOption) (*SearchBlockUserResp, error)
 	FindUserBlockInfo(ctx context.Context, in *FindUserBlockInfoReq, opts ...grpc.CallOption) (*FindUserBlockInfoResp, error)
+	// check
 	CheckRegisterForbidden(ctx context.Context, in *CheckRegisterForbiddenReq, opts ...grpc.CallOption) (*CheckRegisterForbiddenResp, error)
 	CheckLoginForbidden(ctx context.Context, in *CheckLoginForbiddenReq, opts ...grpc.CallOption) (*CheckLoginForbiddenResp, error)
 	// Client Configuration
@@ -415,6 +429,42 @@ func (c *chatClient) GetAllowRegister(ctx context.Context, in *GetAllowRegisterR
 func (c *chatClient) FindLoginRecord(ctx context.Context, in *FindLoginRecordReq, opts ...grpc.CallOption) (*FindLoginRecordResp, error) {
 	out := new(FindLoginRecordResp)
 	err := c.cc.Invoke(ctx, Chat_FindLoginRecord_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) CreateToken(ctx context.Context, in *CreateTokenReq, opts ...grpc.CallOption) (*CreateTokenResp, error) {
+	out := new(CreateTokenResp)
+	err := c.cc.Invoke(ctx, Chat_CreateToken_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) ParseToken(ctx context.Context, in *ParseTokenReq, opts ...grpc.CallOption) (*ParseTokenResp, error) {
+	out := new(ParseTokenResp)
+	err := c.cc.Invoke(ctx, Chat_ParseToken_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) GetUserToken(ctx context.Context, in *GetUserTokenReq, opts ...grpc.CallOption) (*GetUserTokenResp, error) {
+	out := new(GetUserTokenResp)
+	err := c.cc.Invoke(ctx, Chat_GetUserToken_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *chatClient) InvalidateToken(ctx context.Context, in *InvalidateTokenReq, opts ...grpc.CallOption) (*InvalidateTokenResp, error) {
+	out := new(InvalidateTokenResp)
+	err := c.cc.Invoke(ctx, Chat_InvalidateToken_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -826,6 +876,14 @@ type ChatServer interface {
 	GetAllowRegister(context.Context, *GetAllowRegisterReq) (*GetAllowRegisterResp, error)
 	// Login Record
 	FindLoginRecord(context.Context, *FindLoginRecordReq) (*FindLoginRecordResp, error)
+	// create token
+	CreateToken(context.Context, *CreateTokenReq) (*CreateTokenResp, error)
+	// parse token
+	ParseToken(context.Context, *ParseTokenReq) (*ParseTokenResp, error)
+	// get user token
+	GetUserToken(context.Context, *GetUserTokenReq) (*GetUserTokenResp, error)
+	// invalidate token
+	InvalidateToken(context.Context, *InvalidateTokenReq) (*InvalidateTokenResp, error)
 	// version
 	UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error)
 	VersionInfo(context.Context, *VersionInfoReq) (*VersionInfoResp, error)
@@ -838,6 +896,7 @@ type ChatServer interface {
 	DelDefaultFriend(context.Context, *DelDefaultFriendReq) (*DelDefaultFriendResp, error)
 	FindDefaultFriend(context.Context, *FindDefaultFriendReq) (*FindDefaultFriendResp, error)
 	SearchDefaultFriend(context.Context, *SearchDefaultFriendReq) (*SearchDefaultFriendResp, error)
+	// Add Remove Get default group list on registration
 	AddDefaultGroup(context.Context, *AddDefaultGroupReq) (*AddDefaultGroupResp, error)
 	DelDefaultGroup(context.Context, *DelDefaultGroupReq) (*DelDefaultGroupResp, error)
 	FindDefaultGroup(context.Context, *FindDefaultGroupReq) (*FindDefaultGroupResp, error)
@@ -863,6 +922,7 @@ type ChatServer interface {
 	UnblockUser(context.Context, *UnblockUserReq) (*UnblockUserResp, error)
 	SearchBlockUser(context.Context, *SearchBlockUserReq) (*SearchBlockUserResp, error)
 	FindUserBlockInfo(context.Context, *FindUserBlockInfoReq) (*FindUserBlockInfoResp, error)
+	// check
 	CheckRegisterForbidden(context.Context, *CheckRegisterForbiddenReq) (*CheckRegisterForbiddenResp, error)
 	CheckLoginForbidden(context.Context, *CheckLoginForbiddenReq) (*CheckLoginForbiddenResp, error)
 	// Client Configuration
@@ -956,6 +1016,18 @@ func (UnimplementedChatServer) GetAllowRegister(context.Context, *GetAllowRegist
 }
 func (UnimplementedChatServer) FindLoginRecord(context.Context, *FindLoginRecordReq) (*FindLoginRecordResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindLoginRecord not implemented")
+}
+func (UnimplementedChatServer) CreateToken(context.Context, *CreateTokenReq) (*CreateTokenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateToken not implemented")
+}
+func (UnimplementedChatServer) ParseToken(context.Context, *ParseTokenReq) (*ParseTokenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ParseToken not implemented")
+}
+func (UnimplementedChatServer) GetUserToken(context.Context, *GetUserTokenReq) (*GetUserTokenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserToken not implemented")
+}
+func (UnimplementedChatServer) InvalidateToken(context.Context, *InvalidateTokenReq) (*InvalidateTokenResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InvalidateToken not implemented")
 }
 func (UnimplementedChatServer) UpdateVersionInfo(context.Context, *UpdateVersionReq) (*UpdateVersionResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateVersionInfo not implemented")
@@ -1539,6 +1611,78 @@ func _Chat_FindLoginRecord_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChatServer).FindLoginRecord(ctx, req.(*FindLoginRecordReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_CreateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateTokenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).CreateToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_CreateToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).CreateToken(ctx, req.(*CreateTokenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_ParseToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ParseTokenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).ParseToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_ParseToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).ParseToken(ctx, req.(*ParseTokenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_GetUserToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserTokenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).GetUserToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_GetUserToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).GetUserToken(ctx, req.(*GetUserTokenReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Chat_InvalidateToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InvalidateTokenReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ChatServer).InvalidateToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Chat_InvalidateToken_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ChatServer).InvalidateToken(ctx, req.(*InvalidateTokenReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2387,6 +2531,22 @@ var Chat_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindLoginRecord",
 			Handler:    _Chat_FindLoginRecord_Handler,
+		},
+		{
+			MethodName: "CreateToken",
+			Handler:    _Chat_CreateToken_Handler,
+		},
+		{
+			MethodName: "ParseToken",
+			Handler:    _Chat_ParseToken_Handler,
+		},
+		{
+			MethodName: "GetUserToken",
+			Handler:    _Chat_GetUserToken_Handler,
+		},
+		{
+			MethodName: "InvalidateToken",
+			Handler:    _Chat_InvalidateToken_Handler,
 		},
 		{
 			MethodName: "UpdateVersionInfo",

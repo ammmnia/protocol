@@ -8535,6 +8535,8 @@ func (m *CheckVersionResp) validate(all bool) error {
 
 	// no validation rules for Desc
 
+	// no validation rules for ForceUpgrade
+
 	if len(errors) > 0 {
 		return CheckVersionRespMultiError(errors)
 	}

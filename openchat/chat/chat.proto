@@ -429,6 +429,7 @@ message CheckVersionResp {
   string curVersion = 1;
   string downloadUrl = 2;
   string desc = 3;
+  uint32 forceUpgrade = 4;
 }
 
 // ################### Default Friend ###################

@@ -15,7 +15,6 @@
 syntax = "proto3";
 package openim.openchat.admin;
 
-import "openchat/common/common.proto";
 import "sdkws/sdkws.proto";
 import "wrapperspb/wrapperspb.proto";
 

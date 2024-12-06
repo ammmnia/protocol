@@ -58,7 +58,7 @@ message AdminUpdateInfoReq {
   string account = 2;
   string password = 3;
   string username = 4;
-  string status = 5;
+  uint32 status = 5;
   string roleCode = 6;
   string desc = 7;
 }

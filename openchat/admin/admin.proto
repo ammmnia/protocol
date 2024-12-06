@@ -54,13 +54,13 @@ message AddAdminAccountReq {
 message AddAdminAccountResp {}
 
 message AdminUpdateInfoReq {
-  openim.protobuf.StringValue userId = 1;
-  openim.protobuf.StringValue account = 2;
-  openim.protobuf.StringValue password = 3;
-  openim.protobuf.StringValue username = 4;
-  openim.protobuf.UInt32Value status = 5;
-  openim.protobuf.StringValue roleCode = 6;
-  openim.protobuf.StringValue desc = 7;
+  string userId = 1;
+  string account = 2;
+  string password = 3;
+  string username = 4;
+  string status = 5;
+  string roleCode = 6;
+  string desc = 7;
 }
 
 message AdminUpdateInfoResp {

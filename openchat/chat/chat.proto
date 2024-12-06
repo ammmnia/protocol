@@ -413,8 +413,8 @@ message VersionInfoResp {
   uint32 ShowForceUpgrade = 7;
   uint32 ShowUpgradeTip = 8;
   uint64 versionId = 10;
-  int64 creatTime = 11;
-  string creatBy = 12;
+  int64 updateTime = 11;
+  string updateBy = 12;
 }
 
 message DelVersionReq {

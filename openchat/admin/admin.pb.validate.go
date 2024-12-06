@@ -3623,9 +3623,9 @@ func (m *SearchMenuReq) validate(all bool) error {
 
 	// no validation rules for Status
 
-	// no validation rules for RoleId
+	// no validation rules for RoleCode
 
-	// no validation rules for CreateBy
+	// no validation rules for UpdateBy
 
 	// no validation rules for StartTime
 
@@ -3880,9 +3880,11 @@ func (m *MenuInfoResp) validate(all bool) error {
 
 	// no validation rules for MenuId
 
-	// no validation rules for CreateBy
+	// no validation rules for UpdateBy
 
-	// no validation rules for CreateTime
+	// no validation rules for UpdateTime
+
+	// no validation rules for RoleCode
 
 	if len(errors) > 0 {
 		return MenuInfoRespMultiError(errors)
@@ -4740,9 +4742,9 @@ func (m *RoleInfoResp) validate(all bool) error {
 
 	// no validation rules for Status
 
-	// no validation rules for CreateBy
+	// no validation rules for UpdateBy
 
-	// no validation rules for CreateTime
+	// no validation rules for UpdateTime
 
 	if len(errors) > 0 {
 		return RoleInfoRespMultiError(errors)
@@ -5257,7 +5259,7 @@ func (m *SearchRoleReq) validate(all bool) error {
 
 	// no validation rules for Status
 
-	// no validation rules for CreateBy
+	// no validation rules for UpdateBy
 
 	// no validation rules for StartTime
 

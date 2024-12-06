@@ -16,7 +16,6 @@ syntax = "proto3";
 package openim.openchat.admin;
 
 import "sdkws/sdkws.proto";
-import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/admin";
 
@@ -98,7 +97,7 @@ message DelAdminAccountResp {}
 message SearchAdminAccountReq {
   string userName = 1;
   string roleCode = 2;
-  string updateBy = 3;
+  string updateBy = 3;  //操作人
   uint32 status = 4;  //状态 1:正常，2:禁用
   string startTime = 5;
   string endTime = 6;
@@ -209,8 +208,8 @@ message SearchMenuReq {
   uint32 menuType = 2;
   string path = 6;
   uint32 status = 8;
-  uint64 roleId = 9;
-  string createBy = 10;
+  string roleCode = 9;
+  string updateBy = 10;
   string startTime = 11;
   string endTime = 12;
   openim.sdkws.RequestPagination pagination = 13;
@@ -230,8 +229,9 @@ message MenuInfoResp {
   uint32 isCache = 7;
   uint32 status = 8;
   uint64 menuId = 9;
-  string createBy = 10;
-  int64 createTime = 11;
+  string updateBy = 10;
+  int64 updateTime = 11;
+  string roleCode = 12;
 }
 
 message AddMenuResp {
@@ -271,8 +271,8 @@ message RoleInfoResp {
   string roleCode = 3;
   string desc = 4;
   uint32 status = 5;
-  string createBy = 6;
-  int64 createTime = 7;
+  string updateBy = 6;
+  int64 updateTime = 7;
 }
 
 message AddRoleReq {
@@ -301,7 +301,7 @@ message SearchRoleReq {
   string roleCode = 2;
   string desc = 3;
   uint32 status = 4;
-  string createBy = 5;
+  string updateBy = 5;
   string startTime = 6;
   string endTime = 7;
   openim.sdkws.RequestPagination pagination = 8;

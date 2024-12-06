@@ -96,13 +96,13 @@ message DelAdminAccountReq {
 message DelAdminAccountResp {}
 
 message SearchAdminAccountReq {
-  openim.sdkws.RequestPagination pagination = 2;
-  string userName = 3;
-  uint64 roleId = 4;
-  string opUserName = 5;
-  uint32 status = 6;
-  string startTime = 7;
-  string endTime = 8;
+  string userName = 1;
+  string roleCode = 2;
+  string updateBy = 3;
+  uint32 status = 4;  //状态 1:正常，2:禁用
+  string startTime = 5;
+  string endTime = 6;
+  openim.sdkws.RequestPagination pagination = 7;
 }
 
 message SearchAdminAccountResp {
@@ -119,15 +119,15 @@ message GetAdminInfoResp {
   string userID = 6;
   string desc = 7;
   int64 createTime = 8;
-  uint64 roleId = 9;
+  string roleCode = 9;
   uint32 status = 10;
-  string opUserName = 11;
-  int64 opTime = 12;
+  string updateBy = 11;
+  int64 updateTime = 12;
 }
 
 message DisableAdminAccountReq {
   string userID = 1;
-  uint32 status = 2;
+  uint32 status = 2;  //状态 1:正常，2:禁用
 }
 
 message DisableAdminAccountResp {

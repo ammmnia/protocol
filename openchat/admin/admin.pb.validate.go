@@ -1826,6 +1826,18 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for UserName
+
+	// no validation rules for RoleCode
+
+	// no validation rules for UpdateBy
+
+	// no validation rules for Status
+
+	// no validation rules for StartTime
+
+	// no validation rules for EndTime
+
 	if all {
 		switch v := interface{}(m.GetPagination()).(type) {
 		case interface{ ValidateAll() error }:
@@ -1854,18 +1866,6 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 			}
 		}
 	}
-
-	// no validation rules for UserName
-
-	// no validation rules for RoleId
-
-	// no validation rules for OpUserName
-
-	// no validation rules for Status
-
-	// no validation rules for StartTime
-
-	// no validation rules for EndTime
 
 	if len(errors) > 0 {
 		return SearchAdminAccountReqMultiError(errors)
@@ -2123,13 +2123,13 @@ func (m *GetAdminInfoResp) validate(all bool) error {
 
 	// no validation rules for CreateTime
 
-	// no validation rules for RoleId
+	// no validation rules for RoleCode
 
 	// no validation rules for Status
 
-	// no validation rules for OpUserName
+	// no validation rules for UpdateBy
 
-	// no validation rules for OpTime
+	// no validation rules for UpdateTime
 
 	if len(errors) > 0 {
 		return GetAdminInfoRespMultiError(errors)

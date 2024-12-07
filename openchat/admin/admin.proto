@@ -219,6 +219,14 @@ message DisableMenuReq {
   uint32 status = 2;
 }
 
+message SearchMenuTreeReq {
+  repeated uint64 menuId = 1; //如果为空，或者只有一个0，则是查询整个菜单树，否则查询指定菜单
+}
+
+message SearchMenuTreeResp {
+  map<string, string> menuTreeMap = 1;
+}
+
 message MenuInfoResp {
   string menuName = 1;
   uint32 menuType = 2;
@@ -386,6 +394,7 @@ service admin {
   rpc DelMenu(DelMenuReq) returns (DelMenuResp);
   rpc SearchMenu(SearchMenuReq) returns (SearchMenuResp);
   rpc DisableMenu(DisableMenuReq) returns (DisableMenuResp);
+  rpc SearchMenuTree(SearchMenuTreeReq) returns (SearchMenuTreeResp);
 
   // role
   rpc UpdateRoleInfo(UpdateRoleReq) returns (UpdateRoleResp);

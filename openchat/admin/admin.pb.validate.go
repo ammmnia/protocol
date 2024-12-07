@@ -3840,6 +3840,212 @@ var _ interface {
 	ErrorName() string
 } = DisableMenuReqValidationError{}
 
+// Validate checks the field values on SearchMenuTreeReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchMenuTreeReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchMenuTreeReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchMenuTreeReqMultiError, or nil if none found.
+func (m *SearchMenuTreeReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchMenuTreeReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return SearchMenuTreeReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchMenuTreeReqMultiError is an error wrapping multiple validation errors
+// returned by SearchMenuTreeReq.ValidateAll() if the designated constraints
+// aren't met.
+type SearchMenuTreeReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchMenuTreeReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchMenuTreeReqMultiError) AllErrors() []error { return m }
+
+// SearchMenuTreeReqValidationError is the validation error returned by
+// SearchMenuTreeReq.Validate if the designated constraints aren't met.
+type SearchMenuTreeReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchMenuTreeReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchMenuTreeReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchMenuTreeReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchMenuTreeReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchMenuTreeReqValidationError) ErrorName() string {
+	return "SearchMenuTreeReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchMenuTreeReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchMenuTreeReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchMenuTreeReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchMenuTreeReqValidationError{}
+
+// Validate checks the field values on SearchMenuTreeResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SearchMenuTreeResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchMenuTreeResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchMenuTreeRespMultiError, or nil if none found.
+func (m *SearchMenuTreeResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchMenuTreeResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for MenuTreeMap
+
+	if len(errors) > 0 {
+		return SearchMenuTreeRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchMenuTreeRespMultiError is an error wrapping multiple validation errors
+// returned by SearchMenuTreeResp.ValidateAll() if the designated constraints
+// aren't met.
+type SearchMenuTreeRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchMenuTreeRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchMenuTreeRespMultiError) AllErrors() []error { return m }
+
+// SearchMenuTreeRespValidationError is the validation error returned by
+// SearchMenuTreeResp.Validate if the designated constraints aren't met.
+type SearchMenuTreeRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchMenuTreeRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchMenuTreeRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchMenuTreeRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchMenuTreeRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchMenuTreeRespValidationError) ErrorName() string {
+	return "SearchMenuTreeRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchMenuTreeRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchMenuTreeResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchMenuTreeRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchMenuTreeRespValidationError{}
+
 // Validate checks the field values on MenuInfoResp with the rules defined in
 // the proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.

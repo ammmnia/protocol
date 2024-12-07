@@ -117,7 +117,6 @@ message GetAdminInfoResp {
   string nickname = 5;
   string userID = 6;
   string desc = 7;
-  int64 createTime = 8;
   string roleCode = 9;
   uint32 status = 10;
   string updateBy = 11;
@@ -217,6 +216,7 @@ message SearchMenuReq {
 
 message DisableMenuReq {
   uint64 menuId = 1;
+  uint32 status = 2;
 }
 
 message MenuInfoResp {
@@ -315,6 +315,7 @@ message SearchRoleResp {
 
 message DisableRoleReq {
   uint64 roleId = 1;
+  uint32 status = 2;
 }
 
 message DisableRoleResp {

@@ -359,36 +359,36 @@ message GetUserTokenResp {
 // ################### Version ###################
 // 跟新版本请求
 message UpdateVersionReq {
-  string ProductName = 1;
-  uint32 Platform = 2;
-  string VersionCode = 3;
-  string Desc = 4;
-  string AndroidDownloadUrl = 5;
-  string IosDownloadUrl = 6;
-  uint32 ShowForceUpgrade = 7;
-  uint32 ShowUpgradeTip = 8;
+  string productName = 1;
+  uint32 platform = 2;
+  string versionCode = 3;
+  string desc = 4;
+  string androidDownloadUrl = 5;
+  string iosDownloadUrl = 6;
+  uint32 showForceUpgrade = 7;
+  uint32 showUpgradeTip = 8;
   uint64 versionId = 10;
 }
 message UpdateVersionResp {}
 
 message AddVersionReq {
-  string ProductName = 1;
-  uint32 Platform = 2;
-  string VersionCode = 3;
-  string Desc = 4;
-  string AndroidDownloadUrl = 5;
-  string IosDownloadUrl = 6;
-  uint32 ShowForceUpgrade = 7;
-  uint32 ShowUpgradeTip = 8;
+  string productName = 1;
+  uint32 platform = 2;
+  string versionCode = 3;
+  string desc = 4;
+  string androidDownloadUrl = 5;
+  string iosDownloadUrl = 6;
+  uint32 showForceUpgrade = 7;
+  uint32 showUpgradeTip = 8;
 }
 message AddVersionResp {}
 
 message SearchVersionReq {
-  string ProductName = 1;
-  uint32 Platform = 2;
-  string VersionCode = 3;
-  uint32 ForceUpgrade = 4;
-  string createBy = 5;
+  string productName = 1;
+  uint32 platform = 2;
+  string versionCode = 3;
+  uint32 forceUpgrade = 4;
+  string updateBy = 5;
   string startTime = 6;
   string endTime = 7;
   openim.sdkws.RequestPagination pagination = 8;
@@ -404,14 +404,14 @@ message VersionInfoReq {
 }
 
 message VersionInfoResp {
-  string ProductName = 1;
-  uint32 Platform = 2;
-  string VersionCode = 3;
-  string Desc = 4;
-  string AndroidDownloadUrl = 5;
-  string IosDownloadUrl = 6;
-  uint32 ShowForceUpgrade = 7;
-  uint32 ShowUpgradeTip = 8;
+  string productName = 1;
+  uint32 platform = 2;
+  string versionCode = 3;
+  string desc = 4;
+  string androidDownloadUrl = 5;
+  string iosDownloadUrl = 6;
+  uint32 showForceUpgrade = 7;
+  uint32 showUpgradeTip = 8;
   uint64 versionId = 10;
   int64 updateTime = 11;
   string updateBy = 12;

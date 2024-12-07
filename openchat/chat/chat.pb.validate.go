@@ -7728,7 +7728,7 @@ func (m *SearchVersionReq) validate(all bool) error {
 
 	// no validation rules for ForceUpgrade
 
-	// no validation rules for CreateBy
+	// no validation rules for UpdateBy
 
 	// no validation rules for StartTime
 

@@ -1932,8 +1932,6 @@ func (m *GetAdminInfoResp) validate(all bool) error {
 
 	// no validation rules for Desc
 
-	// no validation rules for CreateTime
-
 	// no validation rules for RoleCode
 
 	// no validation rules for Status
@@ -3762,6 +3760,8 @@ func (m *DisableMenuReq) validate(all bool) error {
 
 	// no validation rules for MenuId
 
+	// no validation rules for Status
+
 	if len(errors) > 0 {
 		return DisableMenuReqMultiError(errors)
 	}
@@ -5533,6 +5533,8 @@ func (m *DisableRoleReq) validate(all bool) error {
 	var errors []error
 
 	// no validation rules for RoleId
+
+	// no validation rules for Status
 
 	if len(errors) > 0 {
 		return DisableRoleReqMultiError(errors)

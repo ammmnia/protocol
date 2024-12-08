@@ -98,7 +98,7 @@ message SearchAdminAccountReq {
   openim.sdkws.RequestPagination pagination = 2;
   string nickname = 3;
   string roleCode = 4;
-  string opUserName = 5;
+  string updateBy = 5;
   uint32 status = 6;
   string startTime = 7;
   string endTime = 8;

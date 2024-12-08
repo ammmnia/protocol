@@ -1666,7 +1666,7 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 
 	// no validation rules for Nickname
 
-	// no validation rules for RoleId
+	// no validation rules for RoleCode
 
 	// no validation rules for OpUserName
 

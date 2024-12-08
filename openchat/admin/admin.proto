@@ -97,7 +97,7 @@ message DelAdminAccountResp {}
 message SearchAdminAccountReq {
   openim.sdkws.RequestPagination pagination = 2;
   string nickname = 3;
-  uint64 roleCode = 4;
+  string roleCode = 4;
   string opUserName = 5;
   uint32 status = 6;
   string startTime = 7;

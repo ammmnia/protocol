@@ -1934,6 +1934,8 @@ func (m *GetAdminInfoResp) validate(all bool) error {
 
 	// no validation rules for RoleCode
 
+	// no validation rules for RoleName
+
 	// no validation rules for Status
 
 	// no validation rules for UpdateBy

@@ -16,6 +16,7 @@ syntax = "proto3";
 package openim.openchat.admin;
 
 import "sdkws/sdkws.proto";
+import "wrapperspb/wrapperspb.proto";
 
 option go_package = "github.com/ammmnia/protocol/openchat/admin";
 
@@ -44,8 +45,8 @@ message LogoutResp {
 message AddAdminAccountReq {
   string account = 1; //用户名
   string password = 2;
-  string username = 4;  //姓名
-  string roleCode = 5;
+  string nickname = 4;  //姓名
+  uint64 roleId = 5;
   string desc = 6;
   uint32 status = 7; //状态 1:正常，2:禁用
 }
@@ -53,19 +54,18 @@ message AddAdminAccountReq {
 message AddAdminAccountResp {}
 
 message AdminUpdateInfoReq {
-  string userId = 1;
-  string account = 2;
-  string password = 3;
-  string username = 4;
-  uint32 status = 5;
-  string roleCode = 6;
-  string desc = 7;
+  openim.protobuf.StringValue userId = 1;
+  openim.protobuf.StringValue account = 2;
+  openim.protobuf.StringValue password = 3;
+  openim.protobuf.StringValue nickname = 4;
+  openim.protobuf.UInt32Value status = 5;
+  openim.protobuf.UInt64Value roleId = 6;
+  openim.protobuf.StringValue desc = 7;
 }
 
 message AdminUpdateInfoResp {
   string userID = 1;
   string account = 2;
-  string username = 3;
   string nickname = 4;
   string faceURL = 5;
 }
@@ -95,13 +95,13 @@ message DelAdminAccountReq {
 message DelAdminAccountResp {}
 
 message SearchAdminAccountReq {
-  string userName = 1;
-  string roleCode = 2;
-  string updateBy = 3;  //操作人
-  uint32 status = 4;  //状态 1:正常，2:禁用
-  string startTime = 5;
-  string endTime = 6;
-  openim.sdkws.RequestPagination pagination = 7;
+  openim.sdkws.RequestPagination pagination = 2;
+  string nickname = 3;
+  uint64 roleId = 4;
+  string opUserName = 5;
+  uint32 status = 6;
+  string startTime = 7;
+  string endTime = 8;
 }
 
 message SearchAdminAccountResp {
@@ -112,7 +112,6 @@ message SearchAdminAccountResp {
 
 message GetAdminInfoResp {
   string account = 2;
-  string userName = 3;
   string faceURL = 4;
   string nickname = 5;
   string userID = 6;
@@ -301,9 +300,7 @@ message DelRoleReq {
    uint64 roleId = 1;
 }
 
-message DelRoleResp {
-
-}
+message DelRoleResp {}
 
 message SearchRoleReq {
   string roleName = 1;

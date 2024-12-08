@@ -475,9 +475,9 @@ func (m *AddAdminAccountReq) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for Username
+	// no validation rules for Nickname
 
-	// no validation rules for RoleCode
+	// no validation rules for RoleId
 
 	// no validation rules for Desc
 
@@ -687,19 +687,208 @@ func (m *AdminUpdateInfoReq) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserId
+	if all {
+		switch v := interface{}(m.GetUserId()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "UserId",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "UserId",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetUserId()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "UserId",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for Account
+	if all {
+		switch v := interface{}(m.GetAccount()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Account",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Account",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAccount()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "Account",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for Password
+	if all {
+		switch v := interface{}(m.GetPassword()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Password",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Password",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetPassword()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "Password",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for Username
+	if all {
+		switch v := interface{}(m.GetNickname()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Nickname",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Nickname",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetNickname()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "Nickname",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for Status
+	if all {
+		switch v := interface{}(m.GetStatus()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Status",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Status",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetStatus()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "Status",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for RoleCode
+	if all {
+		switch v := interface{}(m.GetRoleId()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "RoleId",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "RoleId",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetRoleId()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "RoleId",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
-	// no validation rules for Desc
+	if all {
+		switch v := interface{}(m.GetDesc()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Desc",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, AdminUpdateInfoReqValidationError{
+					field:  "Desc",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetDesc()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return AdminUpdateInfoReqValidationError{
+				field:  "Desc",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
 
 	if len(errors) > 0 {
 		return AdminUpdateInfoReqMultiError(errors)
@@ -806,8 +995,6 @@ func (m *AdminUpdateInfoResp) validate(all bool) error {
 	// no validation rules for UserID
 
 	// no validation rules for Account
-
-	// no validation rules for Username
 
 	// no validation rules for Nickname
 
@@ -1637,18 +1824,6 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 
 	var errors []error
 
-	// no validation rules for UserName
-
-	// no validation rules for RoleCode
-
-	// no validation rules for UpdateBy
-
-	// no validation rules for Status
-
-	// no validation rules for StartTime
-
-	// no validation rules for EndTime
-
 	if all {
 		switch v := interface{}(m.GetPagination()).(type) {
 		case interface{ ValidateAll() error }:
@@ -1677,6 +1852,18 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 			}
 		}
 	}
+
+	// no validation rules for Nickname
+
+	// no validation rules for RoleId
+
+	// no validation rules for OpUserName
+
+	// no validation rules for Status
+
+	// no validation rules for StartTime
+
+	// no validation rules for EndTime
 
 	if len(errors) > 0 {
 		return SearchAdminAccountReqMultiError(errors)
@@ -1921,8 +2108,6 @@ func (m *GetAdminInfoResp) validate(all bool) error {
 	var errors []error
 
 	// no validation rules for Account
-
-	// no validation rules for UserName
 
 	// no validation rules for FaceURL
 

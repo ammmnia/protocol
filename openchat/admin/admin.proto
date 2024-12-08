@@ -46,7 +46,7 @@ message AddAdminAccountReq {
   string account = 1; //用户名
   string password = 2;
   string nickname = 4;  //姓名
-  uint64 roleId = 5;
+  string roleCode = 5;
   string desc = 6;
   uint32 status = 7; //状态 1:正常，2:禁用
 }
@@ -59,7 +59,7 @@ message AdminUpdateInfoReq {
   openim.protobuf.StringValue password = 3;
   openim.protobuf.StringValue nickname = 4;
   openim.protobuf.UInt32Value status = 5;
-  openim.protobuf.UInt64Value roleId = 6;
+  openim.protobuf.UInt64Value roleCode = 6;
   openim.protobuf.StringValue desc = 7;
 }
 

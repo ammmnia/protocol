@@ -48,7 +48,6 @@ const (
 	Chat_ResetPassword_FullMethodName           = "/openim.openchat.chat.chat/ResetPassword"
 	Chat_ChangePassword_FullMethodName          = "/openim.openchat.chat.chat/ChangePassword"
 	Chat_CheckUserExist_FullMethodName          = "/openim.openchat.chat.chat/CheckUserExist"
-	Chat_DelUserAccount_FullMethodName          = "/openim.openchat.chat.chat/DelUserAccount"
 	Chat_FindUserAccount_FullMethodName         = "/openim.openchat.chat.chat/FindUserAccount"
 	Chat_FindAccountUser_FullMethodName         = "/openim.openchat.chat.chat/FindAccountUser"
 	Chat_OpenIMCallback_FullMethodName          = "/openim.openchat.chat.chat/OpenIMCallback"
@@ -127,7 +126,6 @@ type ChatClient interface {
 	ResetPassword(ctx context.Context, in *ResetPasswordReq, opts ...grpc.CallOption) (*ResetPasswordResp, error)
 	ChangePassword(ctx context.Context, in *ChangePasswordReq, opts ...grpc.CallOption) (*ChangePasswordResp, error)
 	CheckUserExist(ctx context.Context, in *CheckUserExistReq, opts ...grpc.CallOption) (*CheckUserExistResp, error)
-	DelUserAccount(ctx context.Context, in *DelUserAccountReq, opts ...grpc.CallOption) (*DelUserAccountResp, error)
 	FindUserAccount(ctx context.Context, in *FindUserAccountReq, opts ...grpc.CallOption) (*FindUserAccountResp, error)
 	FindAccountUser(ctx context.Context, in *FindAccountUserReq, opts ...grpc.CallOption) (*FindAccountUserResp, error)
 	OpenIMCallback(ctx context.Context, in *OpenIMCallbackReq, opts ...grpc.CallOption) (*OpenIMCallbackResp, error)
@@ -339,15 +337,6 @@ func (c *chatClient) ChangePassword(ctx context.Context, in *ChangePasswordReq, 
 func (c *chatClient) CheckUserExist(ctx context.Context, in *CheckUserExistReq, opts ...grpc.CallOption) (*CheckUserExistResp, error) {
 	out := new(CheckUserExistResp)
 	err := c.cc.Invoke(ctx, Chat_CheckUserExist_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *chatClient) DelUserAccount(ctx context.Context, in *DelUserAccountReq, opts ...grpc.CallOption) (*DelUserAccountResp, error) {
-	out := new(DelUserAccountResp)
-	err := c.cc.Invoke(ctx, Chat_DelUserAccount_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -862,7 +851,6 @@ type ChatServer interface {
 	ResetPassword(context.Context, *ResetPasswordReq) (*ResetPasswordResp, error)
 	ChangePassword(context.Context, *ChangePasswordReq) (*ChangePasswordResp, error)
 	CheckUserExist(context.Context, *CheckUserExistReq) (*CheckUserExistResp, error)
-	DelUserAccount(context.Context, *DelUserAccountReq) (*DelUserAccountResp, error)
 	FindUserAccount(context.Context, *FindUserAccountReq) (*FindUserAccountResp, error)
 	FindAccountUser(context.Context, *FindAccountUserReq) (*FindAccountUserResp, error)
 	OpenIMCallback(context.Context, *OpenIMCallbackReq) (*OpenIMCallbackResp, error)
@@ -986,9 +974,6 @@ func (UnimplementedChatServer) ChangePassword(context.Context, *ChangePasswordRe
 }
 func (UnimplementedChatServer) CheckUserExist(context.Context, *CheckUserExistReq) (*CheckUserExistResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckUserExist not implemented")
-}
-func (UnimplementedChatServer) DelUserAccount(context.Context, *DelUserAccountReq) (*DelUserAccountResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DelUserAccount not implemented")
 }
 func (UnimplementedChatServer) FindUserAccount(context.Context, *FindUserAccountReq) (*FindUserAccountResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindUserAccount not implemented")
@@ -1431,24 +1416,6 @@ func _Chat_CheckUserExist_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ChatServer).CheckUserExist(ctx, req.(*CheckUserExistReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Chat_DelUserAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DelUserAccountReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ChatServer).DelUserAccount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Chat_DelUserAccount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ChatServer).DelUserAccount(ctx, req.(*DelUserAccountReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -2491,10 +2458,6 @@ var Chat_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckUserExist",
 			Handler:    _Chat_CheckUserExist_Handler,
-		},
-		{
-			MethodName: "DelUserAccount",
-			Handler:    _Chat_DelUserAccount_Handler,
 		},
 		{
 			MethodName: "FindUserAccount",

@@ -40,7 +40,6 @@ const (
 	Admin_GetAdminInfo_FullMethodName        = "/openim.openchat.admin.admin/GetAdminInfo"
 	Admin_AddAdminAccount_FullMethodName     = "/openim.openchat.admin.admin/AddAdminAccount"
 	Admin_ChangeAdminPassword_FullMethodName = "/openim.openchat.admin.admin/ChangeAdminPassword"
-	Admin_DelAdminAccount_FullMethodName     = "/openim.openchat.admin.admin/DelAdminAccount"
 	Admin_SearchAdminAccount_FullMethodName  = "/openim.openchat.admin.admin/SearchAdminAccount"
 	Admin_DisableAdminAccount_FullMethodName = "/openim.openchat.admin.admin/DisableAdminAccount"
 	Admin_CreateToken_FullMethodName         = "/openim.openchat.admin.admin/CreateToken"
@@ -79,7 +78,7 @@ type AdminClient interface {
 	GetAdminInfo(ctx context.Context, in *GetAdminInfoReq, opts ...grpc.CallOption) (*GetAdminInfoResp, error)
 	AddAdminAccount(ctx context.Context, in *AddAdminAccountReq, opts ...grpc.CallOption) (*AddAdminAccountResp, error)
 	ChangeAdminPassword(ctx context.Context, in *ChangeAdminPasswordReq, opts ...grpc.CallOption) (*ChangeAdminPasswordResp, error)
-	DelAdminAccount(ctx context.Context, in *DelAdminAccountReq, opts ...grpc.CallOption) (*DelAdminAccountResp, error)
+	// rpc DelAdminAccount(DelAdminAccountReq) returns (DelAdminAccountResp);
 	SearchAdminAccount(ctx context.Context, in *SearchAdminAccountReq, opts ...grpc.CallOption) (*SearchAdminAccountResp, error)
 	DisableAdminAccount(ctx context.Context, in *DisableAdminAccountReq, opts ...grpc.CallOption) (*DisableAdminAccountResp, error)
 	// create token
@@ -177,15 +176,6 @@ func (c *adminClient) AddAdminAccount(ctx context.Context, in *AddAdminAccountRe
 func (c *adminClient) ChangeAdminPassword(ctx context.Context, in *ChangeAdminPasswordReq, opts ...grpc.CallOption) (*ChangeAdminPasswordResp, error) {
 	out := new(ChangeAdminPasswordResp)
 	err := c.cc.Invoke(ctx, Admin_ChangeAdminPassword_FullMethodName, in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *adminClient) DelAdminAccount(ctx context.Context, in *DelAdminAccountReq, opts ...grpc.CallOption) (*DelAdminAccountResp, error) {
-	out := new(DelAdminAccountResp)
-	err := c.cc.Invoke(ctx, Admin_DelAdminAccount_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -412,7 +402,7 @@ type AdminServer interface {
 	GetAdminInfo(context.Context, *GetAdminInfoReq) (*GetAdminInfoResp, error)
 	AddAdminAccount(context.Context, *AddAdminAccountReq) (*AddAdminAccountResp, error)
 	ChangeAdminPassword(context.Context, *ChangeAdminPasswordReq) (*ChangeAdminPasswordResp, error)
-	DelAdminAccount(context.Context, *DelAdminAccountReq) (*DelAdminAccountResp, error)
+	// rpc DelAdminAccount(DelAdminAccountReq) returns (DelAdminAccountResp);
 	SearchAdminAccount(context.Context, *SearchAdminAccountReq) (*SearchAdminAccountResp, error)
 	DisableAdminAccount(context.Context, *DisableAdminAccountReq) (*DisableAdminAccountResp, error)
 	// create token
@@ -470,9 +460,6 @@ func (UnimplementedAdminServer) AddAdminAccount(context.Context, *AddAdminAccoun
 }
 func (UnimplementedAdminServer) ChangeAdminPassword(context.Context, *ChangeAdminPasswordReq) (*ChangeAdminPasswordResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ChangeAdminPassword not implemented")
-}
-func (UnimplementedAdminServer) DelAdminAccount(context.Context, *DelAdminAccountReq) (*DelAdminAccountResp, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DelAdminAccount not implemented")
 }
 func (UnimplementedAdminServer) SearchAdminAccount(context.Context, *SearchAdminAccountReq) (*SearchAdminAccountResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchAdminAccount not implemented")
@@ -678,24 +665,6 @@ func _Admin_ChangeAdminPassword_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(AdminServer).ChangeAdminPassword(ctx, req.(*ChangeAdminPasswordReq))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _Admin_DelAdminAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DelAdminAccountReq)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(AdminServer).DelAdminAccount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: Admin_DelAdminAccount_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServer).DelAdminAccount(ctx, req.(*DelAdminAccountReq))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1148,10 +1117,6 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ChangeAdminPassword",
 			Handler:    _Admin_ChangeAdminPassword_Handler,
-		},
-		{
-			MethodName: "DelAdminAccount",
-			Handler:    _Admin_DelAdminAccount_Handler,
 		},
 		{
 			MethodName: "SearchAdminAccount",

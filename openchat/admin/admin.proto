@@ -88,11 +88,11 @@ message ChangeAdminPasswordReq {
 
 message ChangeAdminPasswordResp {}
 
-message DelAdminAccountReq {
-  repeated string userIDs = 1;
-}
-
-message DelAdminAccountResp {}
+//message DelAdminAccountReq {
+//  repeated string userIDs = 1;
+//}
+//
+//message DelAdminAccountResp {}
 
 message SearchAdminAccountReq {
   openim.sdkws.RequestPagination pagination = 2;
@@ -372,7 +372,7 @@ service admin {
   rpc GetAdminInfo(GetAdminInfoReq) returns (GetAdminInfoResp);
   rpc AddAdminAccount(AddAdminAccountReq) returns (AddAdminAccountResp);
   rpc ChangeAdminPassword(ChangeAdminPasswordReq) returns (ChangeAdminPasswordResp);
-  rpc DelAdminAccount(DelAdminAccountReq) returns (DelAdminAccountResp);
+//  rpc DelAdminAccount(DelAdminAccountReq) returns (DelAdminAccountResp);
   rpc SearchAdminAccount(SearchAdminAccountReq) returns (SearchAdminAccountResp);
   rpc DisableAdminAccount(DisableAdminAccountReq) returns (DisableAdminAccountResp);
 

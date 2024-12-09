@@ -79,12 +79,12 @@ func (x *AddAdminAccountReq) Check() error {
 	return nil
 }
 
-func (x *DelAdminAccountReq) Check() error {
-	if len(x.UserIDs) == 0 {
-		return errs.ErrArgs.WrapMsg("userIDs is empty")
-	}
-	return nil
-}
+//func (x *DelAdminAccountReq) Check() error {
+//	if len(x.UserIDs) == 0 {
+//		return errs.ErrArgs.WrapMsg("userIDs is empty")
+//	}
+//	return nil
+//}
 
 func (x *SearchAdminAccountReq) Check() error {
 	if x.Pagination.ShowNumber == 0 {

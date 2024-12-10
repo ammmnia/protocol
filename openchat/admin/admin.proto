@@ -294,6 +294,14 @@ message AddRoleResp {
   
 }
 
+message SearchAllRoleReq{
+
+}
+
+message SearchAllRoleResp {
+  repeated RoleInfoResp roles = 1;
+}
+
 // 删除角色，会删除该角色绑定的所有菜单，但是绑定该角色的用户不会删除
 // 没有角色的用户不会展示任何菜单
 message DelRoleReq {
@@ -400,6 +408,7 @@ service admin {
   rpc AddRole(AddRoleReq) returns (AddRoleResp);
   rpc DelRole(DelRoleReq) returns (DelRoleResp);
   rpc SearchRole(SearchRoleReq) returns (SearchRoleResp);
+  rpc SearchAllRole(SearchAllRoleReq) returns (SearchAllRoleResp);
   rpc DisableRole(DisableRoleReq) returns (DisableRoleResp);
 
   // role_menu

@@ -5029,6 +5029,242 @@ var _ interface {
 	ErrorName() string
 } = AddRoleRespValidationError{}
 
+// Validate checks the field values on SearchAllRoleReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchAllRoleReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchAllRoleReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchAllRoleReqMultiError, or nil if none found.
+func (m *SearchAllRoleReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchAllRoleReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return SearchAllRoleReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchAllRoleReqMultiError is an error wrapping multiple validation errors
+// returned by SearchAllRoleReq.ValidateAll() if the designated constraints
+// aren't met.
+type SearchAllRoleReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchAllRoleReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchAllRoleReqMultiError) AllErrors() []error { return m }
+
+// SearchAllRoleReqValidationError is the validation error returned by
+// SearchAllRoleReq.Validate if the designated constraints aren't met.
+type SearchAllRoleReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchAllRoleReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchAllRoleReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchAllRoleReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchAllRoleReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchAllRoleReqValidationError) ErrorName() string { return "SearchAllRoleReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SearchAllRoleReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchAllRoleReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchAllRoleReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchAllRoleReqValidationError{}
+
+// Validate checks the field values on SearchAllRoleResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchAllRoleResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchAllRoleResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchAllRoleRespMultiError, or nil if none found.
+func (m *SearchAllRoleResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchAllRoleResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetRoles() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SearchAllRoleRespValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SearchAllRoleRespValidationError{
+						field:  fmt.Sprintf("Roles[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SearchAllRoleRespValidationError{
+					field:  fmt.Sprintf("Roles[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return SearchAllRoleRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchAllRoleRespMultiError is an error wrapping multiple validation errors
+// returned by SearchAllRoleResp.ValidateAll() if the designated constraints
+// aren't met.
+type SearchAllRoleRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchAllRoleRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchAllRoleRespMultiError) AllErrors() []error { return m }
+
+// SearchAllRoleRespValidationError is the validation error returned by
+// SearchAllRoleResp.Validate if the designated constraints aren't met.
+type SearchAllRoleRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchAllRoleRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchAllRoleRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchAllRoleRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchAllRoleRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchAllRoleRespValidationError) ErrorName() string {
+	return "SearchAllRoleRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchAllRoleRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchAllRoleResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchAllRoleRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchAllRoleRespValidationError{}
+
 // Validate checks the field values on DelRoleReq with the rules defined in the
 // proto definition for this message. If any rules are violated, the first
 // error encountered is returned, or nil if there are no violations.

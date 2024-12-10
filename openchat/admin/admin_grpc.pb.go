@@ -58,6 +58,7 @@ const (
 	Admin_AddRole_FullMethodName             = "/openim.openchat.admin.admin/AddRole"
 	Admin_DelRole_FullMethodName             = "/openim.openchat.admin.admin/DelRole"
 	Admin_SearchRole_FullMethodName          = "/openim.openchat.admin.admin/SearchRole"
+	Admin_SearchAllRole_FullMethodName       = "/openim.openchat.admin.admin/SearchAllRole"
 	Admin_DisableRole_FullMethodName         = "/openim.openchat.admin.admin/DisableRole"
 	Admin_UpdateRoleMenuInfo_FullMethodName  = "/openim.openchat.admin.admin/UpdateRoleMenuInfo"
 	Admin_RoleMenuInfo_FullMethodName        = "/openim.openchat.admin.admin/RoleMenuInfo"
@@ -103,6 +104,7 @@ type AdminClient interface {
 	AddRole(ctx context.Context, in *AddRoleReq, opts ...grpc.CallOption) (*AddRoleResp, error)
 	DelRole(ctx context.Context, in *DelRoleReq, opts ...grpc.CallOption) (*DelRoleResp, error)
 	SearchRole(ctx context.Context, in *SearchRoleReq, opts ...grpc.CallOption) (*SearchRoleResp, error)
+	SearchAllRole(ctx context.Context, in *SearchAllRoleReq, opts ...grpc.CallOption) (*SearchAllRoleResp, error)
 	DisableRole(ctx context.Context, in *DisableRoleReq, opts ...grpc.CallOption) (*DisableRoleResp, error)
 	// role_menu
 	UpdateRoleMenuInfo(ctx context.Context, in *UpdateRoleMenuReq, opts ...grpc.CallOption) (*UpdateRoleMenuResp, error)
@@ -344,6 +346,15 @@ func (c *adminClient) SearchRole(ctx context.Context, in *SearchRoleReq, opts ..
 	return out, nil
 }
 
+func (c *adminClient) SearchAllRole(ctx context.Context, in *SearchAllRoleReq, opts ...grpc.CallOption) (*SearchAllRoleResp, error) {
+	out := new(SearchAllRoleResp)
+	err := c.cc.Invoke(ctx, Admin_SearchAllRole_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *adminClient) DisableRole(ctx context.Context, in *DisableRoleReq, opts ...grpc.CallOption) (*DisableRoleResp, error) {
 	out := new(DisableRoleResp)
 	err := c.cc.Invoke(ctx, Admin_DisableRole_FullMethodName, in, out, opts...)
@@ -427,6 +438,7 @@ type AdminServer interface {
 	AddRole(context.Context, *AddRoleReq) (*AddRoleResp, error)
 	DelRole(context.Context, *DelRoleReq) (*DelRoleResp, error)
 	SearchRole(context.Context, *SearchRoleReq) (*SearchRoleResp, error)
+	SearchAllRole(context.Context, *SearchAllRoleReq) (*SearchAllRoleResp, error)
 	DisableRole(context.Context, *DisableRoleReq) (*DisableRoleResp, error)
 	// role_menu
 	UpdateRoleMenuInfo(context.Context, *UpdateRoleMenuReq) (*UpdateRoleMenuResp, error)
@@ -514,6 +526,9 @@ func (UnimplementedAdminServer) DelRole(context.Context, *DelRoleReq) (*DelRoleR
 }
 func (UnimplementedAdminServer) SearchRole(context.Context, *SearchRoleReq) (*SearchRoleResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchRole not implemented")
+}
+func (UnimplementedAdminServer) SearchAllRole(context.Context, *SearchAllRoleReq) (*SearchAllRoleResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchAllRole not implemented")
 }
 func (UnimplementedAdminServer) DisableRole(context.Context, *DisableRoleReq) (*DisableRoleResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableRole not implemented")
@@ -993,6 +1008,24 @@ func _Admin_SearchRole_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_SearchAllRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchAllRoleReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchAllRole(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchAllRole_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchAllRole(ctx, req.(*SearchAllRoleReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Admin_DisableRole_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisableRoleReq)
 	if err := dec(in); err != nil {
@@ -1189,6 +1222,10 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SearchRole",
 			Handler:    _Admin_SearchRole_Handler,
+		},
+		{
+			MethodName: "SearchAllRole",
+			Handler:    _Admin_SearchAllRole_Handler,
 		},
 		{
 			MethodName: "DisableRole",

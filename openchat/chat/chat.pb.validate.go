@@ -5580,6 +5580,210 @@ var _ interface {
 	ErrorName() string
 } = CheckUserExistRespValidationError{}
 
+// Validate checks the field values on DelUserAccountReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *DelUserAccountReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DelUserAccountReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DelUserAccountReqMultiError, or nil if none found.
+func (m *DelUserAccountReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DelUserAccountReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DelUserAccountReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// DelUserAccountReqMultiError is an error wrapping multiple validation errors
+// returned by DelUserAccountReq.ValidateAll() if the designated constraints
+// aren't met.
+type DelUserAccountReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DelUserAccountReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DelUserAccountReqMultiError) AllErrors() []error { return m }
+
+// DelUserAccountReqValidationError is the validation error returned by
+// DelUserAccountReq.Validate if the designated constraints aren't met.
+type DelUserAccountReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DelUserAccountReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DelUserAccountReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DelUserAccountReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DelUserAccountReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DelUserAccountReqValidationError) ErrorName() string {
+	return "DelUserAccountReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DelUserAccountReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDelUserAccountReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DelUserAccountReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DelUserAccountReqValidationError{}
+
+// Validate checks the field values on DelUserAccountResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *DelUserAccountResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on DelUserAccountResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// DelUserAccountRespMultiError, or nil if none found.
+func (m *DelUserAccountResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *DelUserAccountResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return DelUserAccountRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// DelUserAccountRespMultiError is an error wrapping multiple validation errors
+// returned by DelUserAccountResp.ValidateAll() if the designated constraints
+// aren't met.
+type DelUserAccountRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m DelUserAccountRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m DelUserAccountRespMultiError) AllErrors() []error { return m }
+
+// DelUserAccountRespValidationError is the validation error returned by
+// DelUserAccountResp.Validate if the designated constraints aren't met.
+type DelUserAccountRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e DelUserAccountRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e DelUserAccountRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e DelUserAccountRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e DelUserAccountRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e DelUserAccountRespValidationError) ErrorName() string {
+	return "DelUserAccountRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e DelUserAccountRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sDelUserAccountResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = DelUserAccountRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = DelUserAccountRespValidationError{}
+
 // Validate checks the field values on SetAllowRegisterReq with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

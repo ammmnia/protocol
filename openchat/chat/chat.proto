@@ -291,11 +291,11 @@ message CheckUserExistResp {
   bool isRegistered = 2;
 }
 
-//message DelUserAccountReq {
-//  repeated string userIDs = 1;
-//  repeated string accounts = 2;
-//}
-//message DelUserAccountResp {}
+message DelUserAccountReq {
+  repeated string userIDs = 1;
+  repeated string accounts = 2;
+}
+message DelUserAccountResp {}
 
 message SetAllowRegisterReq {
   bool allowRegister = 1;
@@ -855,8 +855,7 @@ service chat {
   };
   rpc ChangePassword(ChangePasswordReq) returns (ChangePasswordResp);
   rpc CheckUserExist(CheckUserExistReq) returns (CheckUserExistResp);
-//  rpc DelUserAccount(DelUserAccountReq) returns (DelUserAccountResp);
-
+  rpc DelUserAccount(DelUserAccountReq) returns (DelUserAccountResp);
   rpc FindUserAccount(FindUserAccountReq) returns (FindUserAccountResp);
   rpc FindAccountUser(FindAccountUserReq) returns (FindAccountUserResp);
   rpc OpenIMCallback(OpenIMCallbackReq) returns (OpenIMCallbackResp);

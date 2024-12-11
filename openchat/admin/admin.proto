@@ -370,12 +370,9 @@ message DelRoleMenuReq {
 message DelRoleMenuResp {}
 
 message SearchAllMenuReq{}
-message SearchAllMenuResp{}
-message PermitReq {
-  uint64 roleId = 1;
-  repeated uint64 menuIds = 2;
+message SearchAllMenuResp{
+  repeated MenuInfoResp menuInfo = 1;
 }
-message PermitResp {}
 
 service admin {
   // Login
@@ -418,7 +415,6 @@ service admin {
   rpc SearchRole(SearchRoleReq) returns (SearchRoleResp);
   rpc SearchAllRole(SearchAllRoleReq) returns (SearchAllRoleResp);
   rpc DisableRole(DisableRoleReq) returns (DisableRoleResp);
-  rpc Permit(PermitReq) returns (PermitResp);
 
   // role_menu
   rpc UpdateRoleMenuInfo(UpdateRoleMenuReq) returns (UpdateRoleMenuResp);

@@ -230,7 +230,7 @@ message SearchMenuTreeResp {
 message MenuInfoResp {
   string menuName = 1;
   uint32 menuType = 2;
-  uint32 menuParentId = 3;
+  uint64 menuParentId = 3;
   uint64 sort = 4;
   string icon = 5;
   string path = 6;

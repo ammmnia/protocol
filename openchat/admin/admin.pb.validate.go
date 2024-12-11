@@ -5491,8 +5491,6 @@ func (m *SearchRoleReq) validate(all bool) error {
 
 	// no validation rules for RoleCode
 
-	// no validation rules for Desc
-
 	// no validation rules for Status
 
 	// no validation rules for UpdateBy
@@ -6763,3 +6761,205 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = DelRoleMenuRespValidationError{}
+
+// Validate checks the field values on SearchAllMenuReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchAllMenuReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchAllMenuReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchAllMenuReqMultiError, or nil if none found.
+func (m *SearchAllMenuReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchAllMenuReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return SearchAllMenuReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchAllMenuReqMultiError is an error wrapping multiple validation errors
+// returned by SearchAllMenuReq.ValidateAll() if the designated constraints
+// aren't met.
+type SearchAllMenuReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchAllMenuReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchAllMenuReqMultiError) AllErrors() []error { return m }
+
+// SearchAllMenuReqValidationError is the validation error returned by
+// SearchAllMenuReq.Validate if the designated constraints aren't met.
+type SearchAllMenuReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchAllMenuReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchAllMenuReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchAllMenuReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchAllMenuReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchAllMenuReqValidationError) ErrorName() string { return "SearchAllMenuReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e SearchAllMenuReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchAllMenuReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchAllMenuReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchAllMenuReqValidationError{}
+
+// Validate checks the field values on SearchAllMenuResp with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchAllMenuResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchAllMenuResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchAllMenuRespMultiError, or nil if none found.
+func (m *SearchAllMenuResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchAllMenuResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return SearchAllMenuRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchAllMenuRespMultiError is an error wrapping multiple validation errors
+// returned by SearchAllMenuResp.ValidateAll() if the designated constraints
+// aren't met.
+type SearchAllMenuRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchAllMenuRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchAllMenuRespMultiError) AllErrors() []error { return m }
+
+// SearchAllMenuRespValidationError is the validation error returned by
+// SearchAllMenuResp.Validate if the designated constraints aren't met.
+type SearchAllMenuRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchAllMenuRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchAllMenuRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchAllMenuRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchAllMenuRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchAllMenuRespValidationError) ErrorName() string {
+	return "SearchAllMenuRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchAllMenuRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchAllMenuResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchAllMenuRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchAllMenuRespValidationError{}

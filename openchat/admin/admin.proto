@@ -313,7 +313,6 @@ message DelRoleResp {}
 message SearchRoleReq {
   string roleName = 1;
   string roleCode = 2;
-  string desc = 3;
   uint32 status = 4;
   string updateBy = 5;
   string startTime = 6;
@@ -370,6 +369,8 @@ message DelRoleMenuReq {
 
 message DelRoleMenuResp {}
 
+message SearchAllMenuReq{}
+message SearchAllMenuResp{}
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -401,6 +402,7 @@ service admin {
   rpc SearchMenu(SearchMenuReq) returns (SearchMenuResp);
   rpc DisableMenu(DisableMenuReq) returns (DisableMenuResp);
   rpc SearchMenuTree(SearchMenuTreeReq) returns (SearchMenuTreeResp);
+  rpc SearchAllMenu(SearchAllMenuReq) returns (SearchAllMenuResp);
 
   // role
   rpc UpdateRoleInfo(UpdateRoleReq) returns (UpdateRoleResp);

@@ -17,13 +17,6 @@ const (
 	UnblockUser = 2
 )
 
-// AccountType.
-const (
-	Email   = "email"
-	Phone   = "phone"
-	Account = "account"
-)
-
 // Mode.
 const (
 	UserMode  = "user"
@@ -72,12 +65,11 @@ const (
 )
 
 const (
-	RpcOpUserID                    = constant.OpUserID
-	RpcOpUserType constant.MetaKey = "opUserType"
-	RpcOpAccount  constant.MetaKey = "opAccount"
+	RpcOpUserID                      = constant.OpUserID
+	RpcCustomHeader                  = constant.RpcCustomHeader
+	RpcOpUserType   constant.MetaKey = "opUserType"
+	RpcOpAccount    constant.MetaKey = "opAccount"
 )
-
-const RpcCustomHeader = constant.RpcCustomHeader
 
 const NeedInvitationCodeRegisterConfigKey = "needInvitationCodeRegister"
 

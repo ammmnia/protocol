@@ -85,22 +85,3 @@ const (
 )
 
 const CtxApiToken = "api-token"
-
-const (
-	AccountRegister = iota
-	EmailRegister
-	PhoneRegister
-)
-
-const (
-	GenderFemale  = 0 // female
-	GenderMale    = 1 // male
-	GenderUnknown = 2 // unknown
-)
-
-// Credential Type
-const (
-	CredentialAccount = iota
-	CredentialPhone
-	CredentialEmail
-)

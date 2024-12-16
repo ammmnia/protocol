@@ -152,10 +152,10 @@ func (x *SetConversationsReq) Check() error {
 	if x.Conversation.ConversationType == 0 {
 		return errors.New("conversationType is invalid")
 	}
-	if x.Conversation.ConversationType == constant.SingleChatType && x.Conversation.UserID == "" {
+	if x.Conversation.ConversationType == int32(constant.SingleChatType) && x.Conversation.UserID == "" {
 		return errors.New("userID is empty")
 	}
-	if x.Conversation.ConversationType == constant.ReadGroupChatType && x.Conversation.GroupID == "" {
+	if x.Conversation.ConversationType == int32(constant.ReadGroupChatType) && x.Conversation.GroupID == "" {
 		return errors.New("groupID is empty")
 	}
 	return nil

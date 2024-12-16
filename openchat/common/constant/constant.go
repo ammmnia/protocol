@@ -72,8 +72,9 @@ const (
 )
 
 const (
-	RpcOpUserID   = constant.OpUserID
-	RpcOpUserType = "opUserType"
+	RpcOpUserID                    = constant.OpUserID
+	RpcOpUserType constant.MetaKey = "opUserType"
+	RpcOpAccount  constant.MetaKey = "opAccount"
 )
 
 const RpcCustomHeader = constant.RpcCustomHeader

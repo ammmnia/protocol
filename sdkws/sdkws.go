@@ -27,8 +27,8 @@ func (x *MsgData) Check() error {
 	if x.Content == nil {
 		return errors.New("content is empty")
 	}
-	if x.SessionType == constant.NotificationChatType && x.ContentType != constant.OANotification ||
-		x.SessionType != constant.NotificationChatType && x.ContentType == constant.OANotification {
+	if x.SessionType == int32(constant.NotificationChatType) && x.ContentType != int32(constant.OANotification) ||
+		x.SessionType != int32(constant.NotificationChatType) && x.ContentType == int32(constant.OANotification) {
 		return errors.New("notification msg must have correct session type and content type")
 	}
 	return nil

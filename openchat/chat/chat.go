@@ -15,13 +15,13 @@
 package chat
 
 import (
-	"github.com/ammmnia/tools/utils/datautil"
 	"regexp"
 	"strconv"
 
 	"github.com/ammmnia/protocol/openchat/common/constant"
 	constantpb "github.com/ammmnia/tools/constant"
 	"github.com/ammmnia/tools/errs"
+	"github.com/ammmnia/tools/utils/datautil"
 )
 
 func (x *UpdateUserInfoReq) Check() error {
@@ -117,7 +117,7 @@ func (x *RegisterUserReq) Check() error {
 	if len(x.Ip) <= 0 {
 		return errs.ErrArgs.WrapMsg("ip is empty")
 	}
-	if x.Platform < constantpb.IOSPlatformID || x.Platform > constantpb.AdminPlatformID {
+	if x.Platform < int32(constantpb.IOSPlatformID) || x.Platform > int32(constantpb.AdminPlatformID) {
 		return errs.ErrArgs.WrapMsg("platform is invalid")
 	}
 	if x.User == nil {
@@ -152,7 +152,7 @@ func (x *RegisterUserReq) Check() error {
 }
 
 func (x *LoginReq) Check() error {
-	if x.Platform < constantpb.IOSPlatformID || x.Platform > constantpb.AdminPlatformID {
+	if x.Platform < int32(constantpb.IOSPlatformID) || x.Platform > int32(constantpb.AdminPlatformID) {
 		return errs.ErrArgs.WrapMsg("platform is invalid")
 	}
 	if x.Account == "" {

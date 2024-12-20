@@ -9361,6 +9361,8 @@ func (m *DisableDictDetailReq) validate(all bool) error {
 
 	// no validation rules for DictDetailId
 
+	// no validation rules for Status
+
 	if len(errors) > 0 {
 		return DisableDictDetailReqMultiError(errors)
 	}

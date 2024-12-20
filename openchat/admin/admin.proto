@@ -485,6 +485,7 @@ message DelDictDetailResp {}
 
 message DisableDictDetailReq{
   uint64 dictDetailId = 1;
+  uint32 status = 2;
 }
 
 message DisableDictDetailResp {}

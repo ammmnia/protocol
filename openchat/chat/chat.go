@@ -126,7 +126,7 @@ func (x *RegisterUserReq) Check() error {
 	if x.User.Nickname == "" {
 		return errs.ErrArgs.WrapMsg("Nickname is nil")
 	}
-	if !(x.User.Gender == constant.GenderFemale || x.User.Gender == constant.GenderMale || x.User.Gender == constant.GenderUnknown) {
+	if !(constant.Gender(x.User.Gender) == constant.GenderFemale || constant.Gender(x.User.Gender) == constant.GenderMale || constant.Gender(x.User.Gender) == constant.GenderUnknown) {
 		return errs.ErrArgs.WrapMsg("gender is invalid")
 	}
 	if x.User.Account == "" {

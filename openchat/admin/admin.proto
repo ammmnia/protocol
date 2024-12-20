@@ -488,6 +488,14 @@ message DisableDictDetailReq{
 
 message DisableDictDetailResp {}
 
+message SearchByDictIdReq {
+  uint64 dictId = 1;
+}
+
+message SearchByDictIdResp {
+  repeated DictDetailInfoResp dictDetailInfos = 1;
+}
+
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -549,5 +557,6 @@ service admin {
   rpc DictDetailInfo(DictDetailInfoReq) returns (DictDetailInfoResp);
   rpc AddDictDetail(AddDictDetailReq) returns (AddDictDetailResp);
   rpc DelDictDetail(DelDictDetailReq) returns (DelDictDetailResp);
+  rpc SearchByDictId(SearchByDictIdReq) returns (SearchByDictIdResp);
   rpc DisableDictDetail(DisableDictDetailReq) returns (DisableDictDetailResp);
 }

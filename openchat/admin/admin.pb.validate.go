@@ -9540,3 +9540,243 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = DisableDictDetailRespValidationError{}
+
+// Validate checks the field values on SearchByDictIdReq with the rules defined
+// in the proto definition for this message. If any rules are violated, the
+// first error encountered is returned, or nil if there are no violations.
+func (m *SearchByDictIdReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchByDictIdReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchByDictIdReqMultiError, or nil if none found.
+func (m *SearchByDictIdReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchByDictIdReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for DictId
+
+	if len(errors) > 0 {
+		return SearchByDictIdReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchByDictIdReqMultiError is an error wrapping multiple validation errors
+// returned by SearchByDictIdReq.ValidateAll() if the designated constraints
+// aren't met.
+type SearchByDictIdReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchByDictIdReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchByDictIdReqMultiError) AllErrors() []error { return m }
+
+// SearchByDictIdReqValidationError is the validation error returned by
+// SearchByDictIdReq.Validate if the designated constraints aren't met.
+type SearchByDictIdReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchByDictIdReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchByDictIdReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchByDictIdReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchByDictIdReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchByDictIdReqValidationError) ErrorName() string {
+	return "SearchByDictIdReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchByDictIdReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchByDictIdReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchByDictIdReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchByDictIdReqValidationError{}
+
+// Validate checks the field values on SearchByDictIdResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *SearchByDictIdResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on SearchByDictIdResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// SearchByDictIdRespMultiError, or nil if none found.
+func (m *SearchByDictIdResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *SearchByDictIdResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	for idx, item := range m.GetDictDetailInfos() {
+		_, _ = idx, item
+
+		if all {
+			switch v := interface{}(item).(type) {
+			case interface{ ValidateAll() error }:
+				if err := v.ValidateAll(); err != nil {
+					errors = append(errors, SearchByDictIdRespValidationError{
+						field:  fmt.Sprintf("DictDetailInfos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			case interface{ Validate() error }:
+				if err := v.Validate(); err != nil {
+					errors = append(errors, SearchByDictIdRespValidationError{
+						field:  fmt.Sprintf("DictDetailInfos[%v]", idx),
+						reason: "embedded message failed validation",
+						cause:  err,
+					})
+				}
+			}
+		} else if v, ok := interface{}(item).(interface{ Validate() error }); ok {
+			if err := v.Validate(); err != nil {
+				return SearchByDictIdRespValidationError{
+					field:  fmt.Sprintf("DictDetailInfos[%v]", idx),
+					reason: "embedded message failed validation",
+					cause:  err,
+				}
+			}
+		}
+
+	}
+
+	if len(errors) > 0 {
+		return SearchByDictIdRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// SearchByDictIdRespMultiError is an error wrapping multiple validation errors
+// returned by SearchByDictIdResp.ValidateAll() if the designated constraints
+// aren't met.
+type SearchByDictIdRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m SearchByDictIdRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m SearchByDictIdRespMultiError) AllErrors() []error { return m }
+
+// SearchByDictIdRespValidationError is the validation error returned by
+// SearchByDictIdResp.Validate if the designated constraints aren't met.
+type SearchByDictIdRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e SearchByDictIdRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e SearchByDictIdRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e SearchByDictIdRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e SearchByDictIdRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e SearchByDictIdRespValidationError) ErrorName() string {
+	return "SearchByDictIdRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e SearchByDictIdRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sSearchByDictIdResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = SearchByDictIdRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = SearchByDictIdRespValidationError{}

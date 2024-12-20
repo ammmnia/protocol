@@ -75,6 +75,7 @@ const (
 	Admin_DictDetailInfo_FullMethodName       = "/openim.openchat.admin.admin/DictDetailInfo"
 	Admin_AddDictDetail_FullMethodName        = "/openim.openchat.admin.admin/AddDictDetail"
 	Admin_DelDictDetail_FullMethodName        = "/openim.openchat.admin.admin/DelDictDetail"
+	Admin_SearchByDictId_FullMethodName       = "/openim.openchat.admin.admin/SearchByDictId"
 	Admin_DisableDictDetail_FullMethodName    = "/openim.openchat.admin.admin/DisableDictDetail"
 )
 
@@ -136,6 +137,7 @@ type AdminClient interface {
 	DictDetailInfo(ctx context.Context, in *DictDetailInfoReq, opts ...grpc.CallOption) (*DictDetailInfoResp, error)
 	AddDictDetail(ctx context.Context, in *AddDictDetailReq, opts ...grpc.CallOption) (*AddDictDetailResp, error)
 	DelDictDetail(ctx context.Context, in *DelDictDetailReq, opts ...grpc.CallOption) (*DelDictDetailResp, error)
+	SearchByDictId(ctx context.Context, in *SearchByDictIdReq, opts ...grpc.CallOption) (*SearchByDictIdResp, error)
 	DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error)
 }
 
@@ -525,6 +527,15 @@ func (c *adminClient) DelDictDetail(ctx context.Context, in *DelDictDetailReq, o
 	return out, nil
 }
 
+func (c *adminClient) SearchByDictId(ctx context.Context, in *SearchByDictIdReq, opts ...grpc.CallOption) (*SearchByDictIdResp, error) {
+	out := new(SearchByDictIdResp)
+	err := c.cc.Invoke(ctx, Admin_SearchByDictId_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *adminClient) DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error) {
 	out := new(DisableDictDetailResp)
 	err := c.cc.Invoke(ctx, Admin_DisableDictDetail_FullMethodName, in, out, opts...)
@@ -592,6 +603,7 @@ type AdminServer interface {
 	DictDetailInfo(context.Context, *DictDetailInfoReq) (*DictDetailInfoResp, error)
 	AddDictDetail(context.Context, *AddDictDetailReq) (*AddDictDetailResp, error)
 	DelDictDetail(context.Context, *DelDictDetailReq) (*DelDictDetailResp, error)
+	SearchByDictId(context.Context, *SearchByDictIdReq) (*SearchByDictIdResp, error)
 	DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
@@ -725,6 +737,9 @@ func (UnimplementedAdminServer) AddDictDetail(context.Context, *AddDictDetailReq
 }
 func (UnimplementedAdminServer) DelDictDetail(context.Context, *DelDictDetailReq) (*DelDictDetailResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DelDictDetail not implemented")
+}
+func (UnimplementedAdminServer) SearchByDictId(context.Context, *SearchByDictIdReq) (*SearchByDictIdResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchByDictId not implemented")
 }
 func (UnimplementedAdminServer) DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableDictDetail not implemented")
@@ -1498,6 +1513,24 @@ func _Admin_DelDictDetail_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_SearchByDictId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchByDictIdReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchByDictId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchByDictId_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchByDictId(ctx, req.(*SearchByDictIdReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Admin_DisableDictDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(DisableDictDetailReq)
 	if err := dec(in); err != nil {
@@ -1690,6 +1723,10 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DelDictDetail",
 			Handler:    _Admin_DelDictDetail_Handler,
+		},
+		{
+			MethodName: "SearchByDictId",
+			Handler:    _Admin_SearchByDictId_Handler,
 		},
 		{
 			MethodName: "DisableDictDetail",

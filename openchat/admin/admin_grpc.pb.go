@@ -33,38 +33,49 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Admin_Login_FullMethodName               = "/openim.openchat.admin.admin/Login"
-	Admin_Logout_FullMethodName              = "/openim.openchat.admin.admin/Logout"
-	Admin_ChangePassword_FullMethodName      = "/openim.openchat.admin.admin/ChangePassword"
-	Admin_AdminUpdateInfo_FullMethodName     = "/openim.openchat.admin.admin/AdminUpdateInfo"
-	Admin_GetAdminInfo_FullMethodName        = "/openim.openchat.admin.admin/GetAdminInfo"
-	Admin_AddAdminAccount_FullMethodName     = "/openim.openchat.admin.admin/AddAdminAccount"
-	Admin_ChangeAdminPassword_FullMethodName = "/openim.openchat.admin.admin/ChangeAdminPassword"
-	Admin_SearchAdminAccount_FullMethodName  = "/openim.openchat.admin.admin/SearchAdminAccount"
-	Admin_DisableAdminAccount_FullMethodName = "/openim.openchat.admin.admin/DisableAdminAccount"
-	Admin_CreateToken_FullMethodName         = "/openim.openchat.admin.admin/CreateToken"
-	Admin_ParseToken_FullMethodName          = "/openim.openchat.admin.admin/ParseToken"
-	Admin_GetUserToken_FullMethodName        = "/openim.openchat.admin.admin/GetUserToken"
-	Admin_InvalidateToken_FullMethodName     = "/openim.openchat.admin.admin/InvalidateToken"
-	Admin_UpdateMenuInfo_FullMethodName      = "/openim.openchat.admin.admin/UpdateMenuInfo"
-	Admin_MenuInfo_FullMethodName            = "/openim.openchat.admin.admin/MenuInfo"
-	Admin_AddMenu_FullMethodName             = "/openim.openchat.admin.admin/AddMenu"
-	Admin_DelMenu_FullMethodName             = "/openim.openchat.admin.admin/DelMenu"
-	Admin_SearchMenu_FullMethodName          = "/openim.openchat.admin.admin/SearchMenu"
-	Admin_DisableMenu_FullMethodName         = "/openim.openchat.admin.admin/DisableMenu"
-	Admin_SearchMenuTree_FullMethodName      = "/openim.openchat.admin.admin/SearchMenuTree"
-	Admin_SearchAllMenu_FullMethodName       = "/openim.openchat.admin.admin/SearchAllMenu"
-	Admin_UpdateRoleInfo_FullMethodName      = "/openim.openchat.admin.admin/UpdateRoleInfo"
-	Admin_RoleInfo_FullMethodName            = "/openim.openchat.admin.admin/RoleInfo"
-	Admin_AddRole_FullMethodName             = "/openim.openchat.admin.admin/AddRole"
-	Admin_DelRole_FullMethodName             = "/openim.openchat.admin.admin/DelRole"
-	Admin_SearchRole_FullMethodName          = "/openim.openchat.admin.admin/SearchRole"
-	Admin_SearchAllRole_FullMethodName       = "/openim.openchat.admin.admin/SearchAllRole"
-	Admin_DisableRole_FullMethodName         = "/openim.openchat.admin.admin/DisableRole"
-	Admin_UpdateRoleMenuInfo_FullMethodName  = "/openim.openchat.admin.admin/UpdateRoleMenuInfo"
-	Admin_RoleMenuInfo_FullMethodName        = "/openim.openchat.admin.admin/RoleMenuInfo"
-	Admin_AddRoleMenu_FullMethodName         = "/openim.openchat.admin.admin/AddRoleMenu"
-	Admin_DelRoleMenu_FullMethodName         = "/openim.openchat.admin.admin/DelRoleMenu"
+	Admin_Login_FullMethodName                = "/openim.openchat.admin.admin/Login"
+	Admin_Logout_FullMethodName               = "/openim.openchat.admin.admin/Logout"
+	Admin_ChangePassword_FullMethodName       = "/openim.openchat.admin.admin/ChangePassword"
+	Admin_AdminUpdateInfo_FullMethodName      = "/openim.openchat.admin.admin/AdminUpdateInfo"
+	Admin_GetAdminInfo_FullMethodName         = "/openim.openchat.admin.admin/GetAdminInfo"
+	Admin_AddAdminAccount_FullMethodName      = "/openim.openchat.admin.admin/AddAdminAccount"
+	Admin_ChangeAdminPassword_FullMethodName  = "/openim.openchat.admin.admin/ChangeAdminPassword"
+	Admin_SearchAdminAccount_FullMethodName   = "/openim.openchat.admin.admin/SearchAdminAccount"
+	Admin_DisableAdminAccount_FullMethodName  = "/openim.openchat.admin.admin/DisableAdminAccount"
+	Admin_CreateToken_FullMethodName          = "/openim.openchat.admin.admin/CreateToken"
+	Admin_ParseToken_FullMethodName           = "/openim.openchat.admin.admin/ParseToken"
+	Admin_GetUserToken_FullMethodName         = "/openim.openchat.admin.admin/GetUserToken"
+	Admin_InvalidateToken_FullMethodName      = "/openim.openchat.admin.admin/InvalidateToken"
+	Admin_UpdateMenuInfo_FullMethodName       = "/openim.openchat.admin.admin/UpdateMenuInfo"
+	Admin_MenuInfo_FullMethodName             = "/openim.openchat.admin.admin/MenuInfo"
+	Admin_AddMenu_FullMethodName              = "/openim.openchat.admin.admin/AddMenu"
+	Admin_DelMenu_FullMethodName              = "/openim.openchat.admin.admin/DelMenu"
+	Admin_SearchMenu_FullMethodName           = "/openim.openchat.admin.admin/SearchMenu"
+	Admin_DisableMenu_FullMethodName          = "/openim.openchat.admin.admin/DisableMenu"
+	Admin_SearchMenuTree_FullMethodName       = "/openim.openchat.admin.admin/SearchMenuTree"
+	Admin_SearchAllMenu_FullMethodName        = "/openim.openchat.admin.admin/SearchAllMenu"
+	Admin_UpdateRoleInfo_FullMethodName       = "/openim.openchat.admin.admin/UpdateRoleInfo"
+	Admin_RoleInfo_FullMethodName             = "/openim.openchat.admin.admin/RoleInfo"
+	Admin_AddRole_FullMethodName              = "/openim.openchat.admin.admin/AddRole"
+	Admin_DelRole_FullMethodName              = "/openim.openchat.admin.admin/DelRole"
+	Admin_SearchRole_FullMethodName           = "/openim.openchat.admin.admin/SearchRole"
+	Admin_SearchAllRole_FullMethodName        = "/openim.openchat.admin.admin/SearchAllRole"
+	Admin_DisableRole_FullMethodName          = "/openim.openchat.admin.admin/DisableRole"
+	Admin_UpdateRoleMenuInfo_FullMethodName   = "/openim.openchat.admin.admin/UpdateRoleMenuInfo"
+	Admin_RoleMenuInfo_FullMethodName         = "/openim.openchat.admin.admin/RoleMenuInfo"
+	Admin_AddRoleMenu_FullMethodName          = "/openim.openchat.admin.admin/AddRoleMenu"
+	Admin_DelRoleMenu_FullMethodName          = "/openim.openchat.admin.admin/DelRoleMenu"
+	Admin_UpdateDictInfo_FullMethodName       = "/openim.openchat.admin.admin/UpdateDictInfo"
+	Admin_DictInfo_FullMethodName             = "/openim.openchat.admin.admin/DictInfo"
+	Admin_AddDict_FullMethodName              = "/openim.openchat.admin.admin/AddDict"
+	Admin_DelDict_FullMethodName              = "/openim.openchat.admin.admin/DelDict"
+	Admin_SearchDict_FullMethodName           = "/openim.openchat.admin.admin/SearchDict"
+	Admin_DisableDict_FullMethodName          = "/openim.openchat.admin.admin/DisableDict"
+	Admin_UpdateDictDetailInfo_FullMethodName = "/openim.openchat.admin.admin/UpdateDictDetailInfo"
+	Admin_DictDetailInfo_FullMethodName       = "/openim.openchat.admin.admin/DictDetailInfo"
+	Admin_AddDictDetail_FullMethodName        = "/openim.openchat.admin.admin/AddDictDetail"
+	Admin_DelDictDetail_FullMethodName        = "/openim.openchat.admin.admin/DelDictDetail"
+	Admin_DisableDictDetail_FullMethodName    = "/openim.openchat.admin.admin/DisableDictDetail"
 )
 
 // AdminClient is the client API for Admin service.
@@ -113,6 +124,19 @@ type AdminClient interface {
 	RoleMenuInfo(ctx context.Context, in *RoleMenuInfoReq, opts ...grpc.CallOption) (*RoleMenuInfoResp, error)
 	AddRoleMenu(ctx context.Context, in *AddRoleMenuReq, opts ...grpc.CallOption) (*AddRoleMenuResp, error)
 	DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts ...grpc.CallOption) (*DelRoleMenuResp, error)
+	// dict
+	UpdateDictInfo(ctx context.Context, in *UpdateDictReq, opts ...grpc.CallOption) (*UpdateDictResp, error)
+	DictInfo(ctx context.Context, in *DictInfoReq, opts ...grpc.CallOption) (*DictInfoResp, error)
+	AddDict(ctx context.Context, in *AddDictReq, opts ...grpc.CallOption) (*AddDictResp, error)
+	DelDict(ctx context.Context, in *DelDictReq, opts ...grpc.CallOption) (*DelDictResp, error)
+	SearchDict(ctx context.Context, in *SearchDictReq, opts ...grpc.CallOption) (*SearchDictResp, error)
+	DisableDict(ctx context.Context, in *DisableDictReq, opts ...grpc.CallOption) (*DisableDictResp, error)
+	// dict_detail
+	UpdateDictDetailInfo(ctx context.Context, in *UpdateDictDetailReq, opts ...grpc.CallOption) (*UpdateDictDetailResp, error)
+	DictDetailInfo(ctx context.Context, in *DictDetailInfoReq, opts ...grpc.CallOption) (*DictDetailInfoResp, error)
+	AddDictDetail(ctx context.Context, in *AddDictDetailReq, opts ...grpc.CallOption) (*AddDictDetailResp, error)
+	DelDictDetail(ctx context.Context, in *DelDictDetailReq, opts ...grpc.CallOption) (*DelDictDetailResp, error)
+	DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error)
 }
 
 type adminClient struct {
@@ -411,6 +435,105 @@ func (c *adminClient) DelRoleMenu(ctx context.Context, in *DelRoleMenuReq, opts 
 	return out, nil
 }
 
+func (c *adminClient) UpdateDictInfo(ctx context.Context, in *UpdateDictReq, opts ...grpc.CallOption) (*UpdateDictResp, error) {
+	out := new(UpdateDictResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateDictInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DictInfo(ctx context.Context, in *DictInfoReq, opts ...grpc.CallOption) (*DictInfoResp, error) {
+	out := new(DictInfoResp)
+	err := c.cc.Invoke(ctx, Admin_DictInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddDict(ctx context.Context, in *AddDictReq, opts ...grpc.CallOption) (*AddDictResp, error) {
+	out := new(AddDictResp)
+	err := c.cc.Invoke(ctx, Admin_AddDict_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelDict(ctx context.Context, in *DelDictReq, opts ...grpc.CallOption) (*DelDictResp, error) {
+	out := new(DelDictResp)
+	err := c.cc.Invoke(ctx, Admin_DelDict_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) SearchDict(ctx context.Context, in *SearchDictReq, opts ...grpc.CallOption) (*SearchDictResp, error) {
+	out := new(SearchDictResp)
+	err := c.cc.Invoke(ctx, Admin_SearchDict_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DisableDict(ctx context.Context, in *DisableDictReq, opts ...grpc.CallOption) (*DisableDictResp, error) {
+	out := new(DisableDictResp)
+	err := c.cc.Invoke(ctx, Admin_DisableDict_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) UpdateDictDetailInfo(ctx context.Context, in *UpdateDictDetailReq, opts ...grpc.CallOption) (*UpdateDictDetailResp, error) {
+	out := new(UpdateDictDetailResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateDictDetailInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DictDetailInfo(ctx context.Context, in *DictDetailInfoReq, opts ...grpc.CallOption) (*DictDetailInfoResp, error) {
+	out := new(DictDetailInfoResp)
+	err := c.cc.Invoke(ctx, Admin_DictDetailInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddDictDetail(ctx context.Context, in *AddDictDetailReq, opts ...grpc.CallOption) (*AddDictDetailResp, error) {
+	out := new(AddDictDetailResp)
+	err := c.cc.Invoke(ctx, Admin_AddDictDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelDictDetail(ctx context.Context, in *DelDictDetailReq, opts ...grpc.CallOption) (*DelDictDetailResp, error) {
+	out := new(DelDictDetailResp)
+	err := c.cc.Invoke(ctx, Admin_DelDictDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error) {
+	out := new(DisableDictDetailResp)
+	err := c.cc.Invoke(ctx, Admin_DisableDictDetail_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -457,6 +580,19 @@ type AdminServer interface {
 	RoleMenuInfo(context.Context, *RoleMenuInfoReq) (*RoleMenuInfoResp, error)
 	AddRoleMenu(context.Context, *AddRoleMenuReq) (*AddRoleMenuResp, error)
 	DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error)
+	// dict
+	UpdateDictInfo(context.Context, *UpdateDictReq) (*UpdateDictResp, error)
+	DictInfo(context.Context, *DictInfoReq) (*DictInfoResp, error)
+	AddDict(context.Context, *AddDictReq) (*AddDictResp, error)
+	DelDict(context.Context, *DelDictReq) (*DelDictResp, error)
+	SearchDict(context.Context, *SearchDictReq) (*SearchDictResp, error)
+	DisableDict(context.Context, *DisableDictReq) (*DisableDictResp, error)
+	// dict_detail
+	UpdateDictDetailInfo(context.Context, *UpdateDictDetailReq) (*UpdateDictDetailResp, error)
+	DictDetailInfo(context.Context, *DictDetailInfoReq) (*DictDetailInfoResp, error)
+	AddDictDetail(context.Context, *AddDictDetailReq) (*AddDictDetailResp, error)
+	DelDictDetail(context.Context, *DelDictDetailReq) (*DelDictDetailResp, error)
+	DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -559,6 +695,39 @@ func (UnimplementedAdminServer) AddRoleMenu(context.Context, *AddRoleMenuReq) (*
 }
 func (UnimplementedAdminServer) DelRoleMenu(context.Context, *DelRoleMenuReq) (*DelRoleMenuResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DelRoleMenu not implemented")
+}
+func (UnimplementedAdminServer) UpdateDictInfo(context.Context, *UpdateDictReq) (*UpdateDictResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateDictInfo not implemented")
+}
+func (UnimplementedAdminServer) DictInfo(context.Context, *DictInfoReq) (*DictInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DictInfo not implemented")
+}
+func (UnimplementedAdminServer) AddDict(context.Context, *AddDictReq) (*AddDictResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddDict not implemented")
+}
+func (UnimplementedAdminServer) DelDict(context.Context, *DelDictReq) (*DelDictResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelDict not implemented")
+}
+func (UnimplementedAdminServer) SearchDict(context.Context, *SearchDictReq) (*SearchDictResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchDict not implemented")
+}
+func (UnimplementedAdminServer) DisableDict(context.Context, *DisableDictReq) (*DisableDictResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DisableDict not implemented")
+}
+func (UnimplementedAdminServer) UpdateDictDetailInfo(context.Context, *UpdateDictDetailReq) (*UpdateDictDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateDictDetailInfo not implemented")
+}
+func (UnimplementedAdminServer) DictDetailInfo(context.Context, *DictDetailInfoReq) (*DictDetailInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DictDetailInfo not implemented")
+}
+func (UnimplementedAdminServer) AddDictDetail(context.Context, *AddDictDetailReq) (*AddDictDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddDictDetail not implemented")
+}
+func (UnimplementedAdminServer) DelDictDetail(context.Context, *DelDictDetailReq) (*DelDictDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelDictDetail not implemented")
+}
+func (UnimplementedAdminServer) DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DisableDictDetail not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1149,6 +1318,204 @@ func _Admin_DelRoleMenu_Handler(srv interface{}, ctx context.Context, dec func(i
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_UpdateDictInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDictReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateDictInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateDictInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateDictInfo(ctx, req.(*UpdateDictReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DictInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DictInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DictInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DictInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DictInfo(ctx, req.(*DictInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddDict_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDictReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddDict(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddDict_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddDict(ctx, req.(*AddDictReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelDict_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelDictReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelDict(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelDict_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelDict(ctx, req.(*DelDictReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_SearchDict_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchDictReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchDict(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchDict_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchDict(ctx, req.(*SearchDictReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DisableDict_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableDictReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DisableDict(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DisableDict_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DisableDict(ctx, req.(*DisableDictReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_UpdateDictDetailInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateDictDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateDictDetailInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateDictDetailInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateDictDetailInfo(ctx, req.(*UpdateDictDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DictDetailInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DictDetailInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DictDetailInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DictDetailInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DictDetailInfo(ctx, req.(*DictDetailInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddDictDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddDictDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddDictDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddDictDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddDictDetail(ctx, req.(*AddDictDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelDictDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelDictDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelDictDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelDictDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelDictDetail(ctx, req.(*DelDictDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DisableDictDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DisableDictDetailReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DisableDictDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DisableDictDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DisableDictDetail(ctx, req.(*DisableDictDetailReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1283,6 +1650,50 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DelRoleMenu",
 			Handler:    _Admin_DelRoleMenu_Handler,
+		},
+		{
+			MethodName: "UpdateDictInfo",
+			Handler:    _Admin_UpdateDictInfo_Handler,
+		},
+		{
+			MethodName: "DictInfo",
+			Handler:    _Admin_DictInfo_Handler,
+		},
+		{
+			MethodName: "AddDict",
+			Handler:    _Admin_AddDict_Handler,
+		},
+		{
+			MethodName: "DelDict",
+			Handler:    _Admin_DelDict_Handler,
+		},
+		{
+			MethodName: "SearchDict",
+			Handler:    _Admin_SearchDict_Handler,
+		},
+		{
+			MethodName: "DisableDict",
+			Handler:    _Admin_DisableDict_Handler,
+		},
+		{
+			MethodName: "UpdateDictDetailInfo",
+			Handler:    _Admin_UpdateDictDetailInfo_Handler,
+		},
+		{
+			MethodName: "DictDetailInfo",
+			Handler:    _Admin_DictDetailInfo_Handler,
+		},
+		{
+			MethodName: "AddDictDetail",
+			Handler:    _Admin_AddDictDetail_Handler,
+		},
+		{
+			MethodName: "DelDictDetail",
+			Handler:    _Admin_DelDictDetail_Handler,
+		},
+		{
+			MethodName: "DisableDictDetail",
+			Handler:    _Admin_DisableDictDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

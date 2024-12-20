@@ -374,6 +374,120 @@ message SearchAllMenuResp{
   repeated MenuInfoResp menuInfo = 1;
 }
 
+message UpdateDictReq {
+  string dictName = 1;
+  uint32 dictType = 2; //1:系统类，2:业务类
+  uint32 status = 3; //1:正常， 2:禁用
+  string desc = 4;
+  uint64 dictId = 5;
+  string dictCode = 6;
+}
+
+message UpdateDictResp{}
+
+message DictInfoReq {
+  uint64 dictId = 1;
+}
+
+message DictInfoResp {
+  string dictName = 1;
+  uint32 dictType = 2; //1:系统类，2:业务类
+  uint32 status = 3; //1:正常， 2:禁用
+  string desc = 4;
+  uint64 dictId = 5;
+  string dictCode = 6;
+  string updateBy = 7;
+  int64 updateTime = 8;
+}
+
+message AddDictReq {
+  string dictName = 1;
+  uint32 dictType = 2; //1:系统类，2:业务类
+  uint32 status = 3; //1:正常， 2:禁用
+  string desc = 4;
+  string dictCode = 6;
+}
+
+message AddDictResp {}
+
+message DelDictReq {
+  uint64 dictId = 1;
+}
+
+message DelDictResp {}
+
+message SearchDictReq {
+  string dictName = 1;
+  string dictCode = 2;
+  uint32 status = 4;
+  string updateBy = 5;
+  string startTime = 6;
+  string endTime = 7;
+  openim.sdkws.RequestPagination pagination = 8;
+}
+
+message SearchDictResp {
+  repeated DictInfoResp dictInfo = 1;
+  uint64 total = 2;
+  uint64 pages = 3;
+}
+
+message DisableDictReq {
+  uint64 dictId = 1;
+  uint32 status = 2;
+}
+
+message DisableDictResp{}
+
+message UpdateDictDetailReq {
+  string dictName = 1;
+  string dictCode = 2;
+  uint32 status = 4;
+  string dictValue = 5;
+  string desc = 6;
+  uint64 sort = 7;
+  uint64 dictDetailId = 8;
+}
+
+message UpdateDictDetailResp {}
+
+message DictDetailInfoReq {
+  uint64 dictDetailId = 1;
+}
+
+message DictDetailInfoResp {
+  string dictName = 1;
+  string dictCode = 2;
+  uint32 status = 4;
+  string dictValue = 5;
+  string desc = 6;
+  uint64 sort = 7;
+  uint64 dictDetailId = 8;
+}
+
+message AddDictDetailReq {
+  string dictName = 1;
+  string dictCode = 2;
+  uint32 status = 4;
+  string dictValue = 5;
+  string desc = 6;
+  uint64 sort = 7;
+}
+
+message AddDictDetailResp {}
+
+message DelDictDetailReq {
+  uint64 dictDetailId = 1;
+}
+
+message DelDictDetailResp {}
+
+message DisableDictDetailReq{
+  uint64 dictDetailId = 1;
+}
+
+message DisableDictDetailResp {}
+
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -421,4 +535,19 @@ service admin {
   rpc RoleMenuInfo(RoleMenuInfoReq) returns (RoleMenuInfoResp);
   rpc AddRoleMenu(AddRoleMenuReq) returns (AddRoleMenuResp);
   rpc DelRoleMenu(DelRoleMenuReq) returns (DelRoleMenuResp);
+
+  // dict
+  rpc UpdateDictInfo(UpdateDictReq) returns (UpdateDictResp);
+  rpc DictInfo(DictInfoReq) returns (DictInfoResp);
+  rpc AddDict(AddDictReq) returns (AddDictResp);
+  rpc DelDict(DelDictReq) returns (DelDictResp);
+  rpc SearchDict(SearchDictReq) returns (SearchDictResp);
+  rpc DisableDict(DisableDictReq) returns (DisableDictResp);
+
+  // dict_detail
+  rpc UpdateDictDetailInfo(UpdateDictDetailReq) returns (UpdateDictDetailResp);
+  rpc DictDetailInfo(DictDetailInfoReq) returns (DictDetailInfoResp);
+  rpc AddDictDetail(AddDictDetailReq) returns (AddDictDetailResp);
+  rpc DelDictDetail(DelDictDetailReq) returns (DelDictDetailResp);
+  rpc DisableDictDetail(DisableDictDetailReq) returns (DisableDictDetailResp);
 }

@@ -472,6 +472,7 @@ message AddDictDetailReq {
   string dictValue = 5;
   string desc = 6;
   uint64 sort = 7;
+  uint64 dictId = 8;
 }
 
 message AddDictDetailResp {}

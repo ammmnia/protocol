@@ -8951,6 +8951,8 @@ func (m *AddDictDetailReq) validate(all bool) error {
 
 	// no validation rules for Sort
 
+	// no validation rules for DictId
+
 	if len(errors) > 0 {
 		return AddDictDetailReqMultiError(errors)
 	}

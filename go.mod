@@ -10,8 +10,10 @@ require (
 )
 
 require (
+	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/jinzhu/copier v0.4.0 // indirect
+	github.com/nicksnyder/go-i18n/v2 v2.4.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect

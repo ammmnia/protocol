@@ -83,8 +83,8 @@ message UserInfo {
   int64 createTime = 5;
   int32 appMangerLevel = 6;
   int32 globalRecvMsgOpt = 7;
-  int32 AllowAddFriend = 8;
-  int32 AddFriendLimit = 9;
+  int32 allowAddFriend = 8;
+  int32 addFriendLimit = 9;
 }
 
 message UserInfoWithEx {

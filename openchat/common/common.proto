@@ -40,7 +40,7 @@ message UserFullInfo{
   string operator = 20;//操作人
   int32 userStatus = 21;//用户状态
   int32 onlineStatus = 22;//在线状态
-  int32 AddFriendLimit = 23;
+  int32 addFriendLimit = 23;
 }
 
 message UserPublicInfo{

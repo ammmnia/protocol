@@ -46,8 +46,8 @@ message UpdateUserInfoReq {
   openim.protobuf.Int32Value allowBeep = 12;
   openim.protobuf.Int32Value allowVibration = 13;
   openim.protobuf.Int32Value globalRecvMsgOpt = 14;
-  openim.protobuf.Int32Value RegisterType = 15;
-  openim.protobuf.Int32Value AddFriendLimit = 16;
+  openim.protobuf.Int32Value registerType = 15;
+  openim.protobuf.Int32Value addFriendLimit = 16;
 }
 
 message UpdateUserInfoResp {
@@ -136,9 +136,9 @@ message RegisterUserInfo {
 //  string email = 8;
   string account = 9;
   string password = 10;
-  int32 RegisterType = 11;
-  int32 AllowAddFriend = 12;
-  int32 AddFriendLimit = 13;
+  int32 registerType = 11;
+  int32 allowAddFriend = 12;
+  int32 addFriendLimit = 13;
 }
 
 message RegisterUserReq {

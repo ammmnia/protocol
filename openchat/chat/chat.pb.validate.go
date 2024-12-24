@@ -576,6 +576,35 @@ func (m *UpdateUserInfoReq) validate(all bool) error {
 		}
 	}
 
+	if all {
+		switch v := interface{}(m.GetAddFriendLimit()).(type) {
+		case interface{ ValidateAll() error }:
+			if err := v.ValidateAll(); err != nil {
+				errors = append(errors, UpdateUserInfoReqValidationError{
+					field:  "AddFriendLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		case interface{ Validate() error }:
+			if err := v.Validate(); err != nil {
+				errors = append(errors, UpdateUserInfoReqValidationError{
+					field:  "AddFriendLimit",
+					reason: "embedded message failed validation",
+					cause:  err,
+				})
+			}
+		}
+	} else if v, ok := interface{}(m.GetAddFriendLimit()).(interface{ Validate() error }); ok {
+		if err := v.Validate(); err != nil {
+			return UpdateUserInfoReqValidationError{
+				field:  "AddFriendLimit",
+				reason: "embedded message failed validation",
+				cause:  err,
+			}
+		}
+	}
+
 	if len(errors) > 0 {
 		return UpdateUserInfoReqMultiError(errors)
 	}

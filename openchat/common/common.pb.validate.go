@@ -101,6 +101,8 @@ func (m *UserFullInfo) validate(all bool) error {
 
 	// no validation rules for OnlineStatus
 
+	// no validation rules for AddFriendLimit
+
 	if len(errors) > 0 {
 		return UserFullInfoMultiError(errors)
 	}

@@ -2403,6 +2403,10 @@ func (m *RegisterUserInfo) validate(all bool) error {
 
 	// no validation rules for RegisterType
 
+	// no validation rules for AllowAddFriend
+
+	// no validation rules for AddFriendLimit
+
 	if len(errors) > 0 {
 		return RegisterUserInfoMultiError(errors)
 	}

@@ -664,6 +664,10 @@ func (m *UserInfo) validate(all bool) error {
 
 	// no validation rules for GlobalRecvMsgOpt
 
+	// no validation rules for AllowAddFriend
+
+	// no validation rules for AddFriendLimit
+
 	if len(errors) > 0 {
 		return UserInfoMultiError(errors)
 	}

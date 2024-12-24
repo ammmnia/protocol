@@ -77,6 +77,7 @@ const (
 	DefaultAllowVibration = 1
 	DefaultAllowBeep      = 1
 	DefaultAllowAddFriend = 1
+	DefaultAddFriendLimit = 10
 )
 
 const (

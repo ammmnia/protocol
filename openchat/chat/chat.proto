@@ -136,6 +136,8 @@ message RegisterUserInfo {
   string account = 9;
   string password = 10;
   int32 RegisterType = 11;
+  int32 AllowAddFriend = 12;
+  int32 AddFriendLimit = 13;
 }
 
 message RegisterUserReq {

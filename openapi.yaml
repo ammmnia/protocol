@@ -319,7 +319,13 @@ components:
                           string email = 8;
                 password:
                     type: string
-                RegisterType:
+                registerType:
+                    type: integer
+                    format: int32
+                allowAddFriend:
+                    type: integer
+                    format: int32
+                addFriendLimit:
                     type: integer
                     format: int32
         RegisterUserReq:
@@ -515,6 +521,9 @@ components:
                     type: integer
                     format: int32
                 onlineStatus:
+                    type: integer
+                    format: int32
+                addFriendLimit:
                     type: integer
                     format: int32
         UserInfo:

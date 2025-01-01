@@ -500,6 +500,214 @@ var _ interface {
 	ErrorName() string
 } = AccountCheckRespValidationError{}
 
+// Validate checks the field values on CheckUserAddFriendReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckUserAddFriendReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckUserAddFriendReq with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckUserAddFriendReqMultiError, or nil if none found.
+func (m *CheckUserAddFriendReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckUserAddFriendReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	if len(errors) > 0 {
+		return CheckUserAddFriendReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckUserAddFriendReqMultiError is an error wrapping multiple validation
+// errors returned by CheckUserAddFriendReq.ValidateAll() if the designated
+// constraints aren't met.
+type CheckUserAddFriendReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckUserAddFriendReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckUserAddFriendReqMultiError) AllErrors() []error { return m }
+
+// CheckUserAddFriendReqValidationError is the validation error returned by
+// CheckUserAddFriendReq.Validate if the designated constraints aren't met.
+type CheckUserAddFriendReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckUserAddFriendReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckUserAddFriendReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckUserAddFriendReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckUserAddFriendReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckUserAddFriendReqValidationError) ErrorName() string {
+	return "CheckUserAddFriendReqValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckUserAddFriendReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckUserAddFriendReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckUserAddFriendReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckUserAddFriendReqValidationError{}
+
+// Validate checks the field values on CheckUserAddFriendResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the first error encountered is returned, or nil if there are no violations.
+func (m *CheckUserAddFriendResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckUserAddFriendResp with the rules
+// defined in the proto definition for this message. If any rules are
+// violated, the result is a list of violation errors wrapped in
+// CheckUserAddFriendRespMultiError, or nil if none found.
+func (m *CheckUserAddFriendResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckUserAddFriendResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for UserID
+
+	// no validation rules for Flag
+
+	if len(errors) > 0 {
+		return CheckUserAddFriendRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckUserAddFriendRespMultiError is an error wrapping multiple validation
+// errors returned by CheckUserAddFriendResp.ValidateAll() if the designated
+// constraints aren't met.
+type CheckUserAddFriendRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckUserAddFriendRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckUserAddFriendRespMultiError) AllErrors() []error { return m }
+
+// CheckUserAddFriendRespValidationError is the validation error returned by
+// CheckUserAddFriendResp.Validate if the designated constraints aren't met.
+type CheckUserAddFriendRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckUserAddFriendRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckUserAddFriendRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckUserAddFriendRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckUserAddFriendRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckUserAddFriendRespValidationError) ErrorName() string {
+	return "CheckUserAddFriendRespValidationError"
+}
+
+// Error satisfies the builtin error interface
+func (e CheckUserAddFriendRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckUserAddFriendResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckUserAddFriendRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckUserAddFriendRespValidationError{}
+
 // Validate checks the field values on GetDesignateUsersReq with the rules
 // defined in the proto definition for this message. If any rules are
 // violated, the first error encountered is returned, or nil if there are no violations.

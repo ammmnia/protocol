@@ -60,6 +60,7 @@ const (
 	User_SetUserOnlineStatus_FullMethodName           = "/openim.user.user/setUserOnlineStatus"
 	User_GetAllOnlineUsers_FullMethodName             = "/openim.user.user/getAllOnlineUsers"
 	User_DelUsers_FullMethodName                      = "/openim.user.user/delUsers"
+	User_CheckUserAddFriend_FullMethodName            = "/openim.user.user/checkUserAddFriend"
 )
 
 // UserClient is the client API for User service.
@@ -117,6 +118,7 @@ type UserClient interface {
 	GetAllOnlineUsers(ctx context.Context, in *GetAllOnlineUsersReq, opts ...grpc.CallOption) (*GetAllOnlineUsersResp, error)
 	// 删除用户
 	DelUsers(ctx context.Context, in *DelUsersReq, opts ...grpc.CallOption) (*DelUsersResp, error)
+	CheckUserAddFriend(ctx context.Context, in *CheckUserAddFriendReq, opts ...grpc.CallOption) (*CheckUserAddFriendResp, error)
 }
 
 type userClient struct {
@@ -370,6 +372,15 @@ func (c *userClient) DelUsers(ctx context.Context, in *DelUsersReq, opts ...grpc
 	return out, nil
 }
 
+func (c *userClient) CheckUserAddFriend(ctx context.Context, in *CheckUserAddFriendReq, opts ...grpc.CallOption) (*CheckUserAddFriendResp, error) {
+	out := new(CheckUserAddFriendResp)
+	err := c.cc.Invoke(ctx, User_CheckUserAddFriend_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // UserServer is the server API for User service.
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility
@@ -425,6 +436,7 @@ type UserServer interface {
 	GetAllOnlineUsers(context.Context, *GetAllOnlineUsersReq) (*GetAllOnlineUsersResp, error)
 	// 删除用户
 	DelUsers(context.Context, *DelUsersReq) (*DelUsersResp, error)
+	CheckUserAddFriend(context.Context, *CheckUserAddFriendReq) (*CheckUserAddFriendResp, error)
 	mustEmbedUnimplementedUserServer()
 }
 
@@ -512,6 +524,9 @@ func (UnimplementedUserServer) GetAllOnlineUsers(context.Context, *GetAllOnlineU
 }
 func (UnimplementedUserServer) DelUsers(context.Context, *DelUsersReq) (*DelUsersResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DelUsers not implemented")
+}
+func (UnimplementedUserServer) CheckUserAddFriend(context.Context, *CheckUserAddFriendReq) (*CheckUserAddFriendResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckUserAddFriend not implemented")
 }
 func (UnimplementedUserServer) mustEmbedUnimplementedUserServer() {}
 
@@ -1012,6 +1027,24 @@ func _User_DelUsers_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_CheckUserAddFriend_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckUserAddFriendReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServer).CheckUserAddFriend(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: User_CheckUserAddFriend_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServer).CheckUserAddFriend(ctx, req.(*CheckUserAddFriendReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // User_ServiceDesc is the grpc.ServiceDesc for User service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1126,6 +1159,10 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "delUsers",
 			Handler:    _User_DelUsers_Handler,
+		},
+		{
+			MethodName: "checkUserAddFriend",
+			Handler:    _User_CheckUserAddFriend_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

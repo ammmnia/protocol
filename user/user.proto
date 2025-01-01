@@ -40,6 +40,14 @@ message accountCheckResp {
   repeated singleUserStatus results = 1;
 }
 
+message checkUserAddFriendReq {
+  repeated string checkUserID = 1;
+}
+message checkUserAddFriendResp {
+  string userID = 1;
+  bool flag = 2;
+}
+
 message getDesignateUsersReq {
   repeated string userIDs = 1;
 }
@@ -392,4 +400,7 @@ service user {
   rpc getAllOnlineUsers(getAllOnlineUsersReq) returns (getAllOnlineUsersResp);
   // 删除用户
   rpc delUsers(delUsersReq) returns (delUsersResp);
+
+  rpc checkUserAddFriend(checkUserAddFriendReq) returns (checkUserAddFriendResp);
+
 }

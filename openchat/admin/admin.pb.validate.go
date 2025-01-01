@@ -477,7 +477,7 @@ func (m *AddAdminAccountReq) validate(all bool) error {
 
 	// no validation rules for Nickname
 
-	// no validation rules for RoleCode
+	// no validation rules for RoleId
 
 	// no validation rules for Desc
 
@@ -806,11 +806,11 @@ func (m *AdminUpdateInfoReq) validate(all bool) error {
 	}
 
 	if all {
-		switch v := interface{}(m.GetRoleCode()).(type) {
+		switch v := interface{}(m.GetRoleId()).(type) {
 		case interface{ ValidateAll() error }:
 			if err := v.ValidateAll(); err != nil {
 				errors = append(errors, AdminUpdateInfoReqValidationError{
-					field:  "RoleCode",
+					field:  "RoleId",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
@@ -818,16 +818,16 @@ func (m *AdminUpdateInfoReq) validate(all bool) error {
 		case interface{ Validate() error }:
 			if err := v.Validate(); err != nil {
 				errors = append(errors, AdminUpdateInfoReqValidationError{
-					field:  "RoleCode",
+					field:  "RoleId",
 					reason: "embedded message failed validation",
 					cause:  err,
 				})
 			}
 		}
-	} else if v, ok := interface{}(m.GetRoleCode()).(interface{ Validate() error }); ok {
+	} else if v, ok := interface{}(m.GetRoleId()).(interface{ Validate() error }); ok {
 		if err := v.Validate(); err != nil {
 			return AdminUpdateInfoReqValidationError{
-				field:  "RoleCode",
+				field:  "RoleId",
 				reason: "embedded message failed validation",
 				cause:  err,
 			}
@@ -1624,7 +1624,7 @@ func (m *SearchAdminAccountReq) validate(all bool) error {
 
 	// no validation rules for Nickname
 
-	// no validation rules for RoleCode
+	// no validation rules for RoleId
 
 	// no validation rules for UpdateBy
 

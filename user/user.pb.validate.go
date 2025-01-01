@@ -522,6 +522,8 @@ func (m *CheckUserAddFriendReq) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for CheckUserID
+
 	if len(errors) > 0 {
 		return CheckUserAddFriendReqMultiError(errors)
 	}

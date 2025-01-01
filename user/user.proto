@@ -41,7 +41,7 @@ message accountCheckResp {
 }
 
 message checkUserAddFriendReq {
-  repeated string checkUserID = 1;
+  string checkUserID = 1;
 }
 message checkUserAddFriendResp {
   string userID = 1;

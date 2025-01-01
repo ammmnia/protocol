@@ -122,6 +122,7 @@ message GetAdminInfoResp {
   string updateBy = 12;
   int64 updateTime = 13;
   int64 latestLoginTime = 14;
+  uint64 roleId = 15;
 }
 
 message DisableAdminAccountReq {

@@ -1898,6 +1898,8 @@ func (m *GetAdminInfoResp) validate(all bool) error {
 
 	// no validation rules for LatestLoginTime
 
+	// no validation rules for RoleId
+
 	if len(errors) > 0 {
 		return GetAdminInfoRespMultiError(errors)
 	}

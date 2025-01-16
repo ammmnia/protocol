@@ -500,6 +500,14 @@ message SearchByDictIdResp {
   repeated DictDetailInfoResp dictDetailInfos = 1;
 }
 
+message CheckAuthorizeReq {
+  string userId = 1;
+}
+
+message CheckAuthorizeResp {
+  bool pass = 1;
+}
+
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -563,4 +571,7 @@ service admin {
   rpc DelDictDetail(DelDictDetailReq) returns (DelDictDetailResp);
   rpc SearchByDictId(SearchByDictIdReq) returns (SearchByDictIdResp);
   rpc DisableDictDetail(DisableDictDetailReq) returns (DisableDictDetailResp);
+
+  // admin接口鉴权
+  rpc CheckAuthorize(CheckAuthorizeReq) returns (CheckAuthorizeResp);
 }

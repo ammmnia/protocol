@@ -77,6 +77,7 @@ const (
 	Admin_DelDictDetail_FullMethodName        = "/openim.openchat.admin.admin/DelDictDetail"
 	Admin_SearchByDictId_FullMethodName       = "/openim.openchat.admin.admin/SearchByDictId"
 	Admin_DisableDictDetail_FullMethodName    = "/openim.openchat.admin.admin/DisableDictDetail"
+	Admin_CheckAuthorize_FullMethodName       = "/openim.openchat.admin.admin/CheckAuthorize"
 )
 
 // AdminClient is the client API for Admin service.
@@ -139,6 +140,8 @@ type AdminClient interface {
 	DelDictDetail(ctx context.Context, in *DelDictDetailReq, opts ...grpc.CallOption) (*DelDictDetailResp, error)
 	SearchByDictId(ctx context.Context, in *SearchByDictIdReq, opts ...grpc.CallOption) (*SearchByDictIdResp, error)
 	DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error)
+	// admin接口鉴权
+	CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq, opts ...grpc.CallOption) (*CheckAuthorizeResp, error)
 }
 
 type adminClient struct {
@@ -545,6 +548,15 @@ func (c *adminClient) DisableDictDetail(ctx context.Context, in *DisableDictDeta
 	return out, nil
 }
 
+func (c *adminClient) CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq, opts ...grpc.CallOption) (*CheckAuthorizeResp, error) {
+	out := new(CheckAuthorizeResp)
+	err := c.cc.Invoke(ctx, Admin_CheckAuthorize_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -605,6 +617,8 @@ type AdminServer interface {
 	DelDictDetail(context.Context, *DelDictDetailReq) (*DelDictDetailResp, error)
 	SearchByDictId(context.Context, *SearchByDictIdReq) (*SearchByDictIdResp, error)
 	DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error)
+	// admin接口鉴权
+	CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -743,6 +757,9 @@ func (UnimplementedAdminServer) SearchByDictId(context.Context, *SearchByDictIdR
 }
 func (UnimplementedAdminServer) DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DisableDictDetail not implemented")
+}
+func (UnimplementedAdminServer) CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckAuthorize not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1549,6 +1566,24 @@ func _Admin_DisableDictDetail_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_CheckAuthorize_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckAuthorizeReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).CheckAuthorize(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_CheckAuthorize_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).CheckAuthorize(ctx, req.(*CheckAuthorizeReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1731,6 +1766,10 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DisableDictDetail",
 			Handler:    _Admin_DisableDictDetail_Handler,
+		},
+		{
+			MethodName: "CheckAuthorize",
+			Handler:    _Admin_CheckAuthorize_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

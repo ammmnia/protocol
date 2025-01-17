@@ -502,6 +502,7 @@ message SearchByDictIdResp {
 
 message CheckAuthorizeReq {
   string userId = 1;
+  string url = 2;
 }
 
 message CheckAuthorizeResp {

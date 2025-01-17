@@ -9813,6 +9813,8 @@ func (m *CheckAuthorizeReq) validate(all bool) error {
 
 	// no validation rules for UserId
 
+	// no validation rules for Url
+
 	if len(errors) > 0 {
 		return CheckAuthorizeReqMultiError(errors)
 	}

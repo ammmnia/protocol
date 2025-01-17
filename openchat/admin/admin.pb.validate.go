@@ -11007,6 +11007,10 @@ func (m *SearchIpResp) validate(all bool) error {
 
 	}
 
+	// no validation rules for Total
+
+	// no validation rules for Pages
+
 	if len(errors) > 0 {
 		return SearchIpRespMultiError(errors)
 	}

@@ -550,6 +550,8 @@ message SearchIpReq {
 }
 message SearchIpResp {
   repeated IpInfoResp ipInfoList = 1;
+  uint64 total = 2;
+  uint64 pages = 3;
 }
 service admin {
   // Login

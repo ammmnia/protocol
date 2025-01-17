@@ -24,6 +24,7 @@ option go_package = "github.com/ammmnia/protocol/openchat/admin";
 message LoginReq {
   string account = 1;
   string password = 2;
+  string ip = 3;
 }
 
 message LoginResp {

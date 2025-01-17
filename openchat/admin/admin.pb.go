@@ -5259,6 +5259,530 @@ func (x *CheckAuthorizeResp) GetPass() bool {
 	return false
 }
 
+type UpdateIpReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Ip   string `protobuf:"bytes,2,opt,name=ip,proto3" json:"ip,omitempty"`
+	Desc string `protobuf:"bytes,3,opt,name=desc,proto3" json:"desc,omitempty"`
+}
+
+func (x *UpdateIpReq) Reset() {
+	*x = UpdateIpReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[90]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateIpReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateIpReq) ProtoMessage() {}
+
+func (x *UpdateIpReq) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[90]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateIpReq.ProtoReflect.Descriptor instead.
+func (*UpdateIpReq) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{90}
+}
+
+func (x *UpdateIpReq) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateIpReq) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *UpdateIpReq) GetDesc() string {
+	if x != nil {
+		return x.Desc
+	}
+	return ""
+}
+
+type UpdateIpResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *UpdateIpResp) Reset() {
+	*x = UpdateIpResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[91]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateIpResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateIpResp) ProtoMessage() {}
+
+func (x *UpdateIpResp) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[91]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateIpResp.ProtoReflect.Descriptor instead.
+func (*UpdateIpResp) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{91}
+}
+
+type IpInfoReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *IpInfoReq) Reset() {
+	*x = IpInfoReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[92]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IpInfoReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IpInfoReq) ProtoMessage() {}
+
+func (x *IpInfoReq) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[92]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IpInfoReq.ProtoReflect.Descriptor instead.
+func (*IpInfoReq) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{92}
+}
+
+func (x *IpInfoReq) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type IpInfoResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id   uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Ip   string `protobuf:"bytes,2,opt,name=ip,proto3" json:"ip,omitempty"`
+	Desc string `protobuf:"bytes,3,opt,name=desc,proto3" json:"desc,omitempty"`
+}
+
+func (x *IpInfoResp) Reset() {
+	*x = IpInfoResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[93]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IpInfoResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IpInfoResp) ProtoMessage() {}
+
+func (x *IpInfoResp) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[93]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IpInfoResp.ProtoReflect.Descriptor instead.
+func (*IpInfoResp) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{93}
+}
+
+func (x *IpInfoResp) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *IpInfoResp) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *IpInfoResp) GetDesc() string {
+	if x != nil {
+		return x.Desc
+	}
+	return ""
+}
+
+type AddIpReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Ip   string `protobuf:"bytes,1,opt,name=ip,proto3" json:"ip,omitempty"`
+	Desc string `protobuf:"bytes,2,opt,name=desc,proto3" json:"desc,omitempty"`
+}
+
+func (x *AddIpReq) Reset() {
+	*x = AddIpReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[94]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddIpReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIpReq) ProtoMessage() {}
+
+func (x *AddIpReq) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[94]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIpReq.ProtoReflect.Descriptor instead.
+func (*AddIpReq) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{94}
+}
+
+func (x *AddIpReq) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *AddIpReq) GetDesc() string {
+	if x != nil {
+		return x.Desc
+	}
+	return ""
+}
+
+type AddIpResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *AddIpResp) Reset() {
+	*x = AddIpResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[95]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddIpResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddIpResp) ProtoMessage() {}
+
+func (x *AddIpResp) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[95]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddIpResp.ProtoReflect.Descriptor instead.
+func (*AddIpResp) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{95}
+}
+
+type DelIpReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *DelIpReq) Reset() {
+	*x = DelIpReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[96]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DelIpReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DelIpReq) ProtoMessage() {}
+
+func (x *DelIpReq) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[96]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DelIpReq.ProtoReflect.Descriptor instead.
+func (*DelIpReq) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{96}
+}
+
+func (x *DelIpReq) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type DelIpResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *DelIpResp) Reset() {
+	*x = DelIpResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[97]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DelIpResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DelIpResp) ProtoMessage() {}
+
+func (x *DelIpResp) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[97]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DelIpResp.ProtoReflect.Descriptor instead.
+func (*DelIpResp) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{97}
+}
+
+func (x *DelIpResp) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type SearchIpReq struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Ip         string                   `protobuf:"bytes,1,opt,name=ip,proto3" json:"ip,omitempty"`
+	UpdateBy   string                   `protobuf:"bytes,5,opt,name=updateBy,proto3" json:"updateBy,omitempty"`
+	StartTime  string                   `protobuf:"bytes,6,opt,name=startTime,proto3" json:"startTime,omitempty"`
+	EndTime    string                   `protobuf:"bytes,7,opt,name=endTime,proto3" json:"endTime,omitempty"`
+	Pagination *sdkws.RequestPagination `protobuf:"bytes,8,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *SearchIpReq) Reset() {
+	*x = SearchIpReq{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[98]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchIpReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchIpReq) ProtoMessage() {}
+
+func (x *SearchIpReq) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[98]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchIpReq.ProtoReflect.Descriptor instead.
+func (*SearchIpReq) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{98}
+}
+
+func (x *SearchIpReq) GetIp() string {
+	if x != nil {
+		return x.Ip
+	}
+	return ""
+}
+
+func (x *SearchIpReq) GetUpdateBy() string {
+	if x != nil {
+		return x.UpdateBy
+	}
+	return ""
+}
+
+func (x *SearchIpReq) GetStartTime() string {
+	if x != nil {
+		return x.StartTime
+	}
+	return ""
+}
+
+func (x *SearchIpReq) GetEndTime() string {
+	if x != nil {
+		return x.EndTime
+	}
+	return ""
+}
+
+func (x *SearchIpReq) GetPagination() *sdkws.RequestPagination {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+type SearchIpResp struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IpInfoList []*IpInfoResp `protobuf:"bytes,1,rep,name=ipInfoList,proto3" json:"ipInfoList,omitempty"`
+}
+
+func (x *SearchIpResp) Reset() {
+	*x = SearchIpResp{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_openchat_admin_admin_proto_msgTypes[99]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SearchIpResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SearchIpResp) ProtoMessage() {}
+
+func (x *SearchIpResp) ProtoReflect() protoreflect.Message {
+	mi := &file_openchat_admin_admin_proto_msgTypes[99]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SearchIpResp.ProtoReflect.Descriptor instead.
+func (*SearchIpResp) Descriptor() ([]byte, []int) {
+	return file_openchat_admin_admin_proto_rawDescGZIP(), []int{99}
+}
+
+func (x *SearchIpResp) GetIpInfoList() []*IpInfoResp {
+	if x != nil {
+		return x.IpInfoList
+	}
+	return nil
+}
+
 var File_openchat_admin_admin_proto protoreflect.FileDescriptor
 
 var file_openchat_admin_admin_proto_rawDesc = []byte{
@@ -5785,7 +6309,42 @@ var file_openchat_admin_admin_proto_rawDesc = []byte{
 	0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x22, 0x28, 0x0a, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x41,
 	0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x7a, 0x65, 0x52, 0x65, 0x73, 0x70, 0x12, 0x12, 0x0a, 0x04,
 	0x70, 0x61, 0x73, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x08, 0x52, 0x04, 0x70, 0x61, 0x73, 0x73,
-	0x32, 0xe9, 0x21, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f,
+	0x22, 0x41, 0x0a, 0x0b, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x70, 0x52, 0x65, 0x71, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12,
+	0x12, 0x0a, 0x04, 0x64, 0x65, 0x73, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64,
+	0x65, 0x73, 0x63, 0x22, 0x0e, 0x0a, 0x0c, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x70, 0x52,
+	0x65, 0x73, 0x70, 0x22, 0x1b, 0x0a, 0x09, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71,
+	0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64,
+	0x22, 0x40, 0x0a, 0x0a, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52, 0x02, 0x69, 0x64, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x70, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x12,
+	0x0a, 0x04, 0x64, 0x65, 0x73, 0x63, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64, 0x65,
+	0x73, 0x63, 0x22, 0x2e, 0x0a, 0x08, 0x41, 0x64, 0x64, 0x49, 0x70, 0x52, 0x65, 0x71, 0x12, 0x0e,
+	0x0a, 0x02, 0x69, 0x70, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x12,
+	0x0a, 0x04, 0x64, 0x65, 0x73, 0x63, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x64, 0x65,
+	0x73, 0x63, 0x22, 0x0b, 0x0a, 0x09, 0x41, 0x64, 0x64, 0x49, 0x70, 0x52, 0x65, 0x73, 0x70, 0x22,
+	0x1a, 0x0a, 0x08, 0x44, 0x65, 0x6c, 0x49, 0x70, 0x52, 0x65, 0x71, 0x12, 0x0e, 0x0a, 0x02, 0x69,
+	0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x1b, 0x0a, 0x09, 0x44,
+	0x65, 0x6c, 0x49, 0x70, 0x52, 0x65, 0x73, 0x70, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0xb2, 0x01, 0x0a, 0x0b, 0x53, 0x65, 0x61,
+	0x72, 0x63, 0x68, 0x49, 0x70, 0x52, 0x65, 0x71, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x70, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x70, 0x12, 0x1a, 0x0a, 0x08, 0x75, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x42, 0x79, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x70, 0x64, 0x61,
+	0x74, 0x65, 0x42, 0x79, 0x12, 0x1c, 0x0a, 0x09, 0x73, 0x74, 0x61, 0x72, 0x74, 0x54, 0x69, 0x6d,
+	0x65, 0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x73, 0x74, 0x61, 0x72, 0x74, 0x54, 0x69,
+	0x6d, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x65, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x18, 0x07, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x07, 0x65, 0x6e, 0x64, 0x54, 0x69, 0x6d, 0x65, 0x12, 0x3f, 0x0a, 0x0a,
+	0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x08, 0x20, 0x01, 0x28, 0x0b,
+	0x32, 0x1f, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x73, 0x64, 0x6b, 0x77, 0x73, 0x2e,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x50, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x22, 0x51, 0x0a,
+	0x0c, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x70, 0x52, 0x65, 0x73, 0x70, 0x12, 0x41, 0x0a,
+	0x0a, 0x69, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x4c, 0x69, 0x73, 0x74, 0x18, 0x01, 0x20, 0x03, 0x28,
+	0x0b, 0x32, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63,
+	0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f,
+	0x52, 0x65, 0x73, 0x70, 0x52, 0x0a, 0x69, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x4c, 0x69, 0x73, 0x74,
+	0x32, 0xfe, 0x24, 0x0a, 0x05, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x12, 0x4a, 0x0a, 0x05, 0x4c, 0x6f,
 	0x67, 0x69, 0x6e, 0x12, 0x1f, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65,
 	0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x4c, 0x6f, 0x67, 0x69,
 	0x6e, 0x52, 0x65, 0x71, 0x1a, 0x20, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70,
@@ -6055,11 +6614,36 @@ var file_openchat_admin_admin_proto_rawDesc = []byte{
 	0x43, 0x68, 0x65, 0x63, 0x6b, 0x41, 0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x7a, 0x65, 0x52, 0x65,
 	0x71, 0x1a, 0x29, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63,
 	0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x41,
-	0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x7a, 0x65, 0x52, 0x65, 0x73, 0x70, 0x42, 0x2c, 0x5a, 0x2a,
-	0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x61, 0x6d, 0x6d, 0x6d, 0x6e,
-	0x69, 0x61, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c, 0x2f, 0x6f, 0x70, 0x65, 0x6e,
-	0x63, 0x68, 0x61, 0x74, 0x2f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x75, 0x74, 0x68, 0x6f, 0x72, 0x69, 0x7a, 0x65, 0x52, 0x65, 0x73, 0x70, 0x12, 0x57, 0x0a, 0x0c,
+	0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x22, 0x2e, 0x6f,
+	0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61,
+	0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49, 0x70, 0x52, 0x65, 0x71,
+	0x1a, 0x23, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68,
+	0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x49,
+	0x70, 0x52, 0x65, 0x73, 0x70, 0x12, 0x4d, 0x0a, 0x06, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x12,
+	0x20, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61,
+	0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65,
+	0x71, 0x1a, 0x21, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63,
+	0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x49, 0x70, 0x49, 0x6e, 0x66, 0x6f,
+	0x52, 0x65, 0x73, 0x70, 0x12, 0x4a, 0x0a, 0x05, 0x41, 0x64, 0x64, 0x49, 0x70, 0x12, 0x1f, 0x2e,
+	0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e,
+	0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x41, 0x64, 0x64, 0x49, 0x70, 0x52, 0x65, 0x71, 0x1a, 0x20,
+	0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74,
+	0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x41, 0x64, 0x64, 0x49, 0x70, 0x52, 0x65, 0x73, 0x70,
+	0x12, 0x4a, 0x0a, 0x05, 0x44, 0x65, 0x6c, 0x49, 0x70, 0x12, 0x1f, 0x2e, 0x6f, 0x70, 0x65, 0x6e,
+	0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69,
+	0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x49, 0x70, 0x52, 0x65, 0x71, 0x1a, 0x20, 0x2e, 0x6f, 0x70, 0x65,
+	0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d,
+	0x69, 0x6e, 0x2e, 0x44, 0x65, 0x6c, 0x49, 0x70, 0x52, 0x65, 0x73, 0x70, 0x12, 0x53, 0x0a, 0x08,
+	0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x70, 0x12, 0x22, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x69,
+	0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61, 0x64, 0x6d, 0x69, 0x6e,
+	0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x70, 0x52, 0x65, 0x71, 0x1a, 0x23, 0x2e, 0x6f,
+	0x70, 0x65, 0x6e, 0x69, 0x6d, 0x2e, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2e, 0x61,
+	0x64, 0x6d, 0x69, 0x6e, 0x2e, 0x53, 0x65, 0x61, 0x72, 0x63, 0x68, 0x49, 0x70, 0x52, 0x65, 0x73,
+	0x70, 0x42, 0x2c, 0x5a, 0x2a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x61, 0x6d, 0x6d, 0x6d, 0x6e, 0x69, 0x61, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x63, 0x6f, 0x6c,
+	0x2f, 0x6f, 0x70, 0x65, 0x6e, 0x63, 0x68, 0x61, 0x74, 0x2f, 0x61, 0x64, 0x6d, 0x69, 0x6e, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -6074,7 +6658,7 @@ func file_openchat_admin_admin_proto_rawDescGZIP() []byte {
 	return file_openchat_admin_admin_proto_rawDescData
 }
 
-var file_openchat_admin_admin_proto_msgTypes = make([]protoimpl.MessageInfo, 92)
+var file_openchat_admin_admin_proto_msgTypes = make([]protoimpl.MessageInfo, 102)
 var file_openchat_admin_admin_proto_goTypes = []interface{}{
 	(*LoginReq)(nil),                // 0: openim.openchat.admin.LoginReq
 	(*LoginResp)(nil),               // 1: openim.openchat.admin.LoginResp
@@ -6166,128 +6750,150 @@ var file_openchat_admin_admin_proto_goTypes = []interface{}{
 	(*SearchByDictIdResp)(nil),      // 87: openim.openchat.admin.SearchByDictIdResp
 	(*CheckAuthorizeReq)(nil),       // 88: openim.openchat.admin.CheckAuthorizeReq
 	(*CheckAuthorizeResp)(nil),      // 89: openim.openchat.admin.CheckAuthorizeResp
-	nil,                             // 90: openim.openchat.admin.GetUserTokenResp.TokensMapEntry
-	nil,                             // 91: openim.openchat.admin.SearchMenuTreeResp.MenuTreeMapEntry
-	(*wrapperspb.StringValue)(nil),  // 92: openim.protobuf.StringValue
-	(*wrapperspb.UInt32Value)(nil),  // 93: openim.protobuf.UInt32Value
-	(*wrapperspb.UInt64Value)(nil),  // 94: openim.protobuf.UInt64Value
-	(*sdkws.RequestPagination)(nil), // 95: openim.sdkws.RequestPagination
+	(*UpdateIpReq)(nil),             // 90: openim.openchat.admin.UpdateIpReq
+	(*UpdateIpResp)(nil),            // 91: openim.openchat.admin.UpdateIpResp
+	(*IpInfoReq)(nil),               // 92: openim.openchat.admin.IpInfoReq
+	(*IpInfoResp)(nil),              // 93: openim.openchat.admin.IpInfoResp
+	(*AddIpReq)(nil),                // 94: openim.openchat.admin.AddIpReq
+	(*AddIpResp)(nil),               // 95: openim.openchat.admin.AddIpResp
+	(*DelIpReq)(nil),                // 96: openim.openchat.admin.DelIpReq
+	(*DelIpResp)(nil),               // 97: openim.openchat.admin.DelIpResp
+	(*SearchIpReq)(nil),             // 98: openim.openchat.admin.SearchIpReq
+	(*SearchIpResp)(nil),            // 99: openim.openchat.admin.SearchIpResp
+	nil,                             // 100: openim.openchat.admin.GetUserTokenResp.TokensMapEntry
+	nil,                             // 101: openim.openchat.admin.SearchMenuTreeResp.MenuTreeMapEntry
+	(*wrapperspb.StringValue)(nil),  // 102: openim.protobuf.StringValue
+	(*wrapperspb.UInt32Value)(nil),  // 103: openim.protobuf.UInt32Value
+	(*wrapperspb.UInt64Value)(nil),  // 104: openim.protobuf.UInt64Value
+	(*sdkws.RequestPagination)(nil), // 105: openim.sdkws.RequestPagination
 }
 var file_openchat_admin_admin_proto_depIdxs = []int32{
-	92, // 0: openim.openchat.admin.AdminUpdateInfoReq.account:type_name -> openim.protobuf.StringValue
-	92, // 1: openim.openchat.admin.AdminUpdateInfoReq.password:type_name -> openim.protobuf.StringValue
-	92, // 2: openim.openchat.admin.AdminUpdateInfoReq.nickname:type_name -> openim.protobuf.StringValue
-	93, // 3: openim.openchat.admin.AdminUpdateInfoReq.status:type_name -> openim.protobuf.UInt32Value
-	94, // 4: openim.openchat.admin.AdminUpdateInfoReq.roleId:type_name -> openim.protobuf.UInt64Value
-	92, // 5: openim.openchat.admin.AdminUpdateInfoReq.desc:type_name -> openim.protobuf.StringValue
-	95, // 6: openim.openchat.admin.SearchAdminAccountReq.pagination:type_name -> openim.sdkws.RequestPagination
-	15, // 7: openim.openchat.admin.SearchAdminAccountResp.adminAccounts:type_name -> openim.openchat.admin.GetAdminInfoResp
-	90, // 8: openim.openchat.admin.GetUserTokenResp.tokensMap:type_name -> openim.openchat.admin.GetUserTokenResp.TokensMapEntry
-	95, // 9: openim.openchat.admin.SearchMenuReq.pagination:type_name -> openim.sdkws.RequestPagination
-	91, // 10: openim.openchat.admin.SearchMenuTreeResp.menuTreeMap:type_name -> openim.openchat.admin.SearchMenuTreeResp.MenuTreeMapEntry
-	35, // 11: openim.openchat.admin.SearchMenuResp.menuInfo:type_name -> openim.openchat.admin.MenuInfoResp
-	43, // 12: openim.openchat.admin.SearchAllRoleResp.roles:type_name -> openim.openchat.admin.RoleInfoResp
-	95, // 13: openim.openchat.admin.SearchRoleReq.pagination:type_name -> openim.sdkws.RequestPagination
-	43, // 14: openim.openchat.admin.SearchRoleResp.roleInfo:type_name -> openim.openchat.admin.RoleInfoResp
-	35, // 15: openim.openchat.admin.SearchAllMenuResp.menuInfo:type_name -> openim.openchat.admin.MenuInfoResp
-	95, // 16: openim.openchat.admin.SearchDictReq.pagination:type_name -> openim.sdkws.RequestPagination
-	67, // 17: openim.openchat.admin.SearchDictResp.dictInfo:type_name -> openim.openchat.admin.DictInfoResp
-	79, // 18: openim.openchat.admin.SearchByDictIdResp.dictDetailInfos:type_name -> openim.openchat.admin.DictDetailInfoResp
-	0,  // 19: openim.openchat.admin.admin.Login:input_type -> openim.openchat.admin.LoginReq
-	2,  // 20: openim.openchat.admin.admin.Logout:input_type -> openim.openchat.admin.LogoutReq
-	8,  // 21: openim.openchat.admin.admin.ChangePassword:input_type -> openim.openchat.admin.ChangePasswordReq
-	6,  // 22: openim.openchat.admin.admin.AdminUpdateInfo:input_type -> openim.openchat.admin.AdminUpdateInfoReq
-	10, // 23: openim.openchat.admin.admin.GetAdminInfo:input_type -> openim.openchat.admin.GetAdminInfoReq
-	4,  // 24: openim.openchat.admin.admin.AddAdminAccount:input_type -> openim.openchat.admin.AddAdminAccountReq
-	11, // 25: openim.openchat.admin.admin.ChangeAdminPassword:input_type -> openim.openchat.admin.ChangeAdminPasswordReq
-	13, // 26: openim.openchat.admin.admin.SearchAdminAccount:input_type -> openim.openchat.admin.SearchAdminAccountReq
-	16, // 27: openim.openchat.admin.admin.DisableAdminAccount:input_type -> openim.openchat.admin.DisableAdminAccountReq
-	18, // 28: openim.openchat.admin.admin.CreateToken:input_type -> openim.openchat.admin.CreateTokenReq
-	20, // 29: openim.openchat.admin.admin.ParseToken:input_type -> openim.openchat.admin.ParseTokenReq
-	24, // 30: openim.openchat.admin.admin.GetUserToken:input_type -> openim.openchat.admin.GetUserTokenReq
-	22, // 31: openim.openchat.admin.admin.InvalidateToken:input_type -> openim.openchat.admin.InvalidateTokenReq
-	26, // 32: openim.openchat.admin.admin.UpdateMenuInfo:input_type -> openim.openchat.admin.UpdateMenuReq
-	27, // 33: openim.openchat.admin.admin.MenuInfo:input_type -> openim.openchat.admin.MenuInfoReq
-	28, // 34: openim.openchat.admin.admin.AddMenu:input_type -> openim.openchat.admin.AddMenuReq
-	29, // 35: openim.openchat.admin.admin.DelMenu:input_type -> openim.openchat.admin.DelMenuReq
-	31, // 36: openim.openchat.admin.admin.SearchMenu:input_type -> openim.openchat.admin.SearchMenuReq
-	32, // 37: openim.openchat.admin.admin.DisableMenu:input_type -> openim.openchat.admin.DisableMenuReq
-	33, // 38: openim.openchat.admin.admin.SearchMenuTree:input_type -> openim.openchat.admin.SearchMenuTreeReq
-	62, // 39: openim.openchat.admin.admin.SearchAllMenu:input_type -> openim.openchat.admin.SearchAllMenuReq
-	40, // 40: openim.openchat.admin.admin.UpdateRoleInfo:input_type -> openim.openchat.admin.UpdateRoleReq
-	42, // 41: openim.openchat.admin.admin.RoleInfo:input_type -> openim.openchat.admin.RoleInfoReq
-	44, // 42: openim.openchat.admin.admin.AddRole:input_type -> openim.openchat.admin.AddRoleReq
-	48, // 43: openim.openchat.admin.admin.DelRole:input_type -> openim.openchat.admin.DelRoleReq
-	50, // 44: openim.openchat.admin.admin.SearchRole:input_type -> openim.openchat.admin.SearchRoleReq
-	46, // 45: openim.openchat.admin.admin.SearchAllRole:input_type -> openim.openchat.admin.SearchAllRoleReq
-	52, // 46: openim.openchat.admin.admin.DisableRole:input_type -> openim.openchat.admin.DisableRoleReq
-	54, // 47: openim.openchat.admin.admin.UpdateRoleMenuInfo:input_type -> openim.openchat.admin.UpdateRoleMenuReq
-	56, // 48: openim.openchat.admin.admin.RoleMenuInfo:input_type -> openim.openchat.admin.RoleMenuInfoReq
-	58, // 49: openim.openchat.admin.admin.AddRoleMenu:input_type -> openim.openchat.admin.AddRoleMenuReq
-	60, // 50: openim.openchat.admin.admin.DelRoleMenu:input_type -> openim.openchat.admin.DelRoleMenuReq
-	64, // 51: openim.openchat.admin.admin.UpdateDictInfo:input_type -> openim.openchat.admin.UpdateDictReq
-	66, // 52: openim.openchat.admin.admin.DictInfo:input_type -> openim.openchat.admin.DictInfoReq
-	68, // 53: openim.openchat.admin.admin.AddDict:input_type -> openim.openchat.admin.AddDictReq
-	70, // 54: openim.openchat.admin.admin.DelDict:input_type -> openim.openchat.admin.DelDictReq
-	72, // 55: openim.openchat.admin.admin.SearchDict:input_type -> openim.openchat.admin.SearchDictReq
-	74, // 56: openim.openchat.admin.admin.DisableDict:input_type -> openim.openchat.admin.DisableDictReq
-	76, // 57: openim.openchat.admin.admin.UpdateDictDetailInfo:input_type -> openim.openchat.admin.UpdateDictDetailReq
-	78, // 58: openim.openchat.admin.admin.DictDetailInfo:input_type -> openim.openchat.admin.DictDetailInfoReq
-	80, // 59: openim.openchat.admin.admin.AddDictDetail:input_type -> openim.openchat.admin.AddDictDetailReq
-	82, // 60: openim.openchat.admin.admin.DelDictDetail:input_type -> openim.openchat.admin.DelDictDetailReq
-	86, // 61: openim.openchat.admin.admin.SearchByDictId:input_type -> openim.openchat.admin.SearchByDictIdReq
-	84, // 62: openim.openchat.admin.admin.DisableDictDetail:input_type -> openim.openchat.admin.DisableDictDetailReq
-	88, // 63: openim.openchat.admin.admin.CheckAuthorize:input_type -> openim.openchat.admin.CheckAuthorizeReq
-	1,  // 64: openim.openchat.admin.admin.Login:output_type -> openim.openchat.admin.LoginResp
-	3,  // 65: openim.openchat.admin.admin.Logout:output_type -> openim.openchat.admin.LogoutResp
-	9,  // 66: openim.openchat.admin.admin.ChangePassword:output_type -> openim.openchat.admin.ChangePasswordResp
-	7,  // 67: openim.openchat.admin.admin.AdminUpdateInfo:output_type -> openim.openchat.admin.AdminUpdateInfoResp
-	15, // 68: openim.openchat.admin.admin.GetAdminInfo:output_type -> openim.openchat.admin.GetAdminInfoResp
-	5,  // 69: openim.openchat.admin.admin.AddAdminAccount:output_type -> openim.openchat.admin.AddAdminAccountResp
-	12, // 70: openim.openchat.admin.admin.ChangeAdminPassword:output_type -> openim.openchat.admin.ChangeAdminPasswordResp
-	14, // 71: openim.openchat.admin.admin.SearchAdminAccount:output_type -> openim.openchat.admin.SearchAdminAccountResp
-	17, // 72: openim.openchat.admin.admin.DisableAdminAccount:output_type -> openim.openchat.admin.DisableAdminAccountResp
-	19, // 73: openim.openchat.admin.admin.CreateToken:output_type -> openim.openchat.admin.CreateTokenResp
-	21, // 74: openim.openchat.admin.admin.ParseToken:output_type -> openim.openchat.admin.ParseTokenResp
-	25, // 75: openim.openchat.admin.admin.GetUserToken:output_type -> openim.openchat.admin.GetUserTokenResp
-	23, // 76: openim.openchat.admin.admin.InvalidateToken:output_type -> openim.openchat.admin.InvalidateTokenResp
-	30, // 77: openim.openchat.admin.admin.UpdateMenuInfo:output_type -> openim.openchat.admin.UpdateMenuResp
-	35, // 78: openim.openchat.admin.admin.MenuInfo:output_type -> openim.openchat.admin.MenuInfoResp
-	36, // 79: openim.openchat.admin.admin.AddMenu:output_type -> openim.openchat.admin.AddMenuResp
-	37, // 80: openim.openchat.admin.admin.DelMenu:output_type -> openim.openchat.admin.DelMenuResp
-	38, // 81: openim.openchat.admin.admin.SearchMenu:output_type -> openim.openchat.admin.SearchMenuResp
-	39, // 82: openim.openchat.admin.admin.DisableMenu:output_type -> openim.openchat.admin.DisableMenuResp
-	34, // 83: openim.openchat.admin.admin.SearchMenuTree:output_type -> openim.openchat.admin.SearchMenuTreeResp
-	63, // 84: openim.openchat.admin.admin.SearchAllMenu:output_type -> openim.openchat.admin.SearchAllMenuResp
-	41, // 85: openim.openchat.admin.admin.UpdateRoleInfo:output_type -> openim.openchat.admin.UpdateRoleResp
-	43, // 86: openim.openchat.admin.admin.RoleInfo:output_type -> openim.openchat.admin.RoleInfoResp
-	45, // 87: openim.openchat.admin.admin.AddRole:output_type -> openim.openchat.admin.AddRoleResp
-	49, // 88: openim.openchat.admin.admin.DelRole:output_type -> openim.openchat.admin.DelRoleResp
-	51, // 89: openim.openchat.admin.admin.SearchRole:output_type -> openim.openchat.admin.SearchRoleResp
-	47, // 90: openim.openchat.admin.admin.SearchAllRole:output_type -> openim.openchat.admin.SearchAllRoleResp
-	53, // 91: openim.openchat.admin.admin.DisableRole:output_type -> openim.openchat.admin.DisableRoleResp
-	55, // 92: openim.openchat.admin.admin.UpdateRoleMenuInfo:output_type -> openim.openchat.admin.UpdateRoleMenuResp
-	57, // 93: openim.openchat.admin.admin.RoleMenuInfo:output_type -> openim.openchat.admin.RoleMenuInfoResp
-	59, // 94: openim.openchat.admin.admin.AddRoleMenu:output_type -> openim.openchat.admin.AddRoleMenuResp
-	61, // 95: openim.openchat.admin.admin.DelRoleMenu:output_type -> openim.openchat.admin.DelRoleMenuResp
-	65, // 96: openim.openchat.admin.admin.UpdateDictInfo:output_type -> openim.openchat.admin.UpdateDictResp
-	67, // 97: openim.openchat.admin.admin.DictInfo:output_type -> openim.openchat.admin.DictInfoResp
-	69, // 98: openim.openchat.admin.admin.AddDict:output_type -> openim.openchat.admin.AddDictResp
-	71, // 99: openim.openchat.admin.admin.DelDict:output_type -> openim.openchat.admin.DelDictResp
-	73, // 100: openim.openchat.admin.admin.SearchDict:output_type -> openim.openchat.admin.SearchDictResp
-	75, // 101: openim.openchat.admin.admin.DisableDict:output_type -> openim.openchat.admin.DisableDictResp
-	77, // 102: openim.openchat.admin.admin.UpdateDictDetailInfo:output_type -> openim.openchat.admin.UpdateDictDetailResp
-	79, // 103: openim.openchat.admin.admin.DictDetailInfo:output_type -> openim.openchat.admin.DictDetailInfoResp
-	81, // 104: openim.openchat.admin.admin.AddDictDetail:output_type -> openim.openchat.admin.AddDictDetailResp
-	83, // 105: openim.openchat.admin.admin.DelDictDetail:output_type -> openim.openchat.admin.DelDictDetailResp
-	87, // 106: openim.openchat.admin.admin.SearchByDictId:output_type -> openim.openchat.admin.SearchByDictIdResp
-	85, // 107: openim.openchat.admin.admin.DisableDictDetail:output_type -> openim.openchat.admin.DisableDictDetailResp
-	89, // 108: openim.openchat.admin.admin.CheckAuthorize:output_type -> openim.openchat.admin.CheckAuthorizeResp
-	64, // [64:109] is the sub-list for method output_type
-	19, // [19:64] is the sub-list for method input_type
-	19, // [19:19] is the sub-list for extension type_name
-	19, // [19:19] is the sub-list for extension extendee
-	0,  // [0:19] is the sub-list for field type_name
+	102, // 0: openim.openchat.admin.AdminUpdateInfoReq.account:type_name -> openim.protobuf.StringValue
+	102, // 1: openim.openchat.admin.AdminUpdateInfoReq.password:type_name -> openim.protobuf.StringValue
+	102, // 2: openim.openchat.admin.AdminUpdateInfoReq.nickname:type_name -> openim.protobuf.StringValue
+	103, // 3: openim.openchat.admin.AdminUpdateInfoReq.status:type_name -> openim.protobuf.UInt32Value
+	104, // 4: openim.openchat.admin.AdminUpdateInfoReq.roleId:type_name -> openim.protobuf.UInt64Value
+	102, // 5: openim.openchat.admin.AdminUpdateInfoReq.desc:type_name -> openim.protobuf.StringValue
+	105, // 6: openim.openchat.admin.SearchAdminAccountReq.pagination:type_name -> openim.sdkws.RequestPagination
+	15,  // 7: openim.openchat.admin.SearchAdminAccountResp.adminAccounts:type_name -> openim.openchat.admin.GetAdminInfoResp
+	100, // 8: openim.openchat.admin.GetUserTokenResp.tokensMap:type_name -> openim.openchat.admin.GetUserTokenResp.TokensMapEntry
+	105, // 9: openim.openchat.admin.SearchMenuReq.pagination:type_name -> openim.sdkws.RequestPagination
+	101, // 10: openim.openchat.admin.SearchMenuTreeResp.menuTreeMap:type_name -> openim.openchat.admin.SearchMenuTreeResp.MenuTreeMapEntry
+	35,  // 11: openim.openchat.admin.SearchMenuResp.menuInfo:type_name -> openim.openchat.admin.MenuInfoResp
+	43,  // 12: openim.openchat.admin.SearchAllRoleResp.roles:type_name -> openim.openchat.admin.RoleInfoResp
+	105, // 13: openim.openchat.admin.SearchRoleReq.pagination:type_name -> openim.sdkws.RequestPagination
+	43,  // 14: openim.openchat.admin.SearchRoleResp.roleInfo:type_name -> openim.openchat.admin.RoleInfoResp
+	35,  // 15: openim.openchat.admin.SearchAllMenuResp.menuInfo:type_name -> openim.openchat.admin.MenuInfoResp
+	105, // 16: openim.openchat.admin.SearchDictReq.pagination:type_name -> openim.sdkws.RequestPagination
+	67,  // 17: openim.openchat.admin.SearchDictResp.dictInfo:type_name -> openim.openchat.admin.DictInfoResp
+	79,  // 18: openim.openchat.admin.SearchByDictIdResp.dictDetailInfos:type_name -> openim.openchat.admin.DictDetailInfoResp
+	105, // 19: openim.openchat.admin.SearchIpReq.pagination:type_name -> openim.sdkws.RequestPagination
+	93,  // 20: openim.openchat.admin.SearchIpResp.ipInfoList:type_name -> openim.openchat.admin.IpInfoResp
+	0,   // 21: openim.openchat.admin.admin.Login:input_type -> openim.openchat.admin.LoginReq
+	2,   // 22: openim.openchat.admin.admin.Logout:input_type -> openim.openchat.admin.LogoutReq
+	8,   // 23: openim.openchat.admin.admin.ChangePassword:input_type -> openim.openchat.admin.ChangePasswordReq
+	6,   // 24: openim.openchat.admin.admin.AdminUpdateInfo:input_type -> openim.openchat.admin.AdminUpdateInfoReq
+	10,  // 25: openim.openchat.admin.admin.GetAdminInfo:input_type -> openim.openchat.admin.GetAdminInfoReq
+	4,   // 26: openim.openchat.admin.admin.AddAdminAccount:input_type -> openim.openchat.admin.AddAdminAccountReq
+	11,  // 27: openim.openchat.admin.admin.ChangeAdminPassword:input_type -> openim.openchat.admin.ChangeAdminPasswordReq
+	13,  // 28: openim.openchat.admin.admin.SearchAdminAccount:input_type -> openim.openchat.admin.SearchAdminAccountReq
+	16,  // 29: openim.openchat.admin.admin.DisableAdminAccount:input_type -> openim.openchat.admin.DisableAdminAccountReq
+	18,  // 30: openim.openchat.admin.admin.CreateToken:input_type -> openim.openchat.admin.CreateTokenReq
+	20,  // 31: openim.openchat.admin.admin.ParseToken:input_type -> openim.openchat.admin.ParseTokenReq
+	24,  // 32: openim.openchat.admin.admin.GetUserToken:input_type -> openim.openchat.admin.GetUserTokenReq
+	22,  // 33: openim.openchat.admin.admin.InvalidateToken:input_type -> openim.openchat.admin.InvalidateTokenReq
+	26,  // 34: openim.openchat.admin.admin.UpdateMenuInfo:input_type -> openim.openchat.admin.UpdateMenuReq
+	27,  // 35: openim.openchat.admin.admin.MenuInfo:input_type -> openim.openchat.admin.MenuInfoReq
+	28,  // 36: openim.openchat.admin.admin.AddMenu:input_type -> openim.openchat.admin.AddMenuReq
+	29,  // 37: openim.openchat.admin.admin.DelMenu:input_type -> openim.openchat.admin.DelMenuReq
+	31,  // 38: openim.openchat.admin.admin.SearchMenu:input_type -> openim.openchat.admin.SearchMenuReq
+	32,  // 39: openim.openchat.admin.admin.DisableMenu:input_type -> openim.openchat.admin.DisableMenuReq
+	33,  // 40: openim.openchat.admin.admin.SearchMenuTree:input_type -> openim.openchat.admin.SearchMenuTreeReq
+	62,  // 41: openim.openchat.admin.admin.SearchAllMenu:input_type -> openim.openchat.admin.SearchAllMenuReq
+	40,  // 42: openim.openchat.admin.admin.UpdateRoleInfo:input_type -> openim.openchat.admin.UpdateRoleReq
+	42,  // 43: openim.openchat.admin.admin.RoleInfo:input_type -> openim.openchat.admin.RoleInfoReq
+	44,  // 44: openim.openchat.admin.admin.AddRole:input_type -> openim.openchat.admin.AddRoleReq
+	48,  // 45: openim.openchat.admin.admin.DelRole:input_type -> openim.openchat.admin.DelRoleReq
+	50,  // 46: openim.openchat.admin.admin.SearchRole:input_type -> openim.openchat.admin.SearchRoleReq
+	46,  // 47: openim.openchat.admin.admin.SearchAllRole:input_type -> openim.openchat.admin.SearchAllRoleReq
+	52,  // 48: openim.openchat.admin.admin.DisableRole:input_type -> openim.openchat.admin.DisableRoleReq
+	54,  // 49: openim.openchat.admin.admin.UpdateRoleMenuInfo:input_type -> openim.openchat.admin.UpdateRoleMenuReq
+	56,  // 50: openim.openchat.admin.admin.RoleMenuInfo:input_type -> openim.openchat.admin.RoleMenuInfoReq
+	58,  // 51: openim.openchat.admin.admin.AddRoleMenu:input_type -> openim.openchat.admin.AddRoleMenuReq
+	60,  // 52: openim.openchat.admin.admin.DelRoleMenu:input_type -> openim.openchat.admin.DelRoleMenuReq
+	64,  // 53: openim.openchat.admin.admin.UpdateDictInfo:input_type -> openim.openchat.admin.UpdateDictReq
+	66,  // 54: openim.openchat.admin.admin.DictInfo:input_type -> openim.openchat.admin.DictInfoReq
+	68,  // 55: openim.openchat.admin.admin.AddDict:input_type -> openim.openchat.admin.AddDictReq
+	70,  // 56: openim.openchat.admin.admin.DelDict:input_type -> openim.openchat.admin.DelDictReq
+	72,  // 57: openim.openchat.admin.admin.SearchDict:input_type -> openim.openchat.admin.SearchDictReq
+	74,  // 58: openim.openchat.admin.admin.DisableDict:input_type -> openim.openchat.admin.DisableDictReq
+	76,  // 59: openim.openchat.admin.admin.UpdateDictDetailInfo:input_type -> openim.openchat.admin.UpdateDictDetailReq
+	78,  // 60: openim.openchat.admin.admin.DictDetailInfo:input_type -> openim.openchat.admin.DictDetailInfoReq
+	80,  // 61: openim.openchat.admin.admin.AddDictDetail:input_type -> openim.openchat.admin.AddDictDetailReq
+	82,  // 62: openim.openchat.admin.admin.DelDictDetail:input_type -> openim.openchat.admin.DelDictDetailReq
+	86,  // 63: openim.openchat.admin.admin.SearchByDictId:input_type -> openim.openchat.admin.SearchByDictIdReq
+	84,  // 64: openim.openchat.admin.admin.DisableDictDetail:input_type -> openim.openchat.admin.DisableDictDetailReq
+	88,  // 65: openim.openchat.admin.admin.CheckAuthorize:input_type -> openim.openchat.admin.CheckAuthorizeReq
+	90,  // 66: openim.openchat.admin.admin.UpdateIpInfo:input_type -> openim.openchat.admin.UpdateIpReq
+	92,  // 67: openim.openchat.admin.admin.IpInfo:input_type -> openim.openchat.admin.IpInfoReq
+	94,  // 68: openim.openchat.admin.admin.AddIp:input_type -> openim.openchat.admin.AddIpReq
+	96,  // 69: openim.openchat.admin.admin.DelIp:input_type -> openim.openchat.admin.DelIpReq
+	98,  // 70: openim.openchat.admin.admin.SearchIp:input_type -> openim.openchat.admin.SearchIpReq
+	1,   // 71: openim.openchat.admin.admin.Login:output_type -> openim.openchat.admin.LoginResp
+	3,   // 72: openim.openchat.admin.admin.Logout:output_type -> openim.openchat.admin.LogoutResp
+	9,   // 73: openim.openchat.admin.admin.ChangePassword:output_type -> openim.openchat.admin.ChangePasswordResp
+	7,   // 74: openim.openchat.admin.admin.AdminUpdateInfo:output_type -> openim.openchat.admin.AdminUpdateInfoResp
+	15,  // 75: openim.openchat.admin.admin.GetAdminInfo:output_type -> openim.openchat.admin.GetAdminInfoResp
+	5,   // 76: openim.openchat.admin.admin.AddAdminAccount:output_type -> openim.openchat.admin.AddAdminAccountResp
+	12,  // 77: openim.openchat.admin.admin.ChangeAdminPassword:output_type -> openim.openchat.admin.ChangeAdminPasswordResp
+	14,  // 78: openim.openchat.admin.admin.SearchAdminAccount:output_type -> openim.openchat.admin.SearchAdminAccountResp
+	17,  // 79: openim.openchat.admin.admin.DisableAdminAccount:output_type -> openim.openchat.admin.DisableAdminAccountResp
+	19,  // 80: openim.openchat.admin.admin.CreateToken:output_type -> openim.openchat.admin.CreateTokenResp
+	21,  // 81: openim.openchat.admin.admin.ParseToken:output_type -> openim.openchat.admin.ParseTokenResp
+	25,  // 82: openim.openchat.admin.admin.GetUserToken:output_type -> openim.openchat.admin.GetUserTokenResp
+	23,  // 83: openim.openchat.admin.admin.InvalidateToken:output_type -> openim.openchat.admin.InvalidateTokenResp
+	30,  // 84: openim.openchat.admin.admin.UpdateMenuInfo:output_type -> openim.openchat.admin.UpdateMenuResp
+	35,  // 85: openim.openchat.admin.admin.MenuInfo:output_type -> openim.openchat.admin.MenuInfoResp
+	36,  // 86: openim.openchat.admin.admin.AddMenu:output_type -> openim.openchat.admin.AddMenuResp
+	37,  // 87: openim.openchat.admin.admin.DelMenu:output_type -> openim.openchat.admin.DelMenuResp
+	38,  // 88: openim.openchat.admin.admin.SearchMenu:output_type -> openim.openchat.admin.SearchMenuResp
+	39,  // 89: openim.openchat.admin.admin.DisableMenu:output_type -> openim.openchat.admin.DisableMenuResp
+	34,  // 90: openim.openchat.admin.admin.SearchMenuTree:output_type -> openim.openchat.admin.SearchMenuTreeResp
+	63,  // 91: openim.openchat.admin.admin.SearchAllMenu:output_type -> openim.openchat.admin.SearchAllMenuResp
+	41,  // 92: openim.openchat.admin.admin.UpdateRoleInfo:output_type -> openim.openchat.admin.UpdateRoleResp
+	43,  // 93: openim.openchat.admin.admin.RoleInfo:output_type -> openim.openchat.admin.RoleInfoResp
+	45,  // 94: openim.openchat.admin.admin.AddRole:output_type -> openim.openchat.admin.AddRoleResp
+	49,  // 95: openim.openchat.admin.admin.DelRole:output_type -> openim.openchat.admin.DelRoleResp
+	51,  // 96: openim.openchat.admin.admin.SearchRole:output_type -> openim.openchat.admin.SearchRoleResp
+	47,  // 97: openim.openchat.admin.admin.SearchAllRole:output_type -> openim.openchat.admin.SearchAllRoleResp
+	53,  // 98: openim.openchat.admin.admin.DisableRole:output_type -> openim.openchat.admin.DisableRoleResp
+	55,  // 99: openim.openchat.admin.admin.UpdateRoleMenuInfo:output_type -> openim.openchat.admin.UpdateRoleMenuResp
+	57,  // 100: openim.openchat.admin.admin.RoleMenuInfo:output_type -> openim.openchat.admin.RoleMenuInfoResp
+	59,  // 101: openim.openchat.admin.admin.AddRoleMenu:output_type -> openim.openchat.admin.AddRoleMenuResp
+	61,  // 102: openim.openchat.admin.admin.DelRoleMenu:output_type -> openim.openchat.admin.DelRoleMenuResp
+	65,  // 103: openim.openchat.admin.admin.UpdateDictInfo:output_type -> openim.openchat.admin.UpdateDictResp
+	67,  // 104: openim.openchat.admin.admin.DictInfo:output_type -> openim.openchat.admin.DictInfoResp
+	69,  // 105: openim.openchat.admin.admin.AddDict:output_type -> openim.openchat.admin.AddDictResp
+	71,  // 106: openim.openchat.admin.admin.DelDict:output_type -> openim.openchat.admin.DelDictResp
+	73,  // 107: openim.openchat.admin.admin.SearchDict:output_type -> openim.openchat.admin.SearchDictResp
+	75,  // 108: openim.openchat.admin.admin.DisableDict:output_type -> openim.openchat.admin.DisableDictResp
+	77,  // 109: openim.openchat.admin.admin.UpdateDictDetailInfo:output_type -> openim.openchat.admin.UpdateDictDetailResp
+	79,  // 110: openim.openchat.admin.admin.DictDetailInfo:output_type -> openim.openchat.admin.DictDetailInfoResp
+	81,  // 111: openim.openchat.admin.admin.AddDictDetail:output_type -> openim.openchat.admin.AddDictDetailResp
+	83,  // 112: openim.openchat.admin.admin.DelDictDetail:output_type -> openim.openchat.admin.DelDictDetailResp
+	87,  // 113: openim.openchat.admin.admin.SearchByDictId:output_type -> openim.openchat.admin.SearchByDictIdResp
+	85,  // 114: openim.openchat.admin.admin.DisableDictDetail:output_type -> openim.openchat.admin.DisableDictDetailResp
+	89,  // 115: openim.openchat.admin.admin.CheckAuthorize:output_type -> openim.openchat.admin.CheckAuthorizeResp
+	91,  // 116: openim.openchat.admin.admin.UpdateIpInfo:output_type -> openim.openchat.admin.UpdateIpResp
+	93,  // 117: openim.openchat.admin.admin.IpInfo:output_type -> openim.openchat.admin.IpInfoResp
+	95,  // 118: openim.openchat.admin.admin.AddIp:output_type -> openim.openchat.admin.AddIpResp
+	97,  // 119: openim.openchat.admin.admin.DelIp:output_type -> openim.openchat.admin.DelIpResp
+	99,  // 120: openim.openchat.admin.admin.SearchIp:output_type -> openim.openchat.admin.SearchIpResp
+	71,  // [71:121] is the sub-list for method output_type
+	21,  // [21:71] is the sub-list for method input_type
+	21,  // [21:21] is the sub-list for extension type_name
+	21,  // [21:21] is the sub-list for extension extendee
+	0,   // [0:21] is the sub-list for field type_name
 }
 
 func init() { file_openchat_admin_admin_proto_init() }
@@ -7376,6 +7982,126 @@ func file_openchat_admin_admin_proto_init() {
 				return nil
 			}
 		}
+		file_openchat_admin_admin_proto_msgTypes[90].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateIpReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[91].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateIpResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[92].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IpInfoReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[93].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IpInfoResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[94].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddIpReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[95].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddIpResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[96].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DelIpReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[97].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DelIpResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[98].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchIpReq); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_openchat_admin_admin_proto_msgTypes[99].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SearchIpResp); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -7383,7 +8109,7 @@ func file_openchat_admin_admin_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_openchat_admin_admin_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   92,
+			NumMessages:   102,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

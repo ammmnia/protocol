@@ -78,6 +78,11 @@ const (
 	Admin_SearchByDictId_FullMethodName       = "/openim.openchat.admin.admin/SearchByDictId"
 	Admin_DisableDictDetail_FullMethodName    = "/openim.openchat.admin.admin/DisableDictDetail"
 	Admin_CheckAuthorize_FullMethodName       = "/openim.openchat.admin.admin/CheckAuthorize"
+	Admin_UpdateIpInfo_FullMethodName         = "/openim.openchat.admin.admin/UpdateIpInfo"
+	Admin_IpInfo_FullMethodName               = "/openim.openchat.admin.admin/IpInfo"
+	Admin_AddIp_FullMethodName                = "/openim.openchat.admin.admin/AddIp"
+	Admin_DelIp_FullMethodName                = "/openim.openchat.admin.admin/DelIp"
+	Admin_SearchIp_FullMethodName             = "/openim.openchat.admin.admin/SearchIp"
 )
 
 // AdminClient is the client API for Admin service.
@@ -142,6 +147,12 @@ type AdminClient interface {
 	DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error)
 	// admin接口鉴权
 	CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq, opts ...grpc.CallOption) (*CheckAuthorizeResp, error)
+	// ip
+	UpdateIpInfo(ctx context.Context, in *UpdateIpReq, opts ...grpc.CallOption) (*UpdateIpResp, error)
+	IpInfo(ctx context.Context, in *IpInfoReq, opts ...grpc.CallOption) (*IpInfoResp, error)
+	AddIp(ctx context.Context, in *AddIpReq, opts ...grpc.CallOption) (*AddIpResp, error)
+	DelIp(ctx context.Context, in *DelIpReq, opts ...grpc.CallOption) (*DelIpResp, error)
+	SearchIp(ctx context.Context, in *SearchIpReq, opts ...grpc.CallOption) (*SearchIpResp, error)
 }
 
 type adminClient struct {
@@ -557,6 +568,51 @@ func (c *adminClient) CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq,
 	return out, nil
 }
 
+func (c *adminClient) UpdateIpInfo(ctx context.Context, in *UpdateIpReq, opts ...grpc.CallOption) (*UpdateIpResp, error) {
+	out := new(UpdateIpResp)
+	err := c.cc.Invoke(ctx, Admin_UpdateIpInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) IpInfo(ctx context.Context, in *IpInfoReq, opts ...grpc.CallOption) (*IpInfoResp, error) {
+	out := new(IpInfoResp)
+	err := c.cc.Invoke(ctx, Admin_IpInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddIp(ctx context.Context, in *AddIpReq, opts ...grpc.CallOption) (*AddIpResp, error) {
+	out := new(AddIpResp)
+	err := c.cc.Invoke(ctx, Admin_AddIp_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelIp(ctx context.Context, in *DelIpReq, opts ...grpc.CallOption) (*DelIpResp, error) {
+	out := new(DelIpResp)
+	err := c.cc.Invoke(ctx, Admin_DelIp_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) SearchIp(ctx context.Context, in *SearchIpReq, opts ...grpc.CallOption) (*SearchIpResp, error) {
+	out := new(SearchIpResp)
+	err := c.cc.Invoke(ctx, Admin_SearchIp_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -619,6 +675,12 @@ type AdminServer interface {
 	DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error)
 	// admin接口鉴权
 	CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error)
+	// ip
+	UpdateIpInfo(context.Context, *UpdateIpReq) (*UpdateIpResp, error)
+	IpInfo(context.Context, *IpInfoReq) (*IpInfoResp, error)
+	AddIp(context.Context, *AddIpReq) (*AddIpResp, error)
+	DelIp(context.Context, *DelIpReq) (*DelIpResp, error)
+	SearchIp(context.Context, *SearchIpReq) (*SearchIpResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -760,6 +822,21 @@ func (UnimplementedAdminServer) DisableDictDetail(context.Context, *DisableDictD
 }
 func (UnimplementedAdminServer) CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckAuthorize not implemented")
+}
+func (UnimplementedAdminServer) UpdateIpInfo(context.Context, *UpdateIpReq) (*UpdateIpResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateIpInfo not implemented")
+}
+func (UnimplementedAdminServer) IpInfo(context.Context, *IpInfoReq) (*IpInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IpInfo not implemented")
+}
+func (UnimplementedAdminServer) AddIp(context.Context, *AddIpReq) (*AddIpResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddIp not implemented")
+}
+func (UnimplementedAdminServer) DelIp(context.Context, *DelIpReq) (*DelIpResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelIp not implemented")
+}
+func (UnimplementedAdminServer) SearchIp(context.Context, *SearchIpReq) (*SearchIpResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchIp not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1584,6 +1661,96 @@ func _Admin_CheckAuthorize_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_UpdateIpInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateIpReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).UpdateIpInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_UpdateIpInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).UpdateIpInfo(ctx, req.(*UpdateIpReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_IpInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IpInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).IpInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_IpInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).IpInfo(ctx, req.(*IpInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddIpReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddIp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddIp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddIp(ctx, req.(*AddIpReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelIpReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelIp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelIp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelIp(ctx, req.(*DelIpReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_SearchIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchIpReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchIp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchIp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchIp(ctx, req.(*SearchIpReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1770,6 +1937,26 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckAuthorize",
 			Handler:    _Admin_CheckAuthorize_Handler,
+		},
+		{
+			MethodName: "UpdateIpInfo",
+			Handler:    _Admin_UpdateIpInfo_Handler,
+		},
+		{
+			MethodName: "IpInfo",
+			Handler:    _Admin_IpInfo_Handler,
+		},
+		{
+			MethodName: "AddIp",
+			Handler:    _Admin_AddIp_Handler,
+		},
+		{
+			MethodName: "DelIp",
+			Handler:    _Admin_DelIp_Handler,
+		},
+		{
+			MethodName: "SearchIp",
+			Handler:    _Admin_SearchIp_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

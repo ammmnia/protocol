@@ -508,6 +508,47 @@ message CheckAuthorizeResp {
   bool pass = 1;
 }
 
+message UpdateIpReq {
+  uint64 id = 1;
+  string ip = 2;
+  string desc = 3;
+}
+
+message UpdateIpResp {
+}
+
+message IpInfoReq {
+  uint64 id = 1;
+}
+
+message IpInfoResp {
+  uint64 id = 1;
+  string ip = 2;
+  string desc = 3;
+}
+message AddIpReq {
+  string ip = 1;
+  string desc = 2;
+}
+message AddIpResp {
+
+}
+message DelIpReq {
+  string id = 1;
+}
+message DelIpResp {
+  string id = 1;
+}
+message SearchIpReq {
+  string ip = 1;
+  string updateBy = 5;
+  string startTime = 6;
+  string endTime = 7;
+  openim.sdkws.RequestPagination pagination = 8;
+}
+message SearchIpResp {
+  repeated IpInfoResp ipInfoList = 1;
+}
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -574,4 +615,11 @@ service admin {
 
   // admin接口鉴权
   rpc CheckAuthorize(CheckAuthorizeReq) returns (CheckAuthorizeResp);
+
+  // ip
+  rpc UpdateIpInfo(UpdateIpReq) returns (UpdateIpResp);
+  rpc IpInfo(IpInfoReq) returns (IpInfoResp);
+  rpc AddIp(AddIpReq) returns (AddIpResp);
+  rpc DelIp(DelIpReq) returns (DelIpResp);
+  rpc SearchIp(SearchIpReq) returns (SearchIpResp);
 }

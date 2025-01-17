@@ -24,7 +24,6 @@ option go_package = "github.com/ammmnia/protocol/openchat/admin";
 message LoginReq {
   string account = 1;
   string password = 2;
-  string ip = 3;
 }
 
 message LoginResp {
@@ -510,6 +509,13 @@ message CheckAuthorizeResp {
   bool pass = 1;
 }
 
+message CheckIpReq {
+  string ip = 1;
+}
+
+message CheckIpResp {
+  bool pass = 1;
+}
 message UpdateIpReq {
   uint64 id = 1;
   string ip = 2;
@@ -621,6 +627,8 @@ service admin {
 
   // admin接口鉴权
   rpc CheckAuthorize(CheckAuthorizeReq) returns (CheckAuthorizeResp);
+  // ip白名单检查
+  rpc CheckIp(CheckIpReq) returns (CheckIpResp);
 
   // ip
   rpc UpdateIpInfo(UpdateIpReq) returns (UpdateIpResp);

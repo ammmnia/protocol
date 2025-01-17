@@ -61,8 +61,6 @@ func (m *LoginReq) validate(all bool) error {
 
 	// no validation rules for Password
 
-	// no validation rules for Ip
-
 	if len(errors) > 0 {
 		return LoginReqMultiError(errors)
 	}
@@ -10000,6 +9998,208 @@ var _ interface {
 	Cause() error
 	ErrorName() string
 } = CheckAuthorizeRespValidationError{}
+
+// Validate checks the field values on CheckIpReq with the rules defined in the
+// proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *CheckIpReq) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckIpReq with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in CheckIpReqMultiError, or
+// nil if none found.
+func (m *CheckIpReq) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckIpReq) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Ip
+
+	if len(errors) > 0 {
+		return CheckIpReqMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckIpReqMultiError is an error wrapping multiple validation errors
+// returned by CheckIpReq.ValidateAll() if the designated constraints aren't met.
+type CheckIpReqMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckIpReqMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckIpReqMultiError) AllErrors() []error { return m }
+
+// CheckIpReqValidationError is the validation error returned by
+// CheckIpReq.Validate if the designated constraints aren't met.
+type CheckIpReqValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckIpReqValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckIpReqValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckIpReqValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckIpReqValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckIpReqValidationError) ErrorName() string { return "CheckIpReqValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CheckIpReqValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckIpReq.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckIpReqValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckIpReqValidationError{}
+
+// Validate checks the field values on CheckIpResp with the rules defined in
+// the proto definition for this message. If any rules are violated, the first
+// error encountered is returned, or nil if there are no violations.
+func (m *CheckIpResp) Validate() error {
+	return m.validate(false)
+}
+
+// ValidateAll checks the field values on CheckIpResp with the rules defined in
+// the proto definition for this message. If any rules are violated, the
+// result is a list of violation errors wrapped in CheckIpRespMultiError, or
+// nil if none found.
+func (m *CheckIpResp) ValidateAll() error {
+	return m.validate(true)
+}
+
+func (m *CheckIpResp) validate(all bool) error {
+	if m == nil {
+		return nil
+	}
+
+	var errors []error
+
+	// no validation rules for Pass
+
+	if len(errors) > 0 {
+		return CheckIpRespMultiError(errors)
+	}
+
+	return nil
+}
+
+// CheckIpRespMultiError is an error wrapping multiple validation errors
+// returned by CheckIpResp.ValidateAll() if the designated constraints aren't met.
+type CheckIpRespMultiError []error
+
+// Error returns a concatenation of all the error messages it wraps.
+func (m CheckIpRespMultiError) Error() string {
+	var msgs []string
+	for _, err := range m {
+		msgs = append(msgs, err.Error())
+	}
+	return strings.Join(msgs, "; ")
+}
+
+// AllErrors returns a list of validation violation errors.
+func (m CheckIpRespMultiError) AllErrors() []error { return m }
+
+// CheckIpRespValidationError is the validation error returned by
+// CheckIpResp.Validate if the designated constraints aren't met.
+type CheckIpRespValidationError struct {
+	field  string
+	reason string
+	cause  error
+	key    bool
+}
+
+// Field function returns field value.
+func (e CheckIpRespValidationError) Field() string { return e.field }
+
+// Reason function returns reason value.
+func (e CheckIpRespValidationError) Reason() string { return e.reason }
+
+// Cause function returns cause value.
+func (e CheckIpRespValidationError) Cause() error { return e.cause }
+
+// Key function returns key value.
+func (e CheckIpRespValidationError) Key() bool { return e.key }
+
+// ErrorName returns error name.
+func (e CheckIpRespValidationError) ErrorName() string { return "CheckIpRespValidationError" }
+
+// Error satisfies the builtin error interface
+func (e CheckIpRespValidationError) Error() string {
+	cause := ""
+	if e.cause != nil {
+		cause = fmt.Sprintf(" | caused by: %v", e.cause)
+	}
+
+	key := ""
+	if e.key {
+		key = "key for "
+	}
+
+	return fmt.Sprintf(
+		"invalid %sCheckIpResp.%s: %s%s",
+		key,
+		e.field,
+		e.reason,
+		cause)
+}
+
+var _ error = CheckIpRespValidationError{}
+
+var _ interface {
+	Field() string
+	Reason() string
+	Key() bool
+	Cause() error
+	ErrorName() string
+} = CheckIpRespValidationError{}
 
 // Validate checks the field values on UpdateIpReq with the rules defined in
 // the proto definition for this message. If any rules are violated, the first

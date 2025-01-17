@@ -78,6 +78,7 @@ const (
 	Admin_SearchByDictId_FullMethodName       = "/openim.openchat.admin.admin/SearchByDictId"
 	Admin_DisableDictDetail_FullMethodName    = "/openim.openchat.admin.admin/DisableDictDetail"
 	Admin_CheckAuthorize_FullMethodName       = "/openim.openchat.admin.admin/CheckAuthorize"
+	Admin_CheckIp_FullMethodName              = "/openim.openchat.admin.admin/CheckIp"
 	Admin_UpdateIpInfo_FullMethodName         = "/openim.openchat.admin.admin/UpdateIpInfo"
 	Admin_IpInfo_FullMethodName               = "/openim.openchat.admin.admin/IpInfo"
 	Admin_AddIp_FullMethodName                = "/openim.openchat.admin.admin/AddIp"
@@ -147,6 +148,8 @@ type AdminClient interface {
 	DisableDictDetail(ctx context.Context, in *DisableDictDetailReq, opts ...grpc.CallOption) (*DisableDictDetailResp, error)
 	// admin接口鉴权
 	CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq, opts ...grpc.CallOption) (*CheckAuthorizeResp, error)
+	// ip白名单检查
+	CheckIp(ctx context.Context, in *CheckIpReq, opts ...grpc.CallOption) (*CheckIpResp, error)
 	// ip
 	UpdateIpInfo(ctx context.Context, in *UpdateIpReq, opts ...grpc.CallOption) (*UpdateIpResp, error)
 	IpInfo(ctx context.Context, in *IpInfoReq, opts ...grpc.CallOption) (*IpInfoResp, error)
@@ -568,6 +571,15 @@ func (c *adminClient) CheckAuthorize(ctx context.Context, in *CheckAuthorizeReq,
 	return out, nil
 }
 
+func (c *adminClient) CheckIp(ctx context.Context, in *CheckIpReq, opts ...grpc.CallOption) (*CheckIpResp, error) {
+	out := new(CheckIpResp)
+	err := c.cc.Invoke(ctx, Admin_CheckIp_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *adminClient) UpdateIpInfo(ctx context.Context, in *UpdateIpReq, opts ...grpc.CallOption) (*UpdateIpResp, error) {
 	out := new(UpdateIpResp)
 	err := c.cc.Invoke(ctx, Admin_UpdateIpInfo_FullMethodName, in, out, opts...)
@@ -675,6 +687,8 @@ type AdminServer interface {
 	DisableDictDetail(context.Context, *DisableDictDetailReq) (*DisableDictDetailResp, error)
 	// admin接口鉴权
 	CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error)
+	// ip白名单检查
+	CheckIp(context.Context, *CheckIpReq) (*CheckIpResp, error)
 	// ip
 	UpdateIpInfo(context.Context, *UpdateIpReq) (*UpdateIpResp, error)
 	IpInfo(context.Context, *IpInfoReq) (*IpInfoResp, error)
@@ -822,6 +836,9 @@ func (UnimplementedAdminServer) DisableDictDetail(context.Context, *DisableDictD
 }
 func (UnimplementedAdminServer) CheckAuthorize(context.Context, *CheckAuthorizeReq) (*CheckAuthorizeResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckAuthorize not implemented")
+}
+func (UnimplementedAdminServer) CheckIp(context.Context, *CheckIpReq) (*CheckIpResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIp not implemented")
 }
 func (UnimplementedAdminServer) UpdateIpInfo(context.Context, *UpdateIpReq) (*UpdateIpResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateIpInfo not implemented")
@@ -1661,6 +1678,24 @@ func _Admin_CheckAuthorize_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_CheckIp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckIpReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).CheckIp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_CheckIp_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).CheckIp(ctx, req.(*CheckIpReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Admin_UpdateIpInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(UpdateIpReq)
 	if err := dec(in); err != nil {
@@ -1937,6 +1972,10 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckAuthorize",
 			Handler:    _Admin_CheckAuthorize_Handler,
+		},
+		{
+			MethodName: "CheckIp",
+			Handler:    _Admin_CheckIp_Handler,
 		},
 		{
 			MethodName: "UpdateIpInfo",

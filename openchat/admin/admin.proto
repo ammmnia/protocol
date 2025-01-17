@@ -525,6 +525,8 @@ message IpInfoResp {
   uint64 id = 1;
   string ip = 2;
   string desc = 3;
+  string updateBy = 4;
+  int64 updateTime = 5;
 }
 message AddIpReq {
   string ip = 1;
@@ -534,7 +536,7 @@ message AddIpResp {
 
 }
 message DelIpReq {
-  string id = 1;
+  uint64 id = 1;
 }
 message DelIpResp {
   string id = 1;

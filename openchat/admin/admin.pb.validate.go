@@ -10330,6 +10330,10 @@ func (m *IpInfoResp) validate(all bool) error {
 
 	// no validation rules for Desc
 
+	// no validation rules for UpdateBy
+
+	// no validation rules for UpdateTime
+
 	if len(errors) > 0 {
 		return IpInfoRespMultiError(errors)
 	}

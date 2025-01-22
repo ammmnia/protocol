@@ -561,6 +561,59 @@ message SearchIpResp {
   uint64 total = 2;
   uint64 pages = 3;
 }
+
+message LogInfoReq {
+  uint64 id = 1;
+}
+
+message LogInfoResp {
+  uint64 id = 1;
+  string opUser = 2;
+  string opModule = 3;
+  string opTitle = 4;
+  string opIp = 5;
+  string opTime = 6;
+  string reqPath = 7;
+  string reqMethod = 8;
+  string reqParams = 9;
+  string browserInfo =10;
+  string returnCode = 11;
+  string returnMsg =12;
+  string createBy = 13;
+  string createTime = 14;
+}
+message AddLogReq {
+  string opModule = 1;
+  string opTitle = 2;
+  string opIp = 3;
+  string reqPath = 4;
+  string reqMethod = 5;
+  string reqParams = 6;
+  string browserInfo =7;
+  string returnCode = 8;
+  string returnMsg =9;
+}
+message AddLogResp {
+}
+message DelLogReq {
+  uint64 id = 1;
+}
+message DelLogResp {
+  string id = 1;
+}
+message SearchLogReq {
+  string opUser = 1;
+  string opTitle = 2;
+  string returnCode = 3;
+  string startTime = 4;
+  string endTime = 5;
+  openim.sdkws.RequestPagination pagination = 6;
+}
+message SearchLogResp {
+  repeated LogInfoResp logInfoList = 1;
+  uint64 total = 2;
+  uint64 pages = 3;
+}
 service admin {
   // Login
   rpc Login(LoginReq) returns (LoginResp);
@@ -636,4 +689,10 @@ service admin {
   rpc AddIp(AddIpReq) returns (AddIpResp);
   rpc DelIp(DelIpReq) returns (DelIpResp);
   rpc SearchIp(SearchIpReq) returns (SearchIpResp);
+
+  //log
+  rpc LogInfo(LogInfoReq) returns (LogInfoResp);
+  rpc AddLog(AddLogReq) returns (AddLogResp);
+  rpc DelLog(DelLogReq) returns (DelLogResp);
+  rpc SearchLog(SearchLogReq) returns (SearchLogResp);
 }

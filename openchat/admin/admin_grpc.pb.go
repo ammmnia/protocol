@@ -84,6 +84,10 @@ const (
 	Admin_AddIp_FullMethodName                = "/openim.openchat.admin.admin/AddIp"
 	Admin_DelIp_FullMethodName                = "/openim.openchat.admin.admin/DelIp"
 	Admin_SearchIp_FullMethodName             = "/openim.openchat.admin.admin/SearchIp"
+	Admin_LogInfo_FullMethodName              = "/openim.openchat.admin.admin/LogInfo"
+	Admin_AddLog_FullMethodName               = "/openim.openchat.admin.admin/AddLog"
+	Admin_DelLog_FullMethodName               = "/openim.openchat.admin.admin/DelLog"
+	Admin_SearchLog_FullMethodName            = "/openim.openchat.admin.admin/SearchLog"
 )
 
 // AdminClient is the client API for Admin service.
@@ -156,6 +160,11 @@ type AdminClient interface {
 	AddIp(ctx context.Context, in *AddIpReq, opts ...grpc.CallOption) (*AddIpResp, error)
 	DelIp(ctx context.Context, in *DelIpReq, opts ...grpc.CallOption) (*DelIpResp, error)
 	SearchIp(ctx context.Context, in *SearchIpReq, opts ...grpc.CallOption) (*SearchIpResp, error)
+	// log
+	LogInfo(ctx context.Context, in *LogInfoReq, opts ...grpc.CallOption) (*LogInfoResp, error)
+	AddLog(ctx context.Context, in *AddLogReq, opts ...grpc.CallOption) (*AddLogResp, error)
+	DelLog(ctx context.Context, in *DelLogReq, opts ...grpc.CallOption) (*DelLogResp, error)
+	SearchLog(ctx context.Context, in *SearchLogReq, opts ...grpc.CallOption) (*SearchLogResp, error)
 }
 
 type adminClient struct {
@@ -625,6 +634,42 @@ func (c *adminClient) SearchIp(ctx context.Context, in *SearchIpReq, opts ...grp
 	return out, nil
 }
 
+func (c *adminClient) LogInfo(ctx context.Context, in *LogInfoReq, opts ...grpc.CallOption) (*LogInfoResp, error) {
+	out := new(LogInfoResp)
+	err := c.cc.Invoke(ctx, Admin_LogInfo_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) AddLog(ctx context.Context, in *AddLogReq, opts ...grpc.CallOption) (*AddLogResp, error) {
+	out := new(AddLogResp)
+	err := c.cc.Invoke(ctx, Admin_AddLog_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) DelLog(ctx context.Context, in *DelLogReq, opts ...grpc.CallOption) (*DelLogResp, error) {
+	out := new(DelLogResp)
+	err := c.cc.Invoke(ctx, Admin_DelLog_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *adminClient) SearchLog(ctx context.Context, in *SearchLogReq, opts ...grpc.CallOption) (*SearchLogResp, error) {
+	out := new(SearchLogResp)
+	err := c.cc.Invoke(ctx, Admin_SearchLog_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // AdminServer is the server API for Admin service.
 // All implementations must embed UnimplementedAdminServer
 // for forward compatibility
@@ -695,6 +740,11 @@ type AdminServer interface {
 	AddIp(context.Context, *AddIpReq) (*AddIpResp, error)
 	DelIp(context.Context, *DelIpReq) (*DelIpResp, error)
 	SearchIp(context.Context, *SearchIpReq) (*SearchIpResp, error)
+	// log
+	LogInfo(context.Context, *LogInfoReq) (*LogInfoResp, error)
+	AddLog(context.Context, *AddLogReq) (*AddLogResp, error)
+	DelLog(context.Context, *DelLogReq) (*DelLogResp, error)
+	SearchLog(context.Context, *SearchLogReq) (*SearchLogResp, error)
 	mustEmbedUnimplementedAdminServer()
 }
 
@@ -854,6 +904,18 @@ func (UnimplementedAdminServer) DelIp(context.Context, *DelIpReq) (*DelIpResp, e
 }
 func (UnimplementedAdminServer) SearchIp(context.Context, *SearchIpReq) (*SearchIpResp, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchIp not implemented")
+}
+func (UnimplementedAdminServer) LogInfo(context.Context, *LogInfoReq) (*LogInfoResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method LogInfo not implemented")
+}
+func (UnimplementedAdminServer) AddLog(context.Context, *AddLogReq) (*AddLogResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddLog not implemented")
+}
+func (UnimplementedAdminServer) DelLog(context.Context, *DelLogReq) (*DelLogResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DelLog not implemented")
+}
+func (UnimplementedAdminServer) SearchLog(context.Context, *SearchLogReq) (*SearchLogResp, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SearchLog not implemented")
 }
 func (UnimplementedAdminServer) mustEmbedUnimplementedAdminServer() {}
 
@@ -1786,6 +1848,78 @@ func _Admin_SearchIp_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Admin_LogInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(LogInfoReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).LogInfo(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_LogInfo_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).LogInfo(ctx, req.(*LogInfoReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_AddLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddLogReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).AddLog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_AddLog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).AddLog(ctx, req.(*AddLogReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_DelLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DelLogReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).DelLog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_DelLog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).DelLog(ctx, req.(*DelLogReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Admin_SearchLog_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SearchLogReq)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).SearchLog(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Admin_SearchLog_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).SearchLog(ctx, req.(*SearchLogReq))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1996,6 +2130,22 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SearchIp",
 			Handler:    _Admin_SearchIp_Handler,
+		},
+		{
+			MethodName: "LogInfo",
+			Handler:    _Admin_LogInfo_Handler,
+		},
+		{
+			MethodName: "AddLog",
+			Handler:    _Admin_AddLog_Handler,
+		},
+		{
+			MethodName: "DelLog",
+			Handler:    _Admin_DelLog_Handler,
+		},
+		{
+			MethodName: "SearchLog",
+			Handler:    _Admin_SearchLog_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

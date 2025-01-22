@@ -572,7 +572,7 @@ message LogInfoResp {
   string opModule = 3;
   string opTitle = 4;
   string opIp = 5;
-  string opTime = 6;
+  int64  opTime = 6;
   string reqPath = 7;
   string reqMethod = 8;
   string reqParams = 9;
@@ -580,7 +580,7 @@ message LogInfoResp {
   string returnCode = 11;
   string returnMsg =12;
   string createBy = 13;
-  string createTime = 14;
+  int64  createTime = 14;
 }
 message AddLogReq {
   string opModule = 1;

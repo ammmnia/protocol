@@ -11542,11 +11542,15 @@ func (m *AddLogReq) validate(all bool) error {
 
 	var errors []error
 
+	// no validation rules for OpUser
+
 	// no validation rules for OpModule
 
 	// no validation rules for OpTitle
 
 	// no validation rules for OpIp
+
+	// no validation rules for OpTime
 
 	// no validation rules for ReqPath
 
@@ -11559,6 +11563,10 @@ func (m *AddLogReq) validate(all bool) error {
 	// no validation rules for ReturnCode
 
 	// no validation rules for ReturnMsg
+
+	// no validation rules for CreateBy
+
+	// no validation rules for CreateTime
 
 	if len(errors) > 0 {
 		return AddLogReqMultiError(errors)

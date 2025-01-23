@@ -583,15 +583,19 @@ message LogInfoResp {
   int64  createTime = 14;
 }
 message AddLogReq {
-  string opModule = 1;
-  string opTitle = 2;
-  string opIp = 3;
-  string reqPath = 4;
-  string reqMethod = 5;
-  string reqParams = 6;
-  string browserInfo =7;
-  string returnCode = 8;
-  string returnMsg =9;
+  string opUser = 1;
+  string opModule = 2;
+  string opTitle = 3;
+  string opIp = 4;
+  int64  opTime = 5;
+  string reqPath = 6;
+  string reqMethod = 7;
+  string reqParams = 8;
+  string browserInfo =9;
+  string returnCode = 10;
+  string returnMsg =11;
+  string createBy = 12;
+  int64  createTime = 13;
 }
 message AddLogResp {
 }

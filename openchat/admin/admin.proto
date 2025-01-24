@@ -608,7 +608,7 @@ message DelLogResp {
 message SearchLogReq {
   string opUser = 1;
   string opTitle = 2;
-  string returnCode = 3;
+  string returnMsg = 3;
   string startTime = 4;
   string endTime = 5;
   openim.sdkws.RequestPagination pagination = 6;

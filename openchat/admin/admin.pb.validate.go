@@ -11972,7 +11972,7 @@ func (m *SearchLogReq) validate(all bool) error {
 
 	// no validation rules for OpTitle
 
-	// no validation rules for ReturnCode
+	// no validation rules for ReturnMsg
 
 	// no validation rules for StartTime
 
